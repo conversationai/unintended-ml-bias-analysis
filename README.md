@@ -1,8 +1,12 @@
-# Bias analysis
+# Unintended Bias Analysis
 
-This repository contains resources for bias analysis
-from [Conversation AI](https://conversationai.github.io/), a collaborative
+Tools and resources to help analyze and ameliorate bias in text
+classification models, as well as datasets for bias evaluation and de-biasing. 
+Part of the [Conversation AI](https://conversationai.github.io/) effort, a collaborative
 research effort exploring ML as a tool for better discussions online.
 
-We plan to publish tools showing how we analyze and ameliorate bias in our text
-classification models, as well as datasets for bias evaluation and de-biasing.
+Relevant Links: 
+ * [Our overview of unintended bias in machine learning models](https://conversationai.github.io/bias.html)
+ * [Unintended bais analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973) - includes crowd-worker demographic information, and toxicity ratings to support analysis of potential demographic-correlated unintended bias.
+ * [Ai.withthebest.com April 29, 2017 Keynote Talk on ML Fairness](https://github.com/conversationai/conversationai-bias-analysis/blob/master/AI-with-the-best%20fairness%20presentation.pdf)
+
