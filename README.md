@@ -1,8 +1,8 @@
 # Unintended Bias Analysis
 
-Tools and resources to help analyze and ameliorate bias in text
-classification models, as well as datasets for bias evaluation and de-biasing. 
-Part of the [Conversation AI](https://conversationai.github.io/) effort, a collaborative
+Tools and resources to help analyze and ameliorate unintended bias in text
+classification models, as well as datasets evaluation and mitigating unintended bias. 
+This work is part of the [Conversation AI](https://conversationai.github.io/) effort, a collaborative
 research effort exploring ML as a tool for better discussions online.
 
 Relevant Links: 
