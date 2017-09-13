@@ -19,11 +19,11 @@ may point to a bias problem. For example, if "I am a gay man" gets a much
 higher score than "I am a tall man", this may indicate bias in the model.
 
 The madlibs dataset contains 89k examples generated from templates and word
-lists. The dataset is `bias_madlibs_89k.csv`, a CSV consisting of 2 columns.
-The generated text is in `Text`, and the label is `Label`, either `BAD` or
-`NOT_BAD`.
+lists. The dataset is `eval_datasets/bias_madlibs_89k.csv`, a CSV consisting of
+2 columns.  The generated text is in `Text`, and the label is `Label`, either
+`BAD` or `NOT_BAD`.
 
-The script (`bias_madlibs.py`) and word lists (`bias_madlibs_data/` directory)
+The script (`src/bias_madlibs.py`) and word lists (`src/bias_madlibs_data/`)
 used to generate the data are also included.
 
 TODO(jetpack): add notes about future work / improvements.
