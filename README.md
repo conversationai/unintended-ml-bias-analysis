@@ -13,7 +13,7 @@ Relevant Links:
 
 ## "Bias madlibs" eval dataset
 
-We used this dataset one tool in evaluating our de-biasing efforts. For a given
+This dataset is one tool in evaluating our de-biasing efforts. For a given
 template, a large difference in model scores when single words are substituted
 may point to a bias problem. For example, if "I am a gay man" gets a much
 higher score than "I am a tall man", this may indicate bias in the model.
