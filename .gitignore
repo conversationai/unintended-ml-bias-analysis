@@ -1,0 +1,6 @@
+.ipynb_checkpoints
+virtualenv/
+data/toxicity_annotated_comments.tsv
+data/toxicity_annotations.tsv
+data/glove.6B
+models/
