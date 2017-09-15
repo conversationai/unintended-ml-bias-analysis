@@ -7,9 +7,25 @@ research effort exploring ML as a tool for better discussions online.
 
 Relevant Links:
  * [Our overview of unintended bias in machine learning models](https://conversationai.github.io/bias.html)
- * [Unintended bais analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973) - includes crowd-worker demographic information, and toxicity ratings to support analysis of potential demographic-correlated unintended bias.
+ * [Unintended bias analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973) - includes crowd-worker demographic information, and toxicity ratings to support analysis of potential demographic-correlated unintended bias.
  * [Ai.withthebest.com April 29, 2017 Keynote Talk on ML Fairness](https://github.com/conversationai/conversationai-bias-analysis/blob/master/AI-with-the-best%20fairness%20presentation.pdf)
 
+
+## Training toxicity models
+
+We provide notebooks to train CNN based models to detect toxicity in online comments. The notebook `src/Train Toxicity Model.ipynb` provides instructions on how to train models using the [Unintended bias analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973). The notebook `src/Evaluate Model.ipynb` provides an example of evaluating the performance of pre-trained models on an arbitrary dataset.
+
+These notebooks are written for Python 2.7 and in order to run them you must first:
+
+1. Install the requirements with 
+```
+pip install -r requirements.txt
+```
+2. (optional: to skip training) Download the latest [model](https://storage.googleapis.com/unintended-ml-bias-analysis/models/wiki_tox_labels_v1_model.h5) and [tokenizer](https://storage.googleapis.com/unintended-ml-bias-analysis/models/wiki_tox_labels_v1_tokenizer.pkl) to the `models/` subdirectory.
+3. (optional: only if training) Download the data from the [Unintended bias analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973) to the `data/` subdirectory.
+4. (optional: only if training) Download and extract the [GloVe embeddings](http://nlp.stanford.edu/data/glove.6B.zip) in the `data` subdirectory.
+
+Please note that if using a virtual environment, it may be necessary to manually set your PYTHONPATH environment variable in the shell to the correct version of python for the environment.
 
 ## Dataset bias evaluation
 
