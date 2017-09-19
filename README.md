@@ -94,14 +94,14 @@ comment, and split. also add tool to recreate dataset from wikipedia dump.
 TODO(nthain,jetpack): upload new model trained on new dataset.
 
 This technique mitigates the dataset bias found in the **Dataset bias
-evaluation** section by determining the per-length-bucket deficit of non-toxic
-comments for each of the bias terms, and then sampling presumed non-toxic
-examples from Wikipedia articles.
+evaluation** section by determining the deficit of non-toxic comments for each
+of the bias terms split by comment lengths. This deficit is then addressed by
+sampling presumed non-toxic examples from Wikipedia articles.
 
 These new examples can then be added to the original dataset (to all splits,
 training as well as test). This allows (1) training a new model on the
 augmented, de-biased dataset and (2) evaluating the new and old models on the
-augmented test set.
+augmented test set in addition to the original test set.
 
 ## Qualitative model comparison
 
