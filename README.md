@@ -1,9 +1,12 @@
 # Unintended Bias Analysis
 
 Tools and resources to help analyze and ameliorate unintended bias in text
-classification models, as well as datasets evaluation and mitigating unintended bias.
-This work is part of the [Conversation AI](https://conversationai.github.io/) effort, a collaborative
-research effort exploring ML as a tool for better discussions online.
+classification models, as well as datasets for evaluating and mitigating
+unintended bias.
+
+This work is part of the [Conversation AI](https://conversationai.github.io/)
+project, a collaborative research effort exploring ML as a tool for better
+discussions online.
 
 Relevant Links:
  * [Our overview of unintended bias in machine learning models](https://conversationai.github.io/bias.html)
@@ -13,11 +16,16 @@ Relevant Links:
 
 ## Training toxicity models
 
-We provide notebooks to train CNN based models to detect toxicity in online comments. The notebook `src/Train Toxicity Model.ipynb` provides instructions on how to train models using the [Unintended bias analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973). The notebook `src/Evaluate Model.ipynb` provides an example of evaluating the performance of pre-trained models on an arbitrary dataset.
+We provide notebooks to train CNN based models to detect toxicity in online
+comments. The notebook `src/Train Toxicity Model.ipynb` provides instructions
+on how to train models using the [Unintended bias analysis
+dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973).
+The notebook `src/Evaluate Model.ipynb` provides an example of evaluating the
+performance of pre-trained models on an arbitrary dataset.
 
-These notebooks are written for Python 2.7 and in order to run them you must first:
+These notebooks are written for Python 2.7. To run them:
 
-1. Install the requirements with 
+1. Install the requirements with
 ```
 pip install -r requirements.txt
 ```
@@ -25,7 +33,9 @@ pip install -r requirements.txt
 3. (optional: only if training) Download the data from the [Unintended bias analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973) to the `data/` subdirectory.
 4. (optional: only if training) Download and extract the [GloVe embeddings](http://nlp.stanford.edu/data/glove.6B.zip) in the `data` subdirectory.
 
-Please note that if using a virtual environment, it may be necessary to manually set your PYTHONPATH environment variable in the shell to the correct version of python for the environment.
+Please note that if using a virtual environment, it may be necessary to
+manually set your `PYTHONPATH` environment variable in the shell to the correct
+version of python for the environment.
 
 ## Dataset bias evaluation
 
@@ -75,3 +85,46 @@ under `toxic`.
 This is similar to the bias madlibs technique, but has the advantage of using
 more realistic data. One can also use the model's performance on the original
 vs. fuzzed test set as a bias metric.
+
+## Dataset de-biasing
+
+TODO(jetpack): add dataset of additional examples as TSV with columns rev\_id,
+comment, and split. also add tool to recreate dataset from wikipedia dump.
+
+TODO(nthain,jetpack): upload new model trained on new dataset.
+
+This technique mitigates the dataset bias found in the **Dataset bias
+evaluation** section by determining the deficit of non-toxic comments for each
+of the bias terms split by comment lengths. This deficit is then addressed by
+sampling presumed non-toxic examples from Wikipedia articles.
+
+These new examples can then be added to the original dataset (to all splits,
+training as well as test). This allows (1) training a new model on the
+augmented, de-biased dataset and (2) evaluating the new and old models on the
+augmented test set in addition to the original test set.
+
+## Qualitative model comparison
+
+TODO(jetpack): add tools and some screenshots.
+
+These tools provide qualitative comparisons of model results on a given
+dataset. We find these tools useful for understanding the behavior of similar
+models, such as when testing different de-biasing techniques.
+
+The confusion matrix diff tool shows tables of the largest score changes for
+the same examples, segmented according to the different sections of the
+confusion matrix. It shows the "new" false positives/negatives and true
+positives/negatives that one would get if upgrading from one model to the
+other.
+
+The score scatterplot tool plots the model's scores as a scatterplot. Each
+point represents an example, the original model's score is the `x` position and
+the new model's score is the `y` position. The points are colored according to
+the true label. For similar models, most points should fall close to the `y=x`
+line. Points that are far from that line are examples with larger score
+differences between the two models.
+
+If the new model on the y-axis is a proposed update to the model on the x-axis,
+then one would hope to see mostly positive labels in the upper left corner (new
+true positives) and mostly negative labels in the bottom right corner (new true
+negatives).
