@@ -29,7 +29,7 @@ These notebooks are written for Python 2.7. To run them:
 ```
 pip install -r requirements.txt
 ```
-2. (optional: to skip training) Download the latest [model](https://storage.googleapis.com/unintended-ml-bias-analysis/models/wiki_tox_labels_v1_model.h5) and [tokenizer](https://storage.googleapis.com/unintended-ml-bias-analysis/models/wiki_tox_labels_v1_tokenizer.pkl) to the `models/` subdirectory.
+2. (optional: to skip training) Download the latest [model](https://storage.googleapis.com/unintended-ml-bias-analysis/models/[MODEL_NAME]_model.h5) and [tokenizer](https://storage.googleapis.com/unintended-ml-bias-analysis/models/[MODEL_NAME]_tokenizer.pkl) to the `models/` subdirectory.
 3. (optional: only if training) Download the data from the [Unintended bias analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973) to the `data/` subdirectory.
 4. (optional: only if training) Download and extract the [GloVe embeddings](http://nlp.stanford.edu/data/glove.6B.zip) in the `data` subdirectory.
 
