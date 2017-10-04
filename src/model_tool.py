@@ -17,20 +17,23 @@ from keras.layers import Embedding
 from keras.layers import Dense, Input, Flatten, Dropout
 from keras.layers import Conv1D, MaxPooling1D, Embedding, GlobalMaxPooling1D
 from keras.models import Model
+from keras.optimizers import RMSprop, Adam
 
 DEFAULT_EMBEDDINGS_PATH = '../data/glove.6B/glove.6B.100d.txt'
 DEFAULT_MODEL_DIR = '../models'
 
-MAX_SEQUENCE_LENGTH = 1000
-MAX_NUM_WORDS = 20000
+MAX_SEQUENCE_LENGTH = 250
+MAX_NUM_WORDS = 10000
 EMBEDDING_DIM = 100
+EMBEDDING_TRAINABLE = False
+LEARNING_RATE = 0.0001
 
 BATCH_SIZE = 128
-EPOCHS = 3
-DROPOUT_RATE = 0.1
-CNN_FILTER_SIZES = [128, 128, 128]
-CNN_KERNEL_SIZES = [5,5,5]
-CNN_POOLING_SIZES = [5, 5, 40] 
+EPOCHS = 6
+DROPOUT_RATE = 0.3
+CNN_FILTER_SIZES = [128, 128]
+CNN_KERNEL_SIZES = [5,5]
+CNN_POOLING_SIZES = [5, 200] 
 
 
 def compute_auc(y_true, y_pred):
@@ -142,7 +145,7 @@ class ToxModel():
                                     EMBEDDING_DIM,
                                     weights=[self.embedding_matrix],
                                     input_length=MAX_SEQUENCE_LENGTH,
-                                    trainable=True)
+                                    trainable=EMBEDDING_TRAINABLE)
 
         embedded_sequences = embedding_layer(sequence_input)
         x = embedded_sequences
@@ -155,9 +158,10 @@ class ToxModel():
         x = Dense(128, activation='relu')(x)
         preds = Dense(2, activation='softmax')(x)
 
+        rmsprop = RMSprop(lr = LEARNING_RATE)
         self.model = Model(sequence_input, preds)
         self.model.compile(loss='categorical_crossentropy',
-                      optimizer='rmsprop',
+                      optimizer=rmsprop,
                       metrics=['acc'])        
 
     def build_conv_layer(self, input_tensor, filter_size, kernel_size, pool_size):
