@@ -2,6 +2,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+print('HELLO from model_tool')
+
 import cPickle
 import os
 import pandas as pd
@@ -17,6 +19,7 @@ from keras.layers import Embedding
 from keras.layers import Dense, Input, Flatten, Dropout
 from keras.layers import Conv1D, MaxPooling1D, Embedding, GlobalMaxPooling1D
 from keras.models import Model
+from keras.callbacks import EarlyStopping
 from keras.optimizers import RMSprop, Adam
 
 DEFAULT_EMBEDDINGS_PATH = '../data/glove.6B/glove.6B.100d.txt'
@@ -27,6 +30,9 @@ MAX_NUM_WORDS = 10000
 EMBEDDING_DIM = 100
 EMBEDDING_TRAINABLE = False
 LEARNING_RATE = 0.00005
+STOP_EARLY = True
+ES_PATIENCE = 0 # Only relevant if STOP_EARLY = True
+ES_MIN_DELTA = 0 # Only relevant if STOP_EARLY = True
 
 BATCH_SIZE = 128
 EPOCHS = 20
@@ -35,6 +41,8 @@ CNN_FILTER_SIZES = [128, 128, 128]
 CNN_KERNEL_SIZES = [5,5,5]
 CNN_POOLING_SIZES = [5, 5, 40]
 
+print('learn rate: {}\nseq len: {}\nnum words: {}\nepochs: {}\ndropout: {}\n\nembedding dim: {}\nbatch size: {}\nearly stopping: {}\n'.format(
+    LEARNING_RATE, MAX_SEQUENCE_LENGTH, MAX_NUM_WORDS, EPOCHS, DROPOUT_RATE, EMBEDDING_DIM, BATCH_SIZE, STOP_EARLY))
 
 def compute_auc(y_true, y_pred):
     fpr, tpr, thresholds = metrics.roc_curve(y_true, y_pred)
@@ -130,10 +138,16 @@ class ToxModel():
         print('Building model graph...')
         self.build_model()
         print('Training model...')
+        if STOP_EARLY:
+            earlyStopping = [EarlyStopping(min_delta=ES_MIN_DELTA, 
+                monitor='val_loss', patience=ES_PATIENCE, verbose=0, mode='auto')]
+        else:
+            earlyStopping = None
         print(self.model.fit(train_data, train_labels,
           batch_size=BATCH_SIZE,
           epochs=EPOCHS,
-          validation_data=(valid_data, valid_labels)))
+          validation_data=(valid_data, valid_labels),
+          callbacks = earlyStopping))
         print('Model trained!')
         print('Saving model...')
         self.model.save(os.path.join(self.model_dir, '%s_model.h5' % self.model_name))
@@ -187,5 +201,3 @@ class ToxModel():
         
     def summary():
         return self.model.summary()
-        
-    
