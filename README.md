@@ -29,9 +29,8 @@ These notebooks are written for Python 2.7. To run them:
 ```
 pip install -r requirements.txt
 ```
-2. (optional: to skip training) Download the latest [model](https://storage.googleapis.com/unintended-ml-bias-analysis/models/wiki_tox_labels_v1_model.h5) and [tokenizer](https://storage.googleapis.com/unintended-ml-bias-analysis/models/wiki_tox_labels_v1_tokenizer.pkl) to the `models/` subdirectory.
-3. (optional: only if training) Download the data from the [Unintended bias analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973) to the `data/` subdirectory.
-4. (optional: only if training) Download and extract the [GloVe embeddings](http://nlp.stanford.edu/data/glove.6B.zip) in the `data` subdirectory.
+2. Download the data from the [Unintended bias analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973) to the `data/` subdirectory.
+3. Download and extract the [GloVe embeddings](http://nlp.stanford.edu/data/glove.6B.zip) in the `data` subdirectory.
 
 Please note that if using a virtual environment, it may be necessary to
 manually set your `PYTHONPATH` environment variable in the shell to the correct
@@ -128,3 +127,15 @@ If the new model on the y-axis is a proposed update to the model on the x-axis,
 then one would hope to see mostly positive labels in the upper left corner (new
 true positives) and mostly negative labels in the bottom right corner (new true
 negatives).
+
+## Data Description
+
+The `Prep Wikipedia Data.ipynb` notebook will generate the following datasets where
+SPLIT indicates whether the data is in the train, test, or dev splits:
+
+wiki_SPLIT.csv: The original Wikipedia data from the Figshare dataset, processed and split.
+wiki_debias_SPLIT.csv: The above data which is additionally augmented with Wikipedia article
+comments to debias on a set of terms (see `Dataset_bias_analysis.ipynb` for details).
+wiki_debias_random_SPLIT.csv: The wiki_SPLIT.csv augmented with a random selection of Wikipedia article
+columns that are of roughly the same length as those used to augment wiki_debias_SPLIT.csv. This is
+used as a control in our experiments.
