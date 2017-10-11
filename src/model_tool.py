@@ -25,24 +25,23 @@ from keras.optimizers import RMSprop, Adam
 DEFAULT_EMBEDDINGS_PATH = '../data/glove.6B/glove.6B.100d.txt'
 DEFAULT_MODEL_DIR = '../models'
 
-MAX_SEQUENCE_LENGTH = 250
-MAX_NUM_WORDS = 10000
-EMBEDDING_DIM = 100
-EMBEDDING_TRAINABLE = False
-LEARNING_RATE = 0.00005
-STOP_EARLY = True
-ES_PATIENCE = 0 # Only relevant if STOP_EARLY = True
-ES_MIN_DELTA = 0 # Only relevant if STOP_EARLY = True
+DEFAULT_HPARAMS = {
+    'max_sequence_length': 250,
+    'max_num_words': 10000,
+    'embedding_dim': 100,
+    'embedding_trainable': False,
+    'learning_rate': 0.00005,
+    'stop_early': True,
+    'es_patience': 0, # Only relevant if STOP_EARLY = True
+    'es_min_delta': 0, # Only relevant if STOP_EARLY = True
+    'batch_size': 128,
+    'epochs': 20,
+    'dropout_rate': 0.3,
+    'cnn_filter_sizes': [128, 128, 128],
+    'cnn_kernel_sizes': [5,5,5],
+    'cnn_pooling_sizes': [5, 5, 40],
+}
 
-BATCH_SIZE = 128
-EPOCHS = 20
-DROPOUT_RATE = 0.3
-CNN_FILTER_SIZES = [128, 128, 128]
-CNN_KERNEL_SIZES = [5,5,5]
-CNN_POOLING_SIZES = [5, 5, 40]
-
-print('learn rate: {}\nseq len: {}\nnum words: {}\nepochs: {}\ndropout: {}\n\nembedding dim: {}\nbatch size: {}\nearly stopping: {}\n'.format(
-    LEARNING_RATE, MAX_SEQUENCE_LENGTH, MAX_NUM_WORDS, EPOCHS, DROPOUT_RATE, EMBEDDING_DIM, BATCH_SIZE, STOP_EARLY))
 
 def compute_auc(y_true, y_pred):
     fpr, tpr, thresholds = metrics.roc_curve(y_true, y_pred)
@@ -51,25 +50,48 @@ def compute_auc(y_true, y_pred):
 class ToxModel():
     def __init__(self, 
                  model_name = None, 
-                 model_dir = DEFAULT_MODEL_DIR):
+                 model_dir = DEFAULT_MODEL_DIR,
+                 hparams = None):
         self.model_dir = model_dir
         self.model_name = model_name
         self.model = None
         self.tokenizer = None
+        self.hparams = DEFAULT_HPARAMS
+        if hparams:
+            update_hparams(hparams)
         if model_name:
             self.load_model_from_name(model_name)
+        self.print_hparams()
+
+    def print_hparams(self):
+        print('Hyperparameters')
+        print('---------------')
+        for k, v in self.hparams.iteritems():
+            print('{}: {}'.format(k, v))
+        print('')
+
+    def update_hparams(self, new_hparams):
+        self.hparams.update(new_hparams)
         
     def get_model_name(self):
         return self.model_name
+
+    def save_hparams(self, model_name):
+        self.hparams['model_name'] = model_name
+        cPickle.dump(self.hparams, 
+            open(os.path.join(self.model_dir, 
+                '%s_hparams.pkl' % self.model_name), 'wb'))
 
     def load_model_from_name(self, model_name):
         self.model = load_model(os.path.join(self.model_dir, '%s_model.h5' % model_name))
         self.tokenizer = cPickle.load(open(os.path.join(self.model_dir, 
                                                         '%s_tokenizer.pkl' % model_name), 
                                            'rb'))
+        self.hparams = cPickle.load(open(os.path.join(self.model_dir, 
+                                                        '%s_hparams.pkl' % model_name), 
+                                           'rb'))
 
-    def prep_data(self, data_path, text_column, label_column = None, 
-                  max_sequence_length = MAX_SEQUENCE_LENGTH, is_training = False):
+    def prep_data(self, data_path, text_column, label_column = None, is_training = False):
         """Loads the data from a csv.
         
         Args:
@@ -91,12 +113,13 @@ class ToxModel():
         data = pd.read_csv(data_path)
         text = data[text_column]
         if is_training:
-            self.tokenizer = Tokenizer(num_words = MAX_NUM_WORDS)
+            self.tokenizer = Tokenizer(num_words = self.hparams['max_num_words'])
             self.tokenizer.fit_on_texts(text)
             self.word_index = self.tokenizer.word_index
             cPickle.dump(self.tokenizer, open(os.path.join(self.model_dir, '%s_tokenizer.pkl' % self.model_name), 'wb'))
         text_sequences = self.tokenizer.texts_to_sequences(text)
-        text_data = pad_sequences(text_sequences, maxlen = max_sequence_length)
+
+        text_data = pad_sequences(text_sequences, maxlen = self.hparams['max_sequence_length'])
         
         text_labels = None
         if label_column:
@@ -114,7 +137,7 @@ class ToxModel():
             self.embeddings_index[word] = coefs
         f.close()
 
-        self.embedding_matrix = np.zeros((len(self.word_index) + 1, EMBEDDING_DIM))
+        self.embedding_matrix = np.zeros((len(self.word_index) + 1, self.hparams['embedding_dim']))
         num_words_in_embedding = 0
         for word, i in self.word_index.items():
             embedding_vector = self.embeddings_index.get(word)
@@ -125,6 +148,7 @@ class ToxModel():
 
     def train(self, training_data_path, validation_data_path, text_column, label_column, model_name):
         self.model_name = model_name
+        self.save_hparams(model_name)
 
         print('Preparing data...')
         train_data, train_labels = self.prep_data(training_data_path, text_column, label_column, is_training = True)
@@ -138,14 +162,14 @@ class ToxModel():
         print('Building model graph...')
         self.build_model()
         print('Training model...')
-        if STOP_EARLY:
-            earlyStopping = [EarlyStopping(min_delta=ES_MIN_DELTA, 
-                monitor='val_loss', patience=ES_PATIENCE, verbose=0, mode='auto')]
+        if self.hparams['stop_early']:
+            earlyStopping = [EarlyStopping(min_delta=self.hparams['es_min_delta'], 
+                monitor='val_loss', patience=self.hparams['es_patience'], verbose=0, mode='auto')]
         else:
             earlyStopping = None
         print(self.model.fit(train_data, train_labels,
-          batch_size=BATCH_SIZE,
-          epochs=EPOCHS,
+          batch_size=self.hparams['batch_size'],
+          epochs=self.hparams['epochs'],
           validation_data=(valid_data, valid_labels),
           callbacks=earlyStopping))
         print('Model trained!')
@@ -154,29 +178,29 @@ class ToxModel():
         print('Model saved!')
 
     def build_model(self):
-        sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
+        sequence_input = Input(shape=(self.hparams['max_sequence_length'],), dtype='int32')
         embedding_layer = Embedding(len(self.word_index) + 1,
-                                    EMBEDDING_DIM,
+                                    self.hparams['embedding_dim'],
                                     weights=[self.embedding_matrix],
-                                    input_length=MAX_SEQUENCE_LENGTH,
-                                    trainable=EMBEDDING_TRAINABLE)
+                                    input_length=self.hparams['max_sequence_length'],
+                                    trainable=self.hparams['embedding_trainable'])
 
         embedded_sequences = embedding_layer(sequence_input)
         x = embedded_sequences
-        for filter_size, kernel_size, pool_size in zip(CNN_FILTER_SIZES, CNN_KERNEL_SIZES, CNN_POOLING_SIZES):
+        for filter_size, kernel_size, pool_size in zip(self.hparams['cnn_filter_sizes'], self.hparams['cnn_kernel_sizes'], self.hparams['cnn_pooling_sizes']):
             x = self.build_conv_layer(x, filter_size, kernel_size, pool_size)
             
         x = Flatten()(x)
-        x = Dropout(DROPOUT_RATE)(x)
+        x = Dropout(self.hparams['dropout_rate'])(x)
         # TODO(nthain): Parametrize the number and size of fully connected layers
         x = Dense(128, activation='relu')(x)
         preds = Dense(2, activation='softmax')(x)
 
-        rmsprop = RMSprop(lr = LEARNING_RATE)
+        rmsprop = RMSprop(lr = self.hparams['learning_rate'])
         self.model = Model(sequence_input, preds)
         self.model.compile(loss='categorical_crossentropy',
                       optimizer=rmsprop,
-                      metrics=['acc'])        
+                      metrics=['acc'])
 
     def build_conv_layer(self, input_tensor, filter_size, kernel_size, pool_size):
         output = Conv1D(filter_size, kernel_size, activation='relu', padding='same')(input_tensor)
