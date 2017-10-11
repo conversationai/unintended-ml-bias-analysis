@@ -147,7 +147,7 @@ class ToxModel():
           batch_size=BATCH_SIZE,
           epochs=EPOCHS,
           validation_data=(valid_data, valid_labels),
-          callbacks = earlyStopping))
+          callbacks=earlyStopping))
         print('Model trained!')
         print('Saving model...')
         self.model.save(os.path.join(self.model_dir, '%s_model.h5' % self.model_name))
