@@ -58,7 +58,7 @@ class ToxModel():
         self.tokenizer = None
         self.hparams = DEFAULT_HPARAMS
         if hparams:
-            update_hparams(hparams)
+            self.update_hparams(hparams)
         if model_name:
             self.load_model_from_name(model_name)
         self.print_hparams()
