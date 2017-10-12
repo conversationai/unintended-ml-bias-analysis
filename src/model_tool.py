@@ -5,6 +5,7 @@ from __future__ import print_function
 print('HELLO from model_tool')
 
 import cPickle
+import json
 import os
 import pandas as pd
 import numpy as np
@@ -19,7 +20,7 @@ from keras.layers import Embedding
 from keras.layers import Dense, Input, Flatten, Dropout
 from keras.layers import Conv1D, MaxPooling1D, Embedding, GlobalMaxPooling1D
 from keras.models import Model
-from keras.callbacks import EarlyStopping
+from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.optimizers import RMSprop, Adam
 
 DEFAULT_EMBEDDINGS_PATH = '../data/glove.6B/glove.6B.100d.txt'
@@ -32,7 +33,7 @@ DEFAULT_HPARAMS = {
     'embedding_trainable': False,
     'learning_rate': 0.00005,
     'stop_early': True,
-    'es_patience': 0, # Only relevant if STOP_EARLY = True
+    'es_patience': 1, # Only relevant if STOP_EARLY = True
     'es_min_delta': 0, # Only relevant if STOP_EARLY = True
     'batch_size': 128,
     'epochs': 20,
@@ -40,6 +41,7 @@ DEFAULT_HPARAMS = {
     'cnn_filter_sizes': [128, 128, 128],
     'cnn_kernel_sizes': [5,5,5],
     'cnn_pooling_sizes': [5, 5, 40],
+    'verbose': True
 }
 
 
@@ -78,18 +80,18 @@ class ToxModel():
 
     def save_hparams(self, model_name):
         self.hparams['model_name'] = model_name
-        cPickle.dump(self.hparams, 
-            open(os.path.join(self.model_dir, 
-                '%s_hparams.pkl' % self.model_name), 'wb'))
+        with open(os.path.join(self.model_dir, 
+                '%s_hparams.json' % self.model_name), 'w') as f:
+            json.dump(self.hparams, f, sort_keys=True)
 
     def load_model_from_name(self, model_name):
         self.model = load_model(os.path.join(self.model_dir, '%s_model.h5' % model_name))
         self.tokenizer = cPickle.load(open(os.path.join(self.model_dir, 
                                                         '%s_tokenizer.pkl' % model_name), 
                                            'rb'))
-        self.hparams = cPickle.load(open(os.path.join(self.model_dir, 
-                                                        '%s_hparams.pkl' % model_name), 
-                                           'rb'))
+        with open(os.path.join(self.model_dir, 
+                '%s_hparams.json' % self.model_name), 'r') as f:
+            self.hparams = json.load(f)
 
     def prep_data(self, data_path, text_column, label_column = None, is_training = False):
         """Loads the data from a csv.
@@ -99,8 +101,6 @@ class ToxModel():
             text_column: column containing comment text in the csv.
             label_column: column containing toxicity label in the csv. 
                           If set to None, it is assumed the data is unlabelled.
-            max_sequence_length: The fixed length of an input sequence. Text will be
-                          cropped or padded to meet this length.
             is_training: Indicate if the data is training data on which to initialize
                           the tokenizer.
         
@@ -162,20 +162,25 @@ class ToxModel():
         print('Building model graph...')
         self.build_model()
         print('Training model...')
+
+        save_path = os.path.join(self.model_dir, '%s_model.h5' % self.model_name)
+        callbacks = [ModelCheckpoint(save_path, save_best_only = True, verbose=self.hparams['verbose'])]
+
         if self.hparams['stop_early']:
-            earlyStopping = [EarlyStopping(min_delta=self.hparams['es_min_delta'], 
-                monitor='val_loss', patience=self.hparams['es_patience'], verbose=0, mode='auto')]
-        else:
-            earlyStopping = None
-        print(self.model.fit(train_data, train_labels,
+            callbacks.append(EarlyStopping(min_delta=self.hparams['es_min_delta'], 
+                monitor='val_loss', patience=self.hparams['es_patience'], verbose=self.hparams['verbose'], mode='auto'))
+        
+        self.model.fit(train_data, train_labels,
           batch_size=self.hparams['batch_size'],
           epochs=self.hparams['epochs'],
           validation_data=(valid_data, valid_labels),
-          callbacks=earlyStopping))
+          callbacks=callbacks,
+          verbose = 2)
         print('Model trained!')
-        print('Saving model...')
-        self.model.save(os.path.join(self.model_dir, '%s_model.h5' % self.model_name))
-        print('Model saved!')
+        print('Best model saved to {}'.format(save_path))
+        print('Loading best model from checkpoint...')
+        self.model = load_model(save_path)
+        print('Model loaded!')
 
     def build_model(self):
         sequence_input = Input(shape=(self.hparams['max_sequence_length'],), dtype='int32')
