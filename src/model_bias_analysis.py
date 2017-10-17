@@ -55,3 +55,26 @@ def load_scored_madlibs(models, scored_path=SCORED_MADLIBS_PATH,
     print('Saving scores to:', scored_path)
     madlibs.to_csv(scored_path)
     return madlibs
+
+
+### Model score analysis: AUC
+
+def model_family_auc(dataset, model_names, label_col):
+    aucs = [compute_auc(dataset[label_col], dataset[model_name])
+            for model_name in model_names]
+    return {
+        'aucs': aucs,
+        'mean': np.mean(aucs),
+        'median': np.median(aucs),
+        'std': np.std(aucs),
+    }
+
+def plot_model_family_auc(dataset, model_names, label_col, min_auc=0.9):
+    result = model_family_auc(dataset, model_names, label_col)
+    print('mean AUC:', result['mean'])
+    print('median:', result['median'])
+    print('stddev:', result['std'])
+    plt.hist(result['aucs'])
+    plt.gca().set_xlim([min_auc, 1.0])
+    plt.show()
+    return result
