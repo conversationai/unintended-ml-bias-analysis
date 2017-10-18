@@ -125,3 +125,14 @@ def per_term_aucs(dataset, terms, model_families, text_col, label_col):
             })
         records.append(term_record)
     return pd.DataFrame(records)
+
+
+### Model score analysis: confusion rates
+
+def confusion_matrix_counts(df, score_col, label_col, threshold):
+    return {
+        'tp': len(df[(df[score_col] >= threshold) & (df[label_col] == True)]),
+        'tn': len(df[(df[score_col] < threshold) & (df[label_col] == False)]),
+        'fp': len(df[(df[score_col] >= threshold) & (df[label_col] == False)]),
+        'fn': len(df[(df[score_col] < threshold) & (df[label_col] == True)]),
+    }
