@@ -253,3 +253,34 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
             })
         records.append(term_record)
     return pd.DataFrame(records)
+
+
+### Plotting.
+
+def per_term_scatterplots(df, term_col, values_col, title='', y_lim=(0.8, 1.0),
+                          figsize=(15,5), point_size=8):
+    """Displays a series of one-dimensional scatterplots, 1 scatterplot per term.
+
+    Args:
+      df: DataFrame contain term_col and values_col.
+      term_col: Column containing terms.
+      values_col: Column containing collection of values to plot (each cell
+          should contain a sequence of values, e.g. the AUCs for multiple models
+          from the same family).
+      title: Plot title.
+      y_lim: Plot bounds for y axis.
+      figsize: Plot figure size.
+    """
+    fig = plt.figure(figsize=figsize)
+    ax = fig.add_subplot(111)
+    for i, (_index, row) in enumerate(df.iterrows()):
+        # For each term, we plot a 1D scatterplot. The x-value is the position
+        # of the item in the dataframe. To change the ordering of the terms,
+        # sort the dataframe before passing to this function.
+        x = [i] * len(row[values_col])
+        y = row[values_col]
+        ax.scatter(x, y, s=point_size)
+    ax.set_xticklabels(df[term_col], rotation=90)
+    ax.set_xticks(range(len(df)))
+    ax.set_ylim(y_lim)
+    ax.set_title(title)
