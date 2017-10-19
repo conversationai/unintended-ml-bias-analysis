@@ -45,19 +45,24 @@ def score_dataset(df, models, text_col):
         print('{} Scoring with {}...'.format(datetime.datetime.now(), name))
         df[name] = model.predict(df[text_col])
 
-
-def load_scored_madlibs(models, scored_path=SCORED_MADLIBS_PATH,
-                        orig_path=ORIG_MADLIBS_PATH):
-    if os.path.exists(scored_path):
-        print('Using previously scored data:', scored_path)
-        return pd.read_csv(scored_path)
-
+def score_and_save_madlibs(models, scored_path=SCORED_MADLIBS_PATH,
+                           orig_path=ORIG_MADLIBS_PATH):
+    """Returns scored madlibs dataset. Saves scores."""
     madlibs = pd.read_csv(orig_path)
     postprocess_madlibs(madlibs)
+    print('Scoring madlibs with all models.')
     score_dataset(madlibs, models, 'text')
     print('Saving scores to:', scored_path)
     madlibs.to_csv(scored_path)
     return madlibs
+
+def load_scored_madlibs(models, scored_path=SCORED_MADLIBS_PATH,
+                        orig_path=ORIG_MADLIBS_PATH):
+    """Returns scored madlibs dataset. Tries to load previously-scored data."""
+    if os.path.exists(scored_path):
+        print('Using previously scored data:', scored_path)
+        return pd.read_csv(scored_path)
+    return score_and_save_madlibs(models, scored_path, orig_path)
 
 
 ### Per-term pinned AUC analysis.
