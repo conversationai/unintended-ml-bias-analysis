@@ -46,8 +46,11 @@ DEFAULT_HPARAMS = {
 
 
 def compute_auc(y_true, y_pred):
-    fpr, tpr, _thresholds = metrics.roc_curve(y_true, y_pred)
-    return metrics.auc(fpr, tpr)
+    try:
+        return metrics.roc_auc_score(y_true, y_pred)
+    except ValueError:
+        return np.nan
+
 
 class ToxModel():
     def __init__(self, 
