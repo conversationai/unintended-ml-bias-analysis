@@ -213,8 +213,8 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
           each term.
       text_col: column in df containing the text.
       label_col: column in df containing the boolean label.
-      model_families_names: list of model families; each model family is a list
-          of model names in the family.
+      model_families: list of model families; each model family is a list of
+          model names in the family.
       threshold: threshold to use to compute negative rates. Can either be a
           float, or a dictionary mapping model name to float threshold in order
           to use a different threshold for each model.
