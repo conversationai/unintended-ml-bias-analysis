@@ -18,8 +18,6 @@ import matplotlib.pyplot as plt
 from model_tool import ToxModel, compute_auc
 
 MODEL_DIR = '../models/'
-ORIG_MADLIBS_PATH = '../eval_datasets/bias_madlibs_89k.csv'
-SCORED_MADLIBS_PATH = '../eval_datasets/bias_madlibs_89k_scored.csv'
 MADLIBS_TERMS_PATH = 'bias_madlibs_data/adjectives_people.txt'
 
 ### Model scoring
@@ -37,6 +35,11 @@ def postprocess_madlibs(madlibs):
     madlibs.drop('Label', axis=1, inplace=True)
     madlibs.rename(columns={'Text': 'text'}, inplace=True)
 
+def postprocess_wiki_dataset(wiki_data):
+    """Modifies Wikipedia dataset to have 'text' and 'label' columns."""
+    wiki_data.rename(columns={'is_toxic': 'label',
+                              'comment': 'text'},
+                     inplace=True)
 
 def score_dataset(df, models, text_col):
     """Scores the dataset with each model and adds the scores as new columns."""
@@ -45,24 +48,17 @@ def score_dataset(df, models, text_col):
         print('{} Scoring with {}...'.format(datetime.datetime.now(), name))
         df[name] = model.predict(df[text_col])
 
-def score_and_save_madlibs(models, scored_path=SCORED_MADLIBS_PATH,
-                           orig_path=ORIG_MADLIBS_PATH):
-    """Returns scored madlibs dataset. Saves scores."""
-    madlibs = pd.read_csv(orig_path)
-    postprocess_madlibs(madlibs)
-    print('Scoring madlibs with all models.')
-    score_dataset(madlibs, models, 'text')
-    print('Saving scores to:', scored_path)
-    madlibs.to_csv(scored_path)
-    return madlibs
-
-def load_scored_madlibs(models, scored_path=SCORED_MADLIBS_PATH,
-                        orig_path=ORIG_MADLIBS_PATH):
-    """Returns scored madlibs dataset. Tries to load previously-scored data."""
+def load_maybe_score(models, orig_path, scored_path, postprocess_fn):
     if os.path.exists(scored_path):
         print('Using previously scored data:', scored_path)
         return pd.read_csv(scored_path)
-    return score_and_save_madlibs(models, scored_path, orig_path)
+
+    dataset = pd.read_csv(orig_path)
+    postprocess_fn(dataset)
+    score_dataset(dataset, models, 'text')
+    print('Saving scores to:', scored_path)
+    dataset.to_csv(scored_path)
+    return dataset
 
 
 ### Per-term pinned AUC analysis.
@@ -258,3 +254,34 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
             })
         records.append(term_record)
     return pd.DataFrame(records)
+
+
+### Plotting.
+
+def per_term_scatterplots(df, term_col, values_col, title='', y_lim=(0.8, 1.0),
+                          figsize=(15,5), point_size=8):
+    """Displays a series of one-dimensional scatterplots, 1 scatterplot per term.
+
+    Args:
+      df: DataFrame contain term_col and values_col.
+      term_col: Column containing terms.
+      values_col: Column containing collection of values to plot (each cell
+          should contain a sequence of values, e.g. the AUCs for multiple models
+          from the same family).
+      title: Plot title.
+      y_lim: Plot bounds for y axis.
+      figsize: Plot figure size.
+    """
+    fig = plt.figure(figsize=figsize)
+    ax = fig.add_subplot(111)
+    for i, (_index, row) in enumerate(df.iterrows()):
+        # For each term, we plot a 1D scatterplot. The x-value is the position
+        # of the item in the dataframe. To change the ordering of the terms,
+        # sort the dataframe before passing to this function.
+        x = [i] * len(row[values_col])
+        y = row[values_col]
+        ax.scatter(x, y, s=point_size)
+    ax.set_xticklabels(df[term_col], rotation=90)
+    ax.set_xticks(range(len(df)))
+    ax.set_ylim(y_lim)
+    ax.set_title(title)
