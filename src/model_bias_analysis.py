@@ -26,7 +26,6 @@ MADLIBS_TERMS_PATH = 'bias_madlibs_data/adjectives_people.txt'
 # of time, so we save the results as a CSV. The resulting CSV includes all the
 # columns of the original dataset, and in addition has columns for each model,
 # containing the model's scores.
-
 def postprocess_madlibs(madlibs):
     """Modifies madlibs data to have standard 'text' and 'label' columns."""
     # Native madlibs data uses 'Label' column with values 'BAD' and 'NOT_BAD'.
@@ -62,7 +61,6 @@ def load_maybe_score(models, orig_path, scored_path, postprocess_fn):
 
 
 ### Per-term pinned AUC analysis.
-
 def model_family_auc(dataset, model_names, label_col):
     aucs = [compute_auc(dataset[label_col], dataset[model_name])
             for model_name in model_names]
@@ -100,7 +98,7 @@ def balanced_term_subset(df, term, text_col):
     data.
     """
     term_df = df[df[text_col].str.contains(r'\b{}\b'.format(term), case=False)]
-    nonterm_df = df[~df.index.isin(term_df.index)].sample(len(term_df))
+    nonterm_df = df[~df.index.isin(term_df.index)].sample(len(term_df), random_state=25)
     combined = pd.concat([term_df, nonterm_df])
     return combined
 
@@ -131,7 +129,7 @@ def per_term_aucs(dataset, terms, model_families, text_col, label_col):
             })
         records.append(term_record)
     return pd.DataFrame(records)
-
+    
 
 ### Equality of opportunity negative rates analysis.
 
@@ -226,8 +224,11 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
     """
     records = []
     for term in terms:
-        term_subset = df[df[text_col].str.contains(r'\b{}\b'.format(term),
-                                                   case=False)]
+        if term != 'ALL':
+            term_subset = df[df[text_col].str.contains(r'\b{}\b'.format(term),
+                                                       case=False)]
+        else:
+            term_subset = df
         term_record = {'term': term, 'subset_size': len(term_subset)}
         for model_family in model_families:
             family_name = model_family_name(model_family)
@@ -255,6 +256,43 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
         records.append(term_record)
     return pd.DataFrame(records)
 
+### Summary metrics
+def diff_from_base(base_metrics, per_term_results, model_families, metric_column):
+    diffs = {}
+    for fams in model_families:
+        family_name = model_family_name(fams)
+        family_base_metrics = base_metrics[family_name]
+        metric_diff_sum = 0.0
+        for metric_list in per_term_results[family_name + metric_column]:
+            for i in range(10):
+                metric_diff_sum += abs(family_base_metrics[i] - metric_list[i])
+        diffs[family_name] = metric_diff_sum
+    return diffs
+
+def per_term_auc_diff_from_base(dataset, terms, model_families):
+    per_term_auc_results = per_term_aucs(dataset, terms, model_families, 'text', 'label')
+    overall_aucs = {}
+    for fams in model_families:
+        family_name = model_family_name(fams)
+        overall_aucs[family_name] = model_family_auc(dataset, fams, 'label')['aucs']
+    return diff_from_base(overall_aucs, per_term_auc_results, model_families, '_aucs')
+
+def per_term_nr_diff_from_base(df, terms, model_families, threshold, metric_column):
+    per_term_nrs = per_term_negative_rates(
+        df, terms, model_families, threshold, 'text', 'label')
+    all_nrs = per_term_negative_rates(
+        df, ['ALL'], model_families, threshold, 'text', 'label')
+    overall_nrs = {}
+    for fams in model_families:
+        family_name = model_family_name(fams)
+        overall_nrs[family_name] = all_nrs[family_name + metric_column][0]
+    return diff_from_base(overall_nrs, per_term_nrs, model_families, metric_column)
+
+def per_term_fnr_diff_from_base(df, terms, model_families, threshold):
+    return per_term_nr_diff_from_base(df, terms, model_families, threshold, '_fnr_values')
+
+def per_term_tnr_diff_from_base(df, terms, model_families, threshold):
+    return per_term_nr_diff_from_base(df, terms, model_families, threshold, '_tnr_values')
 
 ### Plotting.
 
