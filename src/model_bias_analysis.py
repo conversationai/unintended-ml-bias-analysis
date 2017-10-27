@@ -26,7 +26,6 @@ MADLIBS_TERMS_PATH = 'bias_madlibs_data/adjectives_people.txt'
 # of time, so we save the results as a CSV. The resulting CSV includes all the
 # columns of the original dataset, and in addition has columns for each model,
 # containing the model's scores.
-
 def postprocess_madlibs(madlibs):
     """Modifies madlibs data to have standard 'text' and 'label' columns."""
     # Native madlibs data uses 'Label' column with values 'BAD' and 'NOT_BAD'.
@@ -62,7 +61,6 @@ def load_maybe_score(models, orig_path, scored_path, postprocess_fn):
 
 
 ### Per-term pinned AUC analysis.
-
 def model_family_auc(dataset, model_names, label_col):
     aucs = [compute_auc(dataset[label_col], dataset[model_name])
             for model_name in model_names]
@@ -100,7 +98,7 @@ def balanced_term_subset(df, term, text_col):
     data.
     """
     term_df = df[df[text_col].str.contains(r'\b{}\b'.format(term), case=False)]
-    nonterm_df = df[~df.index.isin(term_df.index)].sample(len(term_df))
+    nonterm_df = df[~df.index.isin(term_df.index)].sample(len(term_df), random_state=25)
     combined = pd.concat([term_df, nonterm_df])
     return combined
 
@@ -131,7 +129,7 @@ def per_term_aucs(dataset, terms, model_families, text_col, label_col):
             })
         records.append(term_record)
     return pd.DataFrame(records)
-
+    
 
 ### Equality of opportunity negative rates analysis.
 
@@ -226,8 +224,11 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
     """
     records = []
     for term in terms:
-        term_subset = df[df[text_col].str.contains(r'\b{}\b'.format(term),
-                                                   case=False)]
+        if term is None:
+            term_subset = df
+        else:
+            term_subset = df[df[text_col].str.contains(r'\b{}\b'.format(term),
+                                                       case=False)]
         term_record = {'term': term, 'subset_size': len(term_subset)}
         for model_family in model_families:
             family_name = model_family_name(model_family)
@@ -255,6 +256,71 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
         records.append(term_record)
     return pd.DataFrame(records)
 
+### Summary metrics
+def diff_per_term_from_overall(overall_metrics, per_term_metrics, model_families, metric_column):
+    """Computes the sum of differences between the per-term metric values and the overall values 
+    summed over all terms and models. i.e. sum(|overall_i - per-term_i,t|) for i in model
+    instances and t in terms.
+    
+    Args:
+      overall_metrics: dict of model familiy to list of score values for the overall 
+          dataset (one per model instance).
+      per_term_metrics: DataFrame of scored results, one term per row. Expected to have
+          a column named model family name + metric column, which contains a list of 
+          one score per model instance.
+      model_families: list of model families; each model family is a list of
+          model names in the family.
+      metric_column: column name suffix in the per_term_metrics df where the per-term data 
+          to be diffed is stored.
+    
+    Returns:
+      A dictionary of model family name to sum of differences value for that model family.
+    """
+    diffs = {}
+    for fams in model_families:
+        family_name = model_family_name(fams)
+        family_overall_metrics = overall_metrics[family_name]
+        metric_diff_sum = 0.0
+        diffs[family_name] = 0.0
+        # Loop over the terms. one_term_metric_list is a list of the per-term
+        # values, one per model instance.
+        for one_term_metric_list in per_term_metrics[family_name + metric_column]:
+            # Zips the overall scores with the per-term scores, pairing results
+            # from the same model instance, then diffs those pairs and sums.
+            per_term_metric_diffs = [abs(overall_score - per_term_score)
+                                         for overall_score, per_term_score
+                                             in zip(family_overall_metrics, one_term_metric_list)]
+            diffs[family_name] += sum(per_term_metric_diffs)
+    return diffs
+
+def per_term_auc_diff_from_overall(dataset, terms, model_families):
+    """Calculates the sum of differences between the per-term pinned AUC and the overall AUC."""
+    per_term_auc_results = per_term_aucs(dataset, terms, model_families, 'text', 'label')
+    overall_aucs = {}
+    for fams in model_families:
+        family_name = model_family_name(fams)
+        overall_aucs[family_name] = model_family_auc(dataset, fams, 'label')['aucs']
+    return diff_per_term_from_overall(overall_aucs, per_term_auc_results, model_families, '_aucs')
+
+def per_term_nr_diff_from_overall(df, terms, model_families, threshold, metric_column):
+    """Calculates the sum of differences between the per-term true or false negative rate and the overall rate."""
+    per_term_nrs = per_term_negative_rates(
+        df, terms, model_families, threshold, 'text', 'label')
+    all_nrs = per_term_negative_rates(
+        df, [None], model_families, threshold, 'text', 'label')
+    overall_nrs = {}
+    for fams in model_families:
+        family_name = model_family_name(fams)
+        overall_nrs[family_name] = all_nrs[family_name + metric_column][0]
+    return diff_per_term_from_overall(overall_nrs, per_term_nrs, model_families, metric_column)
+
+def per_term_fnr_diff_from_overall(df, terms, model_families, threshold):
+    """Calculates the sum of differences between the per-term false negative rate and the overall FNR."""
+    return per_term_nr_diff_from_overall(df, terms, model_families, threshold, '_fnr_values')
+
+def per_term_tnr_diff_from_overall(df, terms, model_families, threshold):
+    """Calculates the sum of differences between the per-term true negative rate and the overall TNR."""    
+    return per_term_nr_diff_from_overall(df, terms, model_families, threshold, '_tnr_values')
 
 ### Plotting.
 
