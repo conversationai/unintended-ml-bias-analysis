@@ -18,7 +18,7 @@ from sklearn import metrics
 
 from keras.layers import Embedding
 from keras.layers import Dense, Input, Flatten, Dropout
-from keras.layers import Conv1D, MaxPooling1D, Embedding, GlobalMaxPooling1D
+from keras.layers import Conv1D, MaxPooling1D, Embedding, GlobalMaxPooling1D, merge, Multiply
 from keras.models import Model
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.optimizers import RMSprop, Adam
@@ -225,3 +225,63 @@ class ToxModel():
 
     def summary():
         return self.model.summary()
+
+
+class AttentionToxModel(ToxModel):
+
+    def build_dense_attention_layer(self, input_tensor):
+        # softmax
+        attention_probs = Dense(self.hparams['max_sequence_length'], activation='softmax', name='attention_vec')(input_tensor)
+        # context vector
+        attention_mul = Multiply()([input_tensor, attention_probs])
+        return {'attention_probs': attention_probs, 'attention_preds': attention_mul}
+
+    def build_probs(self):
+        sequence_input = Input(shape=(self.hparams['max_sequence_length'],), dtype='int32')
+        embedding_layer = Embedding(len(self.tokenizer.word_index) + 1,
+                                    self.hparams['embedding_dim'],
+                                    weights=[self.embedding_matrix],
+                                    input_length=self.hparams['max_sequence_length'],
+                                    trainable=self.hparams['embedding_trainable'])
+
+        embedded_sequences = embedding_layer(sequence_input)
+        x = embedded_sequences
+        for filter_size, kernel_size, pool_size in zip(self.hparams['cnn_filter_sizes'], self.hparams['cnn_kernel_sizes'], self.hparams['cnn_pooling_sizes']):
+            x = self.build_conv_layer(x, filter_size, kernel_size, pool_size)
+
+        x = Flatten()(x)
+        x = Dropout(self.hparams['dropout_rate'], name="Dropout")(x)
+        # TODO(nthain): Parametrize the number and size of fully connected layers
+        x = Dense(250, activation='relu', name="Dense_RELU")(x)
+
+        attention_dict = self.build_dense_attention_layer(x)
+        preds = attention_dict['attention_probs']
+        preds = Dense(2, name="preds_dense")(preds)
+        rmsprop = RMSprop(lr=self.hparams['learning_rate'])
+        self.model = Model(sequence_input, preds)
+        self.model.compile(loss='categorical_crossentropy', optimizer=rmsprop,metrics=['acc'])
+
+    def build_model(self):
+        print('print inside build model')
+        sequence_input = Input(shape=(self.hparams['max_sequence_length'],), dtype='int32')
+        embedding_layer = Embedding(len(self.tokenizer.word_index) + 1,
+                                    self.hparams['embedding_dim'],
+                                    weights=[self.embedding_matrix],
+                                    input_length=self.hparams['max_sequence_length'],
+                                    trainable=self.hparams['embedding_trainable'])
+
+        embedded_sequences = embedding_layer(sequence_input)
+        x = embedded_sequences
+        for filter_size, kernel_size, pool_size in zip(self.hparams['cnn_filter_sizes'], self.hparams['cnn_kernel_sizes'], self.hparams['cnn_pooling_sizes']):
+            x = self.build_conv_layer(x, filter_size, kernel_size, pool_size)
+
+        x = Flatten()(x)
+        x = Dropout(self.hparams['dropout_rate'], name="Dropout")(x)
+        x = Dense(250, activation='relu', name="Dense_RELU")(x)
+
+        attention_dict = self.build_dense_attention_layer(x)
+        preds = attention_dict['attention_preds']
+        preds = Dense(2, name="preds_dense", activation='softmax')(preds)
+        rmsprop = RMSprop(lr=self.hparams['learning_rate'])
+        self.model = Model(sequence_input, preds)
+        self.model.compile(loss='categorical_crossentropy', optimizer=rmsprop,metrics=['acc'])
