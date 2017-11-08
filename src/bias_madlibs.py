@@ -107,8 +107,7 @@ def _main():
   print('Text,Label,Template')
   for template_pair in madlibber.TEMPLATE_PAIRS:
     # TODO(jetpack): here's a limit to the number of unique examples each
-    # template can produce, so bound the number of attempts. this is a terrible
-    # hack.
+    # template can produce, so bound the number of attempts. this is a hack.
     template_count = 0
     template_attempts = 0
     while (template_count < examples_per_template and
