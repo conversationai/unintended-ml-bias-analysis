@@ -351,4 +351,5 @@ def per_term_scatterplots(df, term_col, values_col, title='', y_lim=(0.8, 1.0),
     ax.set_xticks(range(len(df)))
     ax.set_ylim(y_lim)
     ax.set_title(title)
+    fig.tight_layout()
     fig.savefig('/tmp/%s_%s.eps' % (file_name, values_col), format='eps')
