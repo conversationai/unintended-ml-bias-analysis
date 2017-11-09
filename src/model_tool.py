@@ -3,22 +3,20 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-
 import cPickle
 import json
 import os
-
 from keras.callbacks import EarlyStopping
 from keras.callbacks import ModelCheckpoint
 from keras.layers import Conv1D
-from keras.layers import MaxPooling1D
-from keras.layers import Embedding
-from keras.layers import GlobalMaxPooling1D
 from keras.layers import Dense
-from keras.layers import Input
-from keras.layers import Flatten
 from keras.layers import Dropout
 from keras.layers import Embedding
+from keras.layers import Embedding
+from keras.layers import Flatten
+from keras.layers import GlobalMaxPooling1D
+from keras.layers import Input
+from keras.layers import MaxPooling1D
 from keras.models import load_model
 from keras.models import Model
 from keras.optimizers import RMSprop
