@@ -325,7 +325,7 @@ def per_term_tnr_diff_from_overall(df, terms, model_families, threshold):
 ### Plotting.
 
 def per_term_scatterplots(df, term_col, values_col, title='', y_lim=(0.8, 1.0),
-                          figsize=(15,5), point_size=8):
+                          figsize=(15,5), point_size=8, file_name='plot'):
     """Displays a series of one-dimensional scatterplots, 1 scatterplot per term.
 
     Args:
@@ -351,3 +351,5 @@ def per_term_scatterplots(df, term_col, values_col, title='', y_lim=(0.8, 1.0),
     ax.set_xticks(range(len(df)))
     ax.set_ylim(y_lim)
     ax.set_title(title)
+    fig.tight_layout()
+    fig.savefig('/tmp/%s_%s.eps' % (file_name, values_col), format='eps')
