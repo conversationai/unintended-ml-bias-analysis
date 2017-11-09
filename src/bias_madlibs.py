@@ -22,9 +22,9 @@ import os
 import random
 
 
-def _read_word_list(filename):
+def _read_word_list(bias_data_dir, filename):
   """Reads a terms list and returns a list of strings, one per line."""
-  with open(os.path.join('bias_madlibs_data', filename)) as f:
+  with open(os.path.join(bias_data_dir, filename)) as f:
     return f.read().decode('utf-8').splitlines()
 
 
@@ -34,37 +34,52 @@ class Madlibber(object):
   # A list of template pairs that use the same word types and roughly similar
   # structure, but one is toxic and the other is neutral.
   TEMPLATE_PAIRS = [
-      {'NOT_BAD': u'{verb_positive} {adjective_people}',
-       'BAD': u'{verb_negative} {adjective_people}',
-       'template': 'verb_adj'},
-      {'NOT_BAD': u'i am {adjective_people}',
-       'BAD': u'i hate {adjective_people}',
-       'template': 'am_hate_adj'},
-      {'NOT_BAD': u'Being {adjective_people} is {adjective_positive}.',
-       'BAD': u'Being {adjective_people} is {adjective_negative}.',
-       'template': 'being_adj'},
-      {'NOT_BAD': u'{name} is a {adjective_positive} {adjective_people}',
-       'BAD': u'{name} is a {adjective_negative} {adjective_people}',
-       'template': 'name_adj'},
-      {'NOT_BAD': u'You are a {adjective_positive} {adjective_people}',
-       'BAD': u'You are a {adjective_negative} {adjective_people}',
-       'template': 'you_are_adj'},
-      {'NOT_BAD': u'You are a {adjective_positive} {occupation}',
-       'BAD': u'You are a {adjective_negative} {occupation}',
-       'template': 'you_occupation'},
+      {
+          'NOT_BAD': u'{verb_positive} {adjective_people}',
+          'BAD': u'{verb_negative} {adjective_people}',
+          'template': 'verb_adj'
+      },
+      {
+          'NOT_BAD': u'i am {adjective_people}',
+          'BAD': u'i hate {adjective_people}',
+          'template': 'am_hate_adj'
+      },
+      {
+          'NOT_BAD': u'Being {adjective_people} is {adjective_positive}.',
+          'BAD': u'Being {adjective_people} is {adjective_negative}.',
+          'template': 'being_adj'
+      },
+      {
+          'NOT_BAD': u'{name} is a {adjective_positive} {adjective_people}',
+          'BAD': u'{name} is a {adjective_negative} {adjective_people}',
+          'template': 'name_adj'
+      },
+      {
+          'NOT_BAD': u'You are a {adjective_positive} {adjective_people}',
+          'BAD': u'You are a {adjective_negative} {adjective_people}',
+          'template': 'you_are_adj'
+      },
+      {
+          'NOT_BAD': u'You are a {adjective_positive} {occupation}',
+          'BAD': u'You are a {adjective_negative} {occupation}',
+          'template': 'you_occupation'
+      },
   ]
 
-  def __init__(self):
+  def __init__(self, bias_data_dir):
     self._template_choices = [
-        ('name', _read_word_list('names.txt')),
-        ('occupation', _read_word_list('occupations.txt')),
-        ('adjective_people', _read_word_list('adjectives_people.txt')),
-        ('adjective_positive', _read_word_list('adjectives_positive.txt')),
-        ('adjective_negative', _read_word_list('adjectives_negative.txt')),
-        ('verb_positive', _read_word_list('verbs_positive.txt')),
-        ('verb_negative', _read_word_list('verbs_negative.txt')),
+        ('name', _read_word_list(bias_data_dir, 'names.txt')),
+        ('occupation', _read_word_list(bias_data_dir, 'occupations.txt')),
+        ('adjective_people',
+         _read_word_list(bias_data_dir, 'adjectives_people.txt')),
+        ('adjective_positive',
+         _read_word_list(bias_data_dir, 'adjectives_positive.txt')),
+        ('adjective_negative',
+         _read_word_list(bias_data_dir, 'adjectives_negative.txt')),
+        ('verb_positive', _read_word_list(bias_data_dir, 'verbs_positive.txt')),
+        ('verb_negative', _read_word_list(bias_data_dir, 'verbs_negative.txt')),
     ]
-    self._filler_text = _read_word_list('filler.txt')
+    self._filler_text = _read_word_list(bias_data_dir, 'filler.txt')
 
   def expand_template(self, template, add_filler):
     """Expands the template with randomly chosen words."""
@@ -80,22 +95,32 @@ class Madlibber(object):
 def _parse_args():
   """Returns parsed arguments."""
   parser = argparse.ArgumentParser()
-  parser.add_argument('-num_examples', type=int, default=50,
-                      help='Number of phrases to output (estimate).')
-  parser.add_argument('-label', default='both',
-                      choices=['both', 'BAD', 'NOT_BAD'],
-                      help='Type of examples to output.')
-  parser.add_argument('-longer', action='store_true',
-                      help='Output longer phrases.')
+  parser.add_argument(
+      '-num_examples',
+      type=int,
+      default=50,
+      help='Number of phrases to output (estimate).')
+  parser.add_argument(
+      '-bias_data_dir',
+      type=str,
+      default='bias_madlibs_data',
+      help='Directory for bias data.')
+  parser.add_argument(
+      '-label',
+      default='both',
+      choices=['both', 'BAD', 'NOT_BAD'],
+      help='Type of examples to output.')
+  parser.add_argument(
+      '-longer', action='store_true', help='Output longer phrases.')
   return parser.parse_args()
 
 
 def _main():
   """Prints some madlibs."""
   args = _parse_args()
-  madlibber = Madlibber()
-  examples_per_template = max(1, args.num_examples
-                              // len(madlibber.TEMPLATE_PAIRS))
+  madlibber = Madlibber(args.bias_data_dir)
+  examples_per_template = max(
+      1, args.num_examples // len(madlibber.TEMPLATE_PAIRS))
   example_set = set()
 
   def actual_label():
@@ -118,8 +143,8 @@ def _main():
       if example not in example_set:
         example_set.add(example)
         template_count += 1
-        print(u'"{}",{},{}'.format(
-            example, label, template_pair['template']).encode('utf-8'))
+        print(u'"{}",{},{}'.format(example, label,
+                                   template_pair['template']).encode('utf-8'))
 
 
 if __name__ == '__main__':
