@@ -16,9 +16,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import metrics
 
-from model_tool import ToxModel, compute_auc
-
-MODEL_DIR = '../models/'
 MADLIBS_TERMS_PATH = 'bias_madlibs_data/adjectives_people.txt'
 
 
