@@ -14,51 +14,19 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn import metrics
 
 from model_tool import ToxModel, compute_auc
 
 MODEL_DIR = '../models/'
 MADLIBS_TERMS_PATH = 'bias_madlibs_data/adjectives_people.txt'
 
-### Model scoring
 
-# Scoring these dataset for dozens of models actually takes non-trivial amounts
-# of time, so we save the results as a CSV. The resulting CSV includes all the
-# columns of the original dataset, and in addition has columns for each model,
-# containing the model's scores.
-def postprocess_madlibs(madlibs):
-    """Modifies madlibs data to have standard 'text' and 'label' columns."""
-    # Native madlibs data uses 'Label' column with values 'BAD' and 'NOT_BAD'.
-    # Replace with a bool.
-    madlibs['label'] = madlibs['Label'] == 'BAD'
-    madlibs.drop('Label', axis=1, inplace=True)
-    madlibs.rename(columns={'Text': 'text'}, inplace=True)
-
-def postprocess_wiki_dataset(wiki_data):
-    """Modifies Wikipedia dataset to have 'text' and 'label' columns."""
-    wiki_data.rename(columns={'is_toxic': 'label',
-                              'comment': 'text'},
-                     inplace=True)
-
-def score_dataset(df, models, text_col):
-    """Scores the dataset with each model and adds the scores as new columns."""
-    for model in models:
-        name = model.get_model_name()
-        print('{} Scoring with {}...'.format(datetime.datetime.now(), name))
-        df[name] = model.predict(df[text_col])
-
-def load_maybe_score(models, orig_path, scored_path, postprocess_fn):
-    if os.path.exists(scored_path):
-        print('Using previously scored data:', scored_path)
-        return pd.read_csv(scored_path)
-
-    dataset = pd.read_csv(orig_path)
-    postprocess_fn(dataset)
-    score_dataset(dataset, models, 'text')
-    print('Saving scores to:', scored_path)
-    dataset.to_csv(scored_path)
-    return dataset
-
+def compute_auc(y_true, y_pred):
+  try:
+    return metrics.roc_auc_score(y_true, y_pred)
+  except ValueError:
+    return np.nan
 
 ### Per-term pinned AUC analysis.
 def model_family_auc(dataset, model_names, label_col):
