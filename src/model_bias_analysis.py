@@ -16,8 +16,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import metrics
 
-MADLIBS_TERMS_PATH = 'bias_madlibs_data/adjectives_people.txt'
-
 
 def compute_auc(y_true, y_pred):
   try:
@@ -48,8 +46,8 @@ def plot_model_family_auc(dataset, model_names, label_col, min_auc=0.9):
     return result
 
 
-def read_madlibs_terms():
-    with open(MADLIBS_TERMS_PATH) as f:
+def read_identity_terms(identity_terms_path):
+    with open(identity_terms_path) as f:
         return [term.strip() for term in f.readlines()]
 
 
