@@ -23,7 +23,7 @@ def compute_auc(y_true, y_pred):
   except ValueError:
     return np.nan
 
-### Per-term pinned AUC analysis.
+### Per-subgroup pinned AUC analysis.
 def model_family_auc(dataset, model_names, label_col):
     aucs = [compute_auc(dataset[label_col], dataset[model_name])
             for model_name in model_names]
@@ -50,19 +50,24 @@ def read_identity_terms(identity_terms_path):
     with open(identity_terms_path) as f:
         return [term.strip() for term in f.readlines()]
 
-
-def balanced_term_subset(df, term, text_col):
-    """Returns data subset containing term balanced with sample of other data.
+    
+def add_subgroup_columns_from_text(df, text_column, subgroups):
+    for term in subgroups:
+        df[term] = df[text_column].apply(lambda x: term in x)
+    
+    
+def balanced_subgroup_subset(df, subgroup, text_col):
+    """Returns data subset containing subgroup balanced with sample of other data.
 
     We draw a random sample from the dataset of other examples because we don't
     care about the model's ability to distinguish toxic from non-toxic just
-    within the term-specific dataset, but rather its ability to distinguish for
-    the term-specific subset within the context of a larger distribution of
+    within the subgroup-specific dataset, but rather its ability to distinguish for
+    the subgroup-specific subset within the context of a larger distribution of
     data.
     """
-    term_df = df[df[text_col].str.contains(r'\b{}\b'.format(term), case=False)]
-    nonterm_df = df[~df.index.isin(term_df.index)].sample(len(term_df), random_state=25)
-    combined = pd.concat([term_df, nonterm_df])
+    subgroup_df = df[df[subgroup]]
+    nonsubgroup_df = df[~df[subgroup]].sample(len(subgroup_df), random_state=25)
+    combined = pd.concat([subgroup_df, nonsubgroup_df])
     return combined
 
 
@@ -74,23 +79,23 @@ def model_family_name(model_names):
     return prefix.strip('_')
 
 
-def per_term_aucs(dataset, terms, model_families, text_col, label_col):
-    """Computes per-term 'pinned' AUC scores for each model family."""
+def per_subgroup_aucs(dataset, subgroups, model_families, text_col, label_col):
+    """Computes per-subgroup 'pinned' AUC scores for each model family."""
     records = []
-    for term in terms:
-        term_subset = balanced_term_subset(dataset, term, text_col)
-        term_record = {'term': term, 'subset_size': len(term_subset)}
+    for subgroup in subgroups:
+        subgroup_subset = balanced_subgroup_subset(dataset, subgroup, text_col)
+        subgroup_record = {'subgroup': subgroup, 'subset_size': len(subgroup_subset)}
         for model_family in model_families:
             family_name = model_family_name(model_family)
-            aucs = [compute_auc(term_subset[label_col], term_subset[model_name])
+            aucs = [compute_auc(subgroup_subset[label_col], subgroup_subset[model_name])
                     for model_name in model_family]
-            term_record.update({
+            subgroup_record.update({
                 family_name + '_mean': np.mean(aucs),
                 family_name + '_median': np.median(aucs),
                 family_name + '_std': np.std(aucs),
                 family_name + '_aucs': aucs,
             })
-        records.append(term_record)
+        records.append(subgroup_record)
     return pd.DataFrame(records)
     
 
@@ -164,14 +169,14 @@ def per_model_eer(dataset, label_col, model_names, num_eer_thresholds=101):
         model_name_to_eer[model_name] = eer['threshold']
     return model_name_to_eer
 
-def per_term_negative_rates(df, terms, model_families, threshold, text_col,
+def per_subgroup_negative_rates(df, subgroups, model_families, threshold, text_col,
                             label_col):
-    """Computes per-term true/false negative rates for all model families.
+    """Computes per-subgroup true/false negative rates for all model families.
 
     Args:
       df: dataset to compute rates on.
-      terms: negative rates are computed on subsets of the dataset containing
-          each term.
+      subgroups: negative rates are computed on subsets of the dataset containing
+          each subgroup.
       text_col: column in df containing the text.
       label_col: column in df containing the boolean label.
       model_families: list of model families; each model family is a list of
@@ -181,18 +186,17 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
           to use a different threshold for each model.
 
     Returns:
-      DataFrame with per-term false/true negative rates for each model family.
+      DataFrame with per-subgroup false/true negative rates for each model family.
           Results are summarized across each model family, giving mean, median,
           and standard deviation of each negative rate.
     """
     records = []
-    for term in terms:
-        if term is None:
-            term_subset = df
+    for subgroup in subgroups:
+        if subgroup is None:
+            subgroup_subset = df
         else:
-            term_subset = df[df[text_col].str.contains(r'\b{}\b'.format(term),
-                                                       case=False)]
-        term_record = {'term': term, 'subset_size': len(term_subset)}
+            subgroup_subset = df[df[subgroup]]
+        subgroup_record = {'subgroup': subgroup, 'subset_size': len(subgroup_subset)}
         for model_family in model_families:
             family_name = model_family_name(model_family)
             family_rates = []
@@ -202,11 +206,11 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
                                    threshold)
                 assert isinstance(model_threshold, float)
                 model_rates = compute_confusion_rates(
-                    term_subset, model_name, label_col, model_threshold)
+                    subgroup_subset, model_name, label_col, model_threshold)
                 family_rates.append(model_rates)
             tnrs, fnrs = ([rates['tnr'] for rates in family_rates],
                           [rates['fnr'] for rates in family_rates])
-            term_record.update({
+            subgroup_record.update({
                 family_name + '_tnr_median': np.median(tnrs),
                 family_name + '_tnr_mean': np.mean(tnrs),
                 family_name + '_tnr_std': np.std(tnrs),
@@ -216,24 +220,24 @@ def per_term_negative_rates(df, terms, model_families, threshold, text_col,
                 family_name + '_fnr_std': np.std(fnrs),
                 family_name + '_fnr_values': fnrs,
             })
-        records.append(term_record)
+        records.append(subgroup_record)
     return pd.DataFrame(records)
 
 ### Summary metrics
-def diff_per_term_from_overall(overall_metrics, per_term_metrics, model_families, metric_column):
-    """Computes the sum of differences between the per-term metric values and the overall values 
-    summed over all terms and models. i.e. sum(|overall_i - per-term_i,t|) for i in model
-    instances and t in terms.
+def diff_per_subgroup_from_overall(overall_metrics, per_subgroup_metrics, model_families, metric_column):
+    """Computes the sum of differences between the per-subgroup metric values and the overall values 
+    summed over all subgroups and models. i.e. sum(|overall_i - per-subgroup_i,t|) for i in model
+    instances and t in subgroups.
     
     Args:
       overall_metrics: dict of model familiy to list of score values for the overall 
           dataset (one per model instance).
-      per_term_metrics: DataFrame of scored results, one term per row. Expected to have
+      per_subgroup_metrics: DataFrame of scored results, one subgroup per row. Expected to have
           a column named model family name + metric column, which contains a list of 
           one score per model instance.
       model_families: list of model families; each model family is a list of
           model names in the family.
-      metric_column: column name suffix in the per_term_metrics df where the per-term data 
+      metric_column: column name suffix in the per_subgroup_metrics df where the per-subgroup data 
           to be diffed is stored.
     
     Returns:
@@ -245,55 +249,55 @@ def diff_per_term_from_overall(overall_metrics, per_term_metrics, model_families
         family_overall_metrics = overall_metrics[family_name]
         metric_diff_sum = 0.0
         diffs[family_name] = 0.0
-        # Loop over the terms. one_term_metric_list is a list of the per-term
+        # Loop over the subgroups. one_subgroup_metric_list is a list of the per-subgroup
         # values, one per model instance.
-        for one_term_metric_list in per_term_metrics[family_name + metric_column]:
-            # Zips the overall scores with the per-term scores, pairing results
+        for one_subgroup_metric_list in per_subgroup_metrics[family_name + metric_column]:
+            # Zips the overall scores with the per-subgroup scores, pairing results
             # from the same model instance, then diffs those pairs and sums.
-            per_term_metric_diffs = [abs(overall_score - per_term_score)
-                                         for overall_score, per_term_score
-                                             in zip(family_overall_metrics, one_term_metric_list)]
-            diffs[family_name] += sum(per_term_metric_diffs)
+            per_subgroup_metric_diffs = [abs(overall_score - per_subgroup_score)
+                                         for overall_score, per_subgroup_score
+                                             in zip(family_overall_metrics, one_subgroup_metric_list)]
+            diffs[family_name] += sum(per_subgroup_metric_diffs)
     return diffs
 
-def per_term_auc_diff_from_overall(dataset, terms, model_families):
-    """Calculates the sum of differences between the per-term pinned AUC and the overall AUC."""
-    per_term_auc_results = per_term_aucs(dataset, terms, model_families, 'text', 'label')
+def per_subgroup_auc_diff_from_overall(dataset, subgroups, model_families):
+    """Calculates the sum of differences between the per-subgroup pinned AUC and the overall AUC."""
+    per_subgroup_auc_results = per_subgroup_aucs(dataset, subgroups, model_families, 'text', 'label')
     overall_aucs = {}
     for fams in model_families:
         family_name = model_family_name(fams)
         overall_aucs[family_name] = model_family_auc(dataset, fams, 'label')['aucs']
-    return diff_per_term_from_overall(overall_aucs, per_term_auc_results, model_families, '_aucs')
+    return diff_per_subgroup_from_overall(overall_aucs, per_subgroup_auc_results, model_families, '_aucs')
 
-def per_term_nr_diff_from_overall(df, terms, model_families, threshold, metric_column):
-    """Calculates the sum of differences between the per-term true or false negative rate and the overall rate."""
-    per_term_nrs = per_term_negative_rates(
-        df, terms, model_families, threshold, 'text', 'label')
-    all_nrs = per_term_negative_rates(
+def per_subgroup_nr_diff_from_overall(df, subgroups, model_families, threshold, metric_column):
+    """Calculates the sum of differences between the per-subgroup true or false negative rate and the overall rate."""
+    per_subgroup_nrs = per_subgroup_negative_rates(
+        df, subgroups, model_families, threshold, 'text', 'label')
+    all_nrs = per_subgroup_negative_rates(
         df, [None], model_families, threshold, 'text', 'label')
     overall_nrs = {}
     for fams in model_families:
         family_name = model_family_name(fams)
         overall_nrs[family_name] = all_nrs[family_name + metric_column][0]
-    return diff_per_term_from_overall(overall_nrs, per_term_nrs, model_families, metric_column)
+    return diff_per_subgroup_from_overall(overall_nrs, per_subgroup_nrs, model_families, metric_column)
 
-def per_term_fnr_diff_from_overall(df, terms, model_families, threshold):
-    """Calculates the sum of differences between the per-term false negative rate and the overall FNR."""
-    return per_term_nr_diff_from_overall(df, terms, model_families, threshold, '_fnr_values')
+def per_subgroup_fnr_diff_from_overall(df, subgroups, model_families, threshold):
+    """Calculates the sum of differences between the per-subgroup false negative rate and the overall FNR."""
+    return per_subgroup_nr_diff_from_overall(df, subgroups, model_families, threshold, '_fnr_values')
 
-def per_term_tnr_diff_from_overall(df, terms, model_families, threshold):
-    """Calculates the sum of differences between the per-term true negative rate and the overall TNR."""    
-    return per_term_nr_diff_from_overall(df, terms, model_families, threshold, '_tnr_values')
+def per_subgroup_tnr_diff_from_overall(df, subgroups, model_families, threshold):
+    """Calculates the sum of differences between the per-subgroup true negative rate and the overall TNR."""    
+    return per_subgroup_nr_diff_from_overall(df, subgroups, model_families, threshold, '_tnr_values')
 
 ### Plotting.
 
-def per_term_scatterplots(df, term_col, values_col, title='', y_lim=(0.8, 1.0),
+def per_subgroup_scatterplots(df, subgroup_col, values_col, title='', y_lim=(0.8, 1.0),
                           figsize=(15,5), point_size=8, file_name='plot'):
-    """Displays a series of one-dimensional scatterplots, 1 scatterplot per term.
+    """Displays a series of one-dimensional scatterplots, 1 scatterplot per subgroup.
 
     Args:
-      df: DataFrame contain term_col and values_col.
-      term_col: Column containing terms.
+      df: DataFrame contain subgroup_col and values_col.
+      subgroup_col: Column containing subgroups.
       values_col: Column containing collection of values to plot (each cell
           should contain a sequence of values, e.g. the AUCs for multiple models
           from the same family).
@@ -304,13 +308,13 @@ def per_term_scatterplots(df, term_col, values_col, title='', y_lim=(0.8, 1.0),
     fig = plt.figure(figsize=figsize)
     ax = fig.add_subplot(111)
     for i, (_index, row) in enumerate(df.iterrows()):
-        # For each term, we plot a 1D scatterplot. The x-value is the position
-        # of the item in the dataframe. To change the ordering of the terms,
+        # For each subgroup, we plot a 1D scatterplot. The x-value is the position
+        # of the item in the dataframe. To change the ordering of the subgroups,
         # sort the dataframe before passing to this function.
         x = [i] * len(row[values_col])
         y = row[values_col]
         ax.scatter(x, y, s=point_size)
-    ax.set_xticklabels(df[term_col], rotation=90)
+    ax.set_xticklabels(df[subgroup_col], rotation=90)
     ax.set_xticks(range(len(df)))
     ax.set_ylim(y_lim)
     ax.set_title(title)
