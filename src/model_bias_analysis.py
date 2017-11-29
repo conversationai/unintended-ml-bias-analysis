@@ -73,7 +73,7 @@ def add_subgroup_columns_from_text(df, text_column, subgroups):
         df[term] = df[text_column].apply(lambda x: term in x)
     
     
-def balanced_subgroup_subset(df, subgroup, text_col):
+def balanced_subgroup_subset(df, subgroup):
     """Returns data subset containing subgroup balanced with sample of other data.
 
     We draw a random sample from the dataset of other examples because we don't
@@ -98,11 +98,11 @@ def model_family_name(model_names):
     return prefix.strip('_')
 
 
-def per_subgroup_aucs(dataset, subgroups, model_families, text_col, label_col):
+def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
     """Computes per-subgroup 'pinned' AUC scores for each model family."""
     records = []
     for subgroup in subgroups:
-        subgroup_subset = balanced_subgroup_subset(dataset, subgroup, text_col)
+        subgroup_subset = balanced_subgroup_subset(dataset, subgroup)
         subgroup_record = {'subgroup': subgroup, 'subset_size': len(subgroup_subset)}
         for model_family in model_families:
             family_name = model_family_name(model_family)
@@ -188,15 +188,14 @@ def per_model_eer(dataset, label_col, model_names, num_eer_thresholds=101):
         model_name_to_eer[model_name] = eer['threshold']
     return model_name_to_eer
 
-def per_subgroup_negative_rates(df, subgroups, model_families, threshold, text_col,
-                            label_col):
+def per_subgroup_negative_rates(df, subgroups, model_families, threshold,
+                                label_col):
     """Computes per-subgroup true/false negative rates for all model families.
 
     Args:
       df: dataset to compute rates on.
       subgroups: negative rates are computed on subsets of the dataset containing
           each subgroup.
-      text_col: column in df containing the text.
       label_col: column in df containing the boolean label.
       model_families: list of model families; each model family is a list of
           model names in the family.
