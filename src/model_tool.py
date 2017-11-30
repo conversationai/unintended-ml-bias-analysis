@@ -15,7 +15,7 @@ from keras.utils import to_categorical
 from sklearn import metrics
 from keras.layers import Embedding
 from keras.layers import Dense, Input, Flatten, Dropout
-from keras.layers import Conv1D, MaxPooling1D, GlobalMaxPooling1D, Multiply
+from keras.layers import Conv1D, MaxPooling1D, Embedding, GlobalMaxPooling1D, merge, Multiply
 from keras.models import Model
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.optimizers import RMSprop
@@ -146,7 +146,7 @@ class ToxModel():
                 self,
                 training_data_path,
                 validation_data_path,
-                text_column,
+                gext_column,
                 label_column, model_name):
         self.model_name = model_name
         self.save_hparams(model_name)
@@ -402,7 +402,6 @@ class AttentionToxModel(ToxModel):
         self.model = Model(sequence_input, preds)
         self.model.compile(
                 loss='categorical_crossentropy',
-                optimizer=rmsprop,
                 metrics=['acc'])
 
         # now make probs model
