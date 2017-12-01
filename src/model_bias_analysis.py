@@ -26,6 +26,7 @@ import os
 
 import numpy as np
 import pandas as pd
+import re
 import matplotlib.pyplot as plt
 from sklearn import metrics
 
@@ -70,7 +71,7 @@ def add_subgroup_columns_from_text(df, text_column, subgroups):
     New column contains True if the text contains that subgroup term.
     """
     for term in subgroups:
-        df[term] = df[text_column].apply(lambda x: term in x)
+        df[term] = df[text_column].apply(lambda x: bool(re.search(r'\b{}\b'.format(term), x)))
     
     
 def balanced_subgroup_subset(df, subgroup):
@@ -280,7 +281,7 @@ def diff_per_subgroup_from_overall(overall_metrics, per_subgroup_metrics, model_
 
 def per_subgroup_auc_diff_from_overall(dataset, subgroups, model_families):
     """Calculates the sum of differences between the per-subgroup pinned AUC and the overall AUC."""
-    per_subgroup_auc_results = per_subgroup_aucs(dataset, subgroups, model_families, 'text', 'label')
+    per_subgroup_auc_results = per_subgroup_aucs(dataset, subgroups, model_families, 'label')
     overall_aucs = {}
     for fams in model_families:
         family_name = model_family_name(fams)
@@ -290,9 +291,9 @@ def per_subgroup_auc_diff_from_overall(dataset, subgroups, model_families):
 def per_subgroup_nr_diff_from_overall(df, subgroups, model_families, threshold, metric_column):
     """Calculates the sum of differences between the per-subgroup true or false negative rate and the overall rate."""
     per_subgroup_nrs = per_subgroup_negative_rates(
-        df, subgroups, model_families, threshold, 'text', 'label')
+        df, subgroups, model_families, threshold, 'label')
     all_nrs = per_subgroup_negative_rates(
-        df, [None], model_families, threshold, 'text', 'label')
+        df, [None], model_families, threshold, 'label')
     overall_nrs = {}
     for fams in model_families:
         family_name = model_family_name(fams)
