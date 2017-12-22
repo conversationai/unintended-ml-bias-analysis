@@ -46,7 +46,7 @@ Please note that if using a virtual environment, it may be necessary to
 manually set your `PYTHONPATH` environment variable in the shell to the correct
 version of python for the environment.
 
-4. Now you can open and evaluate the `src/Train Toxicity Model.ipynb`:
+4. Now you can open and evaluate `src/Train Toxicity Model.ipynb`:
 ```
 jupyter notebook src/Train\ Toxicity\ Model.ipynb
 ```
