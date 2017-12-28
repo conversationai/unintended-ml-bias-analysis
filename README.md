@@ -29,12 +29,27 @@ These notebooks are written for Python 2.7. To run them:
 ```
 pip install -r requirements.txt
 ```
+
 2. Download the data from the [Unintended bias analysis dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973) to the `data/` subdirectory.
+```
+curl -L https://ndownloader.figshare.com/files/7394542 -o data/toxicity_annotated_comments.tsv
+curl -L https://ndownloader.figshare.com/files/7394539 -o data/toxicity_annotated.tsv
+```
+
 3. Download and extract the [GloVe embeddings](http://nlp.stanford.edu/data/glove.6B.zip) in the `data` subdirectory.
+```
+curl -L http://nlp.stanford.edu/data/glove.6B.zip -o data/glove.6B.zip
+zip -x data/glove.6B.zip -d data/glove.6B
+```
 
 Please note that if using a virtual environment, it may be necessary to
 manually set your `PYTHONPATH` environment variable in the shell to the correct
 version of python for the environment.
+
+4. Now you can open and evaluate `src/Train Toxicity Model.ipynb`:
+```
+jupyter notebook src/Train\ Toxicity\ Model.ipynb
+```
 
 ## Dataset bias evaluation
 
