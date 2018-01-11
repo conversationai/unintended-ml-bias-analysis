@@ -21,7 +21,7 @@ setup(
     # There are some restrictions on what makes a valid project name
     # specification here:
     # https://packaging.python.org/specifications/core-metadata/#name
-    name='convai-unintended-model-bias-analysis',  # Required
+    name='convai_unintended_model_bias_analysis',  # Required
 
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
