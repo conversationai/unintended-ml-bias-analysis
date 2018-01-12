@@ -51,9 +51,9 @@ setup(
     # the `py_modules` argument instead as follows, which will expect a file
     # called `my_module.py` to exist:
     #
-    py_modules=['model_bias_analysis'],
+    #py_modules=['model_bias_analysis'],
     #
-    #packages=find_packages(),  # Required
+    packages=['unintended_ml_bias'],  # Required
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
