@@ -51,7 +51,7 @@ setup(
     # the `py_modules` argument instead as follows, which will expect a file
     # called `my_module.py` to exist:
     #
-    py_modules=["src/model_bias_analysis"],
+    py_modules=["model_bias_analysis"],
     #
     #packages=find_packages(),  # Required
 
