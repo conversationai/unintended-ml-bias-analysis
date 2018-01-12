@@ -55,24 +55,25 @@ setup(
     #
     packages=['unintended_ml_bias'],  # Required
 
+
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
     # installed, so they must be valid existing projects.
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=[
-        "numpy",
-        "pandas",
-        "sklearn"
-    ],  # Optional
+    #install_requires=[
+    #    "numpy",
+    #    "pandas",
+    #    "sklearn",
+    #],  # Optional
 
     # If there are data files included in your packages that need to be
     # installed, specify them here.
     #
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
-    #package_data={  # Optional
-    #    'sample': ['package_data.dat'],
-    #},
+    package_data={  # Optional
+        'unintended_ml_bias': ['eval_datasets/*'],
+    },
 )
