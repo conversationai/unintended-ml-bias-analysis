@@ -51,7 +51,7 @@ setup(
     # the `py_modules` argument instead as follows, which will expect a file
     # called `my_module.py` to exist:
     #
-    py_modules=["model_bias_analysis"],
+    py_modules=['model_bias_analysis'],
     #
     #packages=find_packages(),  # Required
 
@@ -61,7 +61,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=[],  # Optional
+    install_requires=["numpy >= 1.13.1"],  # Optional
 
     # If there are data files included in your packages that need to be
     # installed, specify them here.
