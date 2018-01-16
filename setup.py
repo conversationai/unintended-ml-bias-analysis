@@ -58,11 +58,12 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    #install_requires=[
-    #    "numpy",
-    #    "pandas",
-    #    "sklearn",
-    #],  # Optional
+    install_requires=[
+        'matplotlib',
+        'numpy',
+        'pandas',
+        'sklearn',
+    ],
 
     # If there are data files included in your packages that need to be
     # installed, specify them here.
@@ -70,6 +71,6 @@ setup(
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
     package_data={  # Optional
-        'unintended_ml_bias': ['eval_datasets/*'],
+        'unintended_ml_bias': ['eval_datasets/*', 'bias_madlibs_data/*'],
     },
 )
