@@ -70,6 +70,6 @@ setup(
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
     package_data={  # Optional
-        'unintended_ml_bias': ['eval_datasets/*'],
+        'unintended_ml_bias': ['eval_datasets/*', 'bias_madlibs_data/*'],
     },
 )
