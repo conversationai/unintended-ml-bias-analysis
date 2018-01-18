@@ -293,7 +293,7 @@ def diff_per_subgroup_from_overall(overall_metrics, per_subgroup_metrics,
     """
 
   def calculate_error(overall_score, per_group_score):
-    diff = overall_score - per_subgroup_score
+    diff = overall_score - per_group_score
     return diff**2 if squared_error else abs(diff)
 
   diffs = {}
