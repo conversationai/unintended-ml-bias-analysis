@@ -3,10 +3,7 @@ virtualenv/
 data/toxicity_annotated_comments.tsv
 data/toxicity_annotations.tsv
 data/glove.6B
-models/
-venv
-
-*.swp
-*.swo
-*~
-.vscode
+models/*.json
+models/*.pkl
+data/
+*.pyc
