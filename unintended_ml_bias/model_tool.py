@@ -303,17 +303,18 @@ class ToxModel():
   def summary(self):
     return self.model.summary()
 
-
 class AttentionToxModel(ToxModel):
     def __init__(self,
                  model_name=None,
                  model_dir=DEFAULT_MODEL_DIR,
+                 embeddings_path=DEFAULT_EMBEDDINGS_PATH,
                  hparams=None):
         self.model_dir = model_dir
         self.model_name = model_name
         self.model = None
         self.tokenizer = None
         self.hparams = DEFAULT_HPARAMS.copy()
+        self.embeddings_path = embeddings_path
         if hparams:
             self.update_hparams(hparams)
         if model_name:
@@ -378,7 +379,7 @@ class AttentionToxModel(ToxModel):
         preds_callbacks = [ModelCheckpoint(
                             preds_save_path,
                             save_best_only=True,
-                            verbose=self.hparams['verbose'])]
+                            verbose=self.hparams['verbose']),]
         probs_callbacks = [ModelCheckpoint(
                             probs_save_path,
                             save_best_only=True,
@@ -440,7 +441,7 @@ class AttentionToxModel(ToxModel):
 
         x = Flatten()(x)
         x = Dropout(self.hparams['dropout_rate'], name="Dropout")(x)
-        x = Dense(250, activation='relu', name="Dense_RELU")(x)
+        x = Dense(self.hparams['max_sequence_length'], activation='relu', name="Dense_RELU")(x)
 
         # build prediction model
         attention_dict = self.build_dense_attention_layer(x)
@@ -449,6 +450,7 @@ class AttentionToxModel(ToxModel):
         rmsprop = RMSprop(lr=self.hparams['learning_rate'])
         self.model = Model(sequence_input, preds)
         self.model.compile(
+                optimizer=rmsprop,
                 loss='categorical_crossentropy',
                 metrics=['acc'])
 
@@ -461,4 +463,3 @@ class AttentionToxModel(ToxModel):
                 loss='mse', optimizer=rmsprop, metrics=['acc'])
         # build probabilities model
         self.save_prob_model()
-        
