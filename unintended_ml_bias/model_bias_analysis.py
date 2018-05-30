@@ -29,6 +29,7 @@ import pandas as pd
 import re
 import matplotlib.pyplot as plt
 from sklearn import metrics
+import scipy.stats as stats
 
 
 def compute_auc(y_true, y_pred):
@@ -103,6 +104,51 @@ def model_family_name(model_names):
   return prefix.strip('_')
 
 
+def normalized_mwu(data1, data2, model_name):
+  """Returns the number of pairs where the datapoint in data1 has a greater score than that from data2.""" 
+  scores_1 = data1[model_name]
+  scores_2 = data2[model_name]
+  n1 = len(scores_1)
+  n2 = len(scores_2)
+  u, _ = stats.mannwhitneyu(scores_1, scores_2, alternative = 'less')
+  return u/(n1*n2)
+
+
+def compute_within_negative_label_mwu(df, subgroup, label, model_name):
+  u_negative = normalized_mwu(df[~df[subgroup] & ~df[label]],
+                              df[df[subgroup] & ~df[label]],
+                              model_name)
+  return 1 - abs(0.5 - u_negative)
+
+
+def compute_within_positive_label_mwu(df, subgroup, label, model_name):
+  u_positive = normalized_mwu(df[~df[subgroup] & df[label]],
+                              df[df[subgroup] & df[label]],
+                              model_name)
+  return 1 - abs(0.5 - u_positive)
+
+    
+def compute_within_subgroup_mwu(df, subgroup, label, model_name):
+  u_subgroup = normalized_mwu(df[df[subgroup] & ~df[label]], 
+                              df[df[subgroup] & df[label]],
+                              model_name)
+  return 1 - u_subgroup
+
+
+def compute_cross_subgroup_negative_mwu(df, subgroup, label, model_name):
+  u_subgroup_negative = normalized_mwu(df[df[subgroup] & ~df[label]],
+                                       df[~df[subgroup] & df[label]],
+                                       model_name)
+  return 1 - u_subgroup_negative
+
+
+def compute_cross_subgroup_positive_mwu(df, subgroup, label, model_name):
+  u_subgroup_positive = normalized_mwu(df[~df[subgroup] & ~df[label]],
+                                       df[df[subgroup] & df[label]],
+                                       model_name)
+  return 1 - u_subgroup_positive
+    
+    
 def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
   """Computes per-subgroup 'pinned' AUC scores for each model family."""
   records = []
@@ -118,15 +164,39 @@ def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
           compute_auc(subgroup_subset[label_col], subgroup_subset[model_name])
           for model_name in model_family
       ]
+      within_negative_label_mwus = [
+          compute_within_negative_label_mwu(subgroup_subset, subgroup, label_col, model_name)
+          for model_name in model_family
+      ]
+      within_positive_label_mwus = [
+          compute_within_positive_label_mwu(subgroup_subset, subgroup, label_col, model_name)
+          for model_name in model_family
+      ]
+      within_subgroup_mwus = [
+          compute_within_subgroup_mwu(subgroup_subset, subgroup, label_col, model_name)
+          for model_name in model_family
+      ]
+      cross_subgroup_negative_mwus = [
+          compute_cross_subgroup_negative_mwu(subgroup_subset, subgroup, label_col, model_name)
+          for model_name in model_family
+      ]
+      cross_subgroup_positive_mwus = [
+          compute_cross_subgroup_positive_mwu(subgroup_subset, subgroup, label_col, model_name)
+          for model_name in model_family
+      ]
       subgroup_record.update({
           family_name + '_mean': np.mean(aucs),
           family_name + '_median': np.median(aucs),
           family_name + '_std': np.std(aucs),
           family_name + '_aucs': aucs,
+          family_name + '_within_negative_label_mwus': within_negative_label_mwus,
+          family_name + '_within_positive_label_mwus': within_positive_label_mwus,
+          family_name + '_within_subgroup_mwus': within_subgroup_mwus,
+          family_name + '_cross_subgroup_negative_mwus': cross_subgroup_negative_mwus,
+          family_name + '_cross_subgroup_positive_mwus': cross_subgroup_positive_mwus
       })
     records.append(subgroup_record)
   return pd.DataFrame(records)
-
 
 ### Equality of opportunity negative rates analysis.
 
