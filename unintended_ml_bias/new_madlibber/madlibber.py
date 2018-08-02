@@ -129,7 +129,6 @@ class Madlibber(object):
       template_count = 0
       print("Working on template '{}' with toxicity '{}' and phrase '{}'".format(template, toxicity, phrase))
 
-
       unicode_phrase = phrase.decode('utf-8')
       for words in self.__iterate_words(template_elements, 0):
         output_phrase = unicode_phrase.format(**words)
@@ -160,13 +159,13 @@ class Madlibber(object):
   def __extract_template_elements(self, phrase):
     return re.findall('\{(.*?)\}',phrase)
 
-  def __iterate_words(self, template_elements, template_elements_index):
-    is_last = template_elements_index == (len(template_elements) - 1)
-    template_elements_key = template_elements[template_elements_index]
-    for word in self.__words[template_elements_key]:
+  def __iterate_words(self, template_elements, template_element_index):
+    is_last = template_element_index == (len(template_elements) - 1)
+    template_element_key = template_elements[template_element_index]
+    for word in self.__words[template_element_key]:
       if is_last:
-        yield {template_elements_key: word}
+        yield {template_element_key: word}
       else:
-        for words in self.__iterate_words(template_elements, template_elements_index+1):
-          words[template_elements_key] = word
+        for words in self.__iterate_words(template_elements, template_element_index+1):
+          words[template_element_key] = word
           yield words
