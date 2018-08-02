@@ -27,8 +27,13 @@ def main():
   args = parse_args()
   ph = PathHelper(args.input_words, args.input_sentence_templates, args.output_file)
   m = Madlibber(ph)
+  m.load_sanity_check_templates_and_infer_word_categories()
   m.load_and_sanity_check_words()
-  m.fill_templates()
+  m.display_statistics()
+  should_fill = raw_input("Do you wish to generate the sentences? [y/N]")
+  if should_fill == "y":
+    m.fill_templates()
+  print("Done. Exiting...") 
 
 if __name__ == '__main__':
   main()
