@@ -8,18 +8,22 @@ class Madlibber(object):
     self.__all_template_elements = set([])
     self.__toxicity = set(["toxic", "nontoxic"])
     self.__words = {}
+    # word_types are things like identity, adjective, verb, occupation, etc
     self.__word_types = set([])
+    # word connotations are like toxic, nontoxic, etc
     self.__word_connotations = set([])
+    # word genders are masculine, feminine, etc for languages where this concept exists, i.e. in French blanc (masculine white) vs blanche (feminine white)
     self.__word_genders = set([])
 
   def load_sanity_check_templates_and_infer_word_categories(self):
     print("Loading templates, sanity checking and inferring word categories...")
     f = open(self.path_helper.sentence_template_file, 'r')
-    csv_f = csv.reader(f)
-    next(csv_f)  # skip header
+    csv_f = csv.DictReader(f)
 
     for line in csv_f:
-      template, toxicity, phrase = line
+      template = line['template']
+      toxicity = line['toxicity']
+      phrase = line['phrase']
       template_elements = self.__extract_template_elements(phrase)
 
       if phrase == '':
@@ -49,14 +53,16 @@ class Madlibber(object):
   def load_and_sanity_check_words(self):
     print("Loading word list...")
     f = open(self.path_helper.word_file, 'r')
-    csv_f = csv.reader(f)
-    next(csv_f)  # skip header
+    csv_f = csv.DictReader(f)
 
     seen_word_types = set([])
     seen_word_connotations = set([])
     seen_word_genders = set([])
     for line in csv_f:
-      word_type, word_conn, word_gender, word = line
+      word_type = line['type']
+      word_conn = line['connotation']
+      word_gender = line['gender']
+      word = line['word']
 
       if word == '':
         continue
