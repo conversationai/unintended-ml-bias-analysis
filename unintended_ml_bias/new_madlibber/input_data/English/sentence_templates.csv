@@ -1,0 +1,13 @@
+template,toxicity,phrase
+verb_adj,nontoxic,"{verb_nontoxic_n} {identity_neutral_n}"
+verb_adj,toxic,"{verb_toxic_n} {identity_neutral_n}"
+am_hate_adj,nontoxic,"I am {identity_neutral_n}"
+am_hate_adj,toxic,"I hate {identity_neutral_n}"
+being_adj,nontoxic,"Being {identity_neutral_n} is {adjective_nontoxic_n}"
+being_adj,toxic,"Being {identity_neutral_n} is {adjective_toxic_n}"
+name_adj,nontoxic,"{name_neutral_n} is a {adjective_nontoxic_n} {identity_neutral_n}"
+name_adj,toxic,"{name_neutral_n} is a {adjective_toxic_n} {identity_neutral_n}"
+you_are_adj,nontoxic,"You are a {adjective_nontoxic_n} {identity_neutral_n}"
+you_are_adj,toxic,"You are a {adjective_toxic_n} {identity_neutral_n}"
+you_occupation,nontoxic,"You are a {adjective_nontoxic_n} {occupation_neutral_n}"
+you_occupation,toxic,"You are a {adjective_toxic_n} {occupation_neutral_n}"
