@@ -1,0 +1,139 @@
+template,toxicity,phrase
+verb_adj,nontoxic,{verb_nontoxic_n} les {identity_neutral_f}
+verb_adj,nontoxic,{verb_nontoxic_n} les {identity_neutral_m}
+verb_adj,nontoxic,{verb_nontoxic_n} les {identity_neutral_n}
+verb_adj,toxic,{verb_toxic_n} les {identity_neutral_f}
+verb_adj,toxic,{verb_toxic_n} les {identity_neutral_m}
+verb_adj,toxic,{verb_toxic_n} les {identity_neutral_n}
+am_hate_adj,nontoxic,Je suis {identity_neutral_n}
+am_hate_adj,nontoxic,Je suis {identity_neutral_m}
+am_hate_adj,nontoxic,Je suis {identity_neutral_f}
+am_hate_adj,toxic,Je déteste les {identity_neutral_f}
+am_hate_adj,toxic,Je déteste les {identity_neutral_m}
+am_hate_adj,toxic,Je déteste les {identity_neutral_n}
+being_adj,nontoxic,C’est {adjective_nontoxic_m} d’être {identity_neutral_f}
+being_adj,nontoxic,C’est {adjective_nontoxic_m} d’être {identity_neutral_m}
+being_adj,nontoxic,C’est {adjective_nontoxic_m} d’être {identity_neutral_n}
+being_adj,nontoxic,C’est {adjective_nontoxic_n} d’être {identity_neutral_f}
+being_adj,nontoxic,C’est {adjective_nontoxic_n} d’être {identity_neutral_m}
+being_adj,nontoxic,C’est {adjective_nontoxic_n} d’être {identity_neutral_n}
+being_adj,toxic,C’est {adjective_toxic_m} d’être {identity_neutral_f}
+being_adj,toxic,C’est {adjective_toxic_m} d’être {identity_neutral_m}
+being_adj,toxic,C’est {adjective_toxic_m} d’être {identity_neutral_n}
+being_adj,toxic,C’est {adjective_toxic_n} d’être {identity_neutral_f}
+being_adj,toxic,C’est {adjective_toxic_n} d’être {identity_neutral_m}
+being_adj,toxic,C’est {adjective_toxic_n} d’être {identity_neutral_n}
+self_being,nontoxic,Je suis fière d’être {identity_neutral_f}
+self_being,nontoxic,Je suis fier d’être {identity_neutral_m}
+self_being,nontoxic,Je suis fier d’être {identity_neutral_n}
+self_being,toxic,J’ai honte d’être {identity_neutral_f}
+self_being,toxic,J’ai honte d’être {identity_neutral_m}
+self_being,toxic,J’ai honte d’être {identity_neutral_n}
+identity_adj,nontoxic,Les {identity_neutral_m} sont {adjective_nontoxic_m}
+identity_adj,nontoxic,Les {identity_neutral_n} sont {adjective_nontoxic_m}
+identity_adj,nontoxic,Les {identity_neutral_m} sont {adjective_nontoxic_n}
+identity_adj,nontoxic,Les {identity_neutral_n} sont {adjective_nontoxic_n}
+identity_adj,nontoxic,Les {identity_neutral_f} sont {adjective_nontoxic_f}
+identity_adj,nontoxic,Les {identity_neutral_f} sont {adjective_nontoxic_n}
+identity_adj,toxic,Les {identity_neutral_m} sont {adjective_toxic_m}
+identity_adj,toxic,Les {identity_neutral_n} sont {adjective_toxic_m}
+identity_adj,toxic,Les {identity_neutral_m} sont {adjective_toxic_n}
+identity_adj,toxic,Les {identity_neutral_n} sont {adjective_toxic_n}
+identity_adj,toxic,Les {identity_neutral_f} sont {adjective_toxic_f}
+identity_adj,toxic,Les {identity_neutral_f} sont {adjective_toxic_n}
+name_adj,nontoxic,{name_neutral_m} est un {identity_neutral_m} {adjective_nontoxic_m}
+name_adj,nontoxic,{name_neutral_m} est un {identity_neutral_n} {adjective_nontoxic_m}
+name_adj,nontoxic,{name_neutral_m} est un {identity_neutral_m} {adjective_nontoxic_n}
+name_adj,nontoxic,{name_neutral_m} est un {identity_neutral_n} {adjective_nontoxic_n}
+name_adj,nontoxic,{name_neutral_m} est un {adjective_nontoxic_m} {identity_neutral_m}
+name_adj,nontoxic,{name_neutral_m} est un {adjective_nontoxic_n} {identity_neutral_m} 
+name_adj,nontoxic,{name_neutral_m} est un {adjective_nontoxic_m} {identity_neutral_n}
+name_adj,nontoxic,{name_neutral_m} est un {adjective_nontoxic_n} {identity_neutral_n}
+name_adj,nontoxic,{name_neutral_f} est une {identity_neutral_f} {adjective_nontoxic_f} 
+name_adj,nontoxic,{name_neutral_f} est une {identity_neutral_n} {adjective_nontoxic_f}
+name_adj,nontoxic,{name_neutral_f} est une {identity_neutral_f} {adjective_nontoxic_n}  
+name_adj,nontoxic,{name_neutral_f} est une {identity_neutral_n} {adjective_nontoxic_n}
+name_adj,nontoxic,{name_neutral_f} est une {adjective_nontoxic_f} {identity_neutral_f} 
+name_adj,nontoxic,{name_neutral_f} est une {adjective_nontoxic_n} {identity_neutral_f}   
+name_adj,nontoxic,{name_neutral_f} est une {adjective_nontoxic_f} {identity_neutral_n}
+name_adj,nontoxic,{name_neutral_f} est une {adjective_nontoxic_n} {identity_neutral_n}
+name_adj,toxic,{name_neutral_m} est un {identity_neutral_m} {adjective_toxic_m}
+name_adj,toxic,{name_neutral_m} est un {identity_neutral_n} {adjective_toxic_m}
+name_adj,toxic,{name_neutral_m} est un {identity_neutral_m} {adjective_toxic_n}
+name_adj,toxic,{name_neutral_m} est un {identity_neutral_n} {adjective_toxic_n}
+name_adj,toxic,{name_neutral_m} est un {adjective_toxic_m} {identity_neutral_m}
+name_adj,toxic,{name_neutral_m} est un {adjective_toxic_n} {identity_neutral_m}
+name_adj,toxic,{name_neutral_m} est un {adjective_toxic_m} {identity_neutral_n}
+name_adj,toxic,{name_neutral_m} est un {adjective_toxic_n} {identity_neutral_n}
+name_adj,toxic,{name_neutral_f} est une {identity_neutral_f} {adjective_toxic_f}
+name_adj,toxic,{name_neutral_f} est une {identity_neutral_n} {adjective_toxic_f}
+name_adj,toxic,{name_neutral_f} est une {identity_neutral_f} {adjective_toxic_n}
+name_adj,toxic,{name_neutral_f} est une {identity_neutral_n} {adjective_toxic_n}
+name_adj,toxic,{name_neutral_f} est une {adjective_toxic_f} {identity_neutral_f}
+name_adj,toxic,{name_neutral_f} est une {adjective_toxic_n} {identity_neutral_f}
+name_adj,toxic,{name_neutral_f} est une {adjective_toxic_f} {identity_neutral_n}
+name_adj,toxic,{name_neutral_f} est une {adjective_toxic_n} {identity_neutral_n}
+you_are_adj,nontoxic,Tu es un {identity_neutral_m} {adjective_nontoxic_m}
+you_are_adj,nontoxic,Tu es un {identity_neutral_n} {adjective_nontoxic_m}
+you_are_adj,nontoxic,Tu es un {identity_neutral_m} {adjective_nontoxic_n}
+you_are_adj,nontoxic,Tu es un {identity_neutral_n} {adjective_nontoxic_n}
+you_are_adj,nontoxic,Tu es un {adjective_nontoxic_m} {identity_neutral_m}
+you_are_adj,nontoxic,Tu es un {adjective_nontoxic_n} {identity_neutral_m}
+you_are_adj,nontoxic,Tu es un {adjective_nontoxic_m} {identity_neutral_n}
+you_are_adj,nontoxic,Tu es un {adjective_nontoxic_n} {identity_neutral_n}
+you_are_adj,nontoxic,Tu es une {identity_neutral_f} {adjective_nontoxic_f}
+you_are_adj,nontoxic,Tu es une {identity_neutral_n} {adjective_nontoxic_f}
+you_are_adj,nontoxic,Tu es une {identity_neutral_f} {adjective_nontoxic_n}
+you_are_adj,nontoxic,Tu es une {identity_neutral_n} {adjective_nontoxic_n}
+you_are_adj,nontoxic,Tu es une {adjective_nontoxic_f} {identity_neutral_f}
+you_are_adj,nontoxic,Tu es une {adjective_nontoxic_n} {identity_neutral_f}
+you_are_adj,nontoxic,Tu es une {adjective_nontoxic_f} {identity_neutral_n}
+you_are_adj,nontoxic,Tu es une {adjective_nontoxic_n} {identity_neutral_n}
+you_are_adj,toxic,Tu es un {identity_neutral_m} {adjective_toxic_m}
+you_are_adj,toxic,Tu es un {identity_neutral_n} {adjective_toxic_m}
+you_are_adj,toxic,Tu es un {identity_neutral_m} {adjective_toxic_n}
+you_are_adj,toxic,Tu es un {identity_neutral_n} {adjective_toxic_n}
+you_are_adj,toxic,Tu es un {adjective_toxic_m} {identity_neutral_m}
+you_are_adj,toxic,Tu es un {adjective_toxic_m} {identity_neutral_n}
+you_are_adj,toxic,Tu es un {adjective_toxic_n} {identity_neutral_m}
+you_are_adj,toxic,Tu es un {adjective_toxic_n} {identity_neutral_n}
+you_are_adj,toxic,Tu es une {identity_neutral_f} {adjective_toxic_f}
+you_are_adj,toxic,Tu es une {identity_neutral_n} {adjective_toxic_f}
+you_are_adj,toxic,Tu es une {identity_neutral_f} {adjective_toxic_n}
+you_are_adj,toxic,Tu es une {identity_neutral_n} {adjective_toxic_n}
+you_are_adj,toxic,Tu es une {adjective_toxic_f} {identity_neutral_f}
+you_are_adj,toxic,Tu es une {adjective_toxic_f} {identity_neutral_n}
+you_are_adj,toxic,Tu es une {adjective_toxic_n} {identity_neutral_f}
+you_are_adj,toxic,Tu es une {adjective_toxic_n} {identity_neutral_n}
+you_occupation,nontoxic,Tu es un {occupation_neutral_m} {adjective_nontoxic_m}
+you_occupation,nontoxic,Tu es un {occupation_neutral_n} {adjective_nontoxic_m}
+you_occupation,nontoxic,Tu es un {occupation_neutral_m} {adjective_nontoxic_n}
+you_occupation,nontoxic,Tu es un {occupation_neutral_n} {adjective_nontoxic_n}
+you_occupation,nontoxic,Tu es un {adjective_nontoxic_m} {occupation_neutral_m}
+you_occupation,nontoxic,Tu es un {adjective_nontoxic_m} {occupation_neutral_n}
+you_occupation,nontoxic,Tu es un {adjective_nontoxic_n} {occupation_neutral_m}
+you_occupation,nontoxic,Tu es un {adjective_nontoxic_n} {occupation_neutral_n}
+you_occupation,nontoxic,Tu es une {occupation_neutral_f} {adjective_nontoxic_f}
+you_occupation,nontoxic,Tu es une {occupation_neutral_n} {adjective_nontoxic_f}
+you_occupation,nontoxic,Tu es une {occupation_neutral_f} {adjective_nontoxic_n}
+you_occupation,nontoxic,Tu es une {occupation_neutral_n} {adjective_nontoxic_n}
+you_occupation,nontoxic,Tu es une {adjective_nontoxic_f} {occupation_neutral_f}
+you_occupation,nontoxic,Tu es une {adjective_nontoxic_f} {occupation_neutral_n}
+you_occupation,nontoxic,Tu es une {adjective_nontoxic_n} {occupation_neutral_f}
+you_occupation,nontoxic,Tu es une {adjective_nontoxic_n} {occupation_neutral_n}
+you_occupation,toxic,Tu es un {occupation_neutral_m} {adjective_toxic_m}
+you_occupation,toxic,Tu es un {occupation_neutral_n} {adjective_toxic_m}
+you_occupation,toxic,Tu es un {occupation_neutral_m} {adjective_toxic_n}
+you_occupation,toxic,Tu es un {occupation_neutral_n} {adjective_toxic_n}
+you_occupation,toxic,Tu es un {adjective_toxic_m} {occupation_neutral_m}
+you_occupation,toxic,Tu es un {adjective_toxic_m} {occupation_neutral_n}
+you_occupation,toxic,Tu es un {adjective_toxic_n} {occupation_neutral_m}
+you_occupation,toxic,Tu es un {adjective_toxic_n} {occupation_neutral_n}
+you_occupation,toxic,Tu es une {occupation_neutral_f} {adjective_toxic_f}
+you_occupation,toxic,Tu es une {occupation_neutral_n} {adjective_toxic_f}
+you_occupation,toxic,Tu es une {occupation_neutral_f} {adjective_toxic_n}
+you_occupation,toxic,Tu es une {occupation_neutral_n} {adjective_toxic_n}
+you_occupation,toxic,Tu es une {adjective_toxic_f} {occupation_neutral_f}
+you_occupation,toxic,Tu es une {adjective_toxic_f} {occupation_neutral_n}
+you_occupation,toxic,Tu es une {adjective_toxic_n} {occupation_neutral_f}
+you_occupation,toxic,Tu es une {adjective_toxic_n} {occupation_neutral_n}
