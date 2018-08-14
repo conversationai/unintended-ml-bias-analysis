@@ -1,6 +1,9 @@
 import argparse
 
 from path_helper import PathHelper
+from format_helper import FormatHelper
+from template_words import TemplateWords
+from template_words_helper import TemplateWordsHelper
 from madlibber import Madlibber
 
 def parse_args():
@@ -26,7 +29,8 @@ def parse_args():
 def main():
   args = parse_args()
   ph = PathHelper(args.input_words, args.input_sentence_templates, args.output_file)
-  m = Madlibber(ph)
+  twh = TemplateWordsHelper(FormatHelper, TemplateWords)
+  m = Madlibber(ph, FormatHelper, twh)
   m.load_sanity_check_templates_and_infer_word_categories()
   m.load_and_sanity_check_words()
   m.display_statistics()
