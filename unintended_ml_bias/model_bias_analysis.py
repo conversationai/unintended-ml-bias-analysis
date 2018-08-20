@@ -118,14 +118,14 @@ def compute_within_negative_label_mwu(df, subgroup, label, model_name):
   u_negative = normalized_mwu(df[~df[subgroup] & ~df[label]],
                               df[df[subgroup] & ~df[label]],
                               model_name)
-  return 1 - abs(0.5 - u_negative)
+  return 0.5 - u_negative
 
 
 def compute_within_positive_label_mwu(df, subgroup, label, model_name):
   u_positive = normalized_mwu(df[~df[subgroup] & df[label]],
                               df[df[subgroup] & df[label]],
                               model_name)
-  return 1 - abs(0.5 - u_positive)
+  return 0.5 - u_positive
 
     
 def compute_within_subgroup_mwu(df, subgroup, label, model_name):
