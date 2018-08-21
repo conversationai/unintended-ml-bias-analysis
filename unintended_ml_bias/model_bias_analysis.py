@@ -170,27 +170,27 @@ def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
           for model_name in model_family
       ]
       within_negative_label_mwus = [
-          compute_within_negative_label_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_within_negative_label_mwu(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       within_positive_label_mwus = [
-          compute_within_positive_label_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_within_positive_label_mwu(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       within_subgroup_mwus = [
-          compute_within_subgroup_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_within_subgroup_mwu(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       cross_subgroup_negative_mwus = [
-          compute_cross_subgroup_negative_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_cross_subgroup_negative_mwu(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       cross_subgroup_positive_mwus = [
-          compute_cross_subgroup_positive_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_cross_subgroup_positive_mwu(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       normalized_pinned_aucs = [
-          compute_normalized_pinned_auc(subgroup_subset, subgroup, label_col, model_name)
+          compute_normalized_pinned_auc(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       subgroup_record.update({
