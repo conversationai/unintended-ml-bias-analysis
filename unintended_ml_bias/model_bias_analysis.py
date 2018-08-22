@@ -128,14 +128,14 @@ def compute_within_negative_label_mwu(df, subgroup, label, model_name):
   u_negative = normalized_mwu(df[~df[subgroup] & ~df[label]],
                               df[df[subgroup] & ~df[label]],
                               model_name)
-  return 1 - abs(0.5 - u_negative)
+  return 0.5 - u_negative
 
 
 def compute_within_positive_label_mwu(df, subgroup, label, model_name):
   u_positive = normalized_mwu(df[~df[subgroup] & df[label]],
                               df[df[subgroup] & df[label]],
                               model_name)
-  return 1 - abs(0.5 - u_positive)
+  return 0.5 - u_positive
 
     
 def compute_within_subgroup_mwu(df, subgroup, label, model_name):
@@ -158,6 +158,11 @@ def compute_cross_subgroup_positive_mwu(df, subgroup, label, model_name):
                                        model_name)
   return 1 - u_subgroup_positive
     
+def compute_normalized_pinned_auc(df, subgroup, label, model_name):
+    within_subgroup = compute_within_subgroup_mwu(df, subgroup, label, model_name)
+    cross_1 = compute_cross_subgroup_negative_mwu(df, subgroup, label, model_name)
+    cross_2 = compute_cross_subgroup_positive_mwu(df, subgroup, label, model_name)
+    return np.mean([within_subgroup, cross_1, cross_2])
     
 def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
   """Computes per-subgroup 'pinned' AUC scores for each model family."""
@@ -175,23 +180,27 @@ def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
           for model_name in model_family
       ]
       within_negative_label_mwus = [
-          compute_within_negative_label_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_within_negative_label_mwu(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       within_positive_label_mwus = [
-          compute_within_positive_label_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_within_positive_label_mwu(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       within_subgroup_mwus = [
-          compute_within_subgroup_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_within_subgroup_mwu(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       cross_subgroup_negative_mwus = [
-          compute_cross_subgroup_negative_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_cross_subgroup_negative_mwu(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       cross_subgroup_positive_mwus = [
-          compute_cross_subgroup_positive_mwu(subgroup_subset, subgroup, label_col, model_name)
+          compute_cross_subgroup_positive_mwu(dataset, subgroup, label_col, model_name)
+          for model_name in model_family
+      ]
+      normalized_pinned_aucs = [
+          compute_normalized_pinned_auc(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
       subgroup_record.update({
@@ -203,7 +212,8 @@ def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
           family_name + '_within_positive_label_mwus': within_positive_label_mwus,
           family_name + '_within_subgroup_mwus': within_subgroup_mwus,
           family_name + '_cross_subgroup_negative_mwus': cross_subgroup_negative_mwus,
-          family_name + '_cross_subgroup_positive_mwus': cross_subgroup_positive_mwus
+          family_name + '_cross_subgroup_positive_mwus': cross_subgroup_positive_mwus,
+          family_name + '_normalized_pinned_aucs': normalized_pinned_aucs
       })
     records.append(subgroup_record)
   return pd.DataFrame(records)
@@ -406,7 +416,7 @@ def diff_per_subgroup_from_overall(overall_metrics, per_subgroup_metrics,
 
 
 def per_subgroup_auc_diff_from_overall(dataset, subgroups, model_families,
-                                       squared_error):
+                                       squared_error, normed_auc):
   """Calculates the sum of differences between the per-subgroup pinned AUC and the overall AUC."""
   per_subgroup_auc_results = per_subgroup_aucs(dataset, subgroups,
                                                model_families, 'label')
@@ -414,8 +424,9 @@ def per_subgroup_auc_diff_from_overall(dataset, subgroups, model_families,
   for fams in model_families:
     family_name = model_family_name(fams)
     overall_aucs[family_name] = model_family_auc(dataset, fams, 'label')['aucs']
+  auc_column = '_normalized_pinned_aucs' if normed_auc else '_aucs'
   d = diff_per_subgroup_from_overall(overall_aucs, per_subgroup_auc_results,
-                                     model_families, '_aucs', squared_error)
+                                     model_families, auc_column, squared_error)
   return pd.DataFrame(
       d.items(), columns=['model_family', 'pinned_auc_equality_difference'])
 
