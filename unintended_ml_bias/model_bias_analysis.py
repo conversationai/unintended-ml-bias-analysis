@@ -113,6 +113,20 @@ def normalized_mwu(data1, data2, model_name):
   u, _ = stats.mannwhitneyu(scores_1, scores_2, alternative = 'less')
   return u/(n1*n2)
 
+def average_squared_equality_gap(df, subgroup, label, model_name):
+  """Returns the positive and negative ASEG metrics."""
+  subgroup_df = df[df[subgroup]]
+  background_df = df[~df[subgroup]]
+  s_fpr, s_tpr, _ = metrics.roc_curve(subgroup_df[label], 
+                                   subgroup_df[model_name],
+                                   drop_intermediate = False)
+  b_fpr, b_tpr, _ = metrics.roc_curve(background_df[label], 
+                                   background_df[model_name],
+                                   drop_intermediate = False)
+  return squared_diff_integral(s_tpr, b_tpr), squared_diff_integral(s_fpr, b_fpr)
+  
+def squared_diff_integral(y, x):
+  return np.trapz(np.square(np.subtract(y,x)), x)
 
 def compute_within_negative_label_mwu(df, subgroup, label, model_name):
   u_negative = normalized_mwu(df[~df[subgroup] & ~df[label]],
