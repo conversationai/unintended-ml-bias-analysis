@@ -28,7 +28,6 @@ import numpy as np
 import pandas as pd
 import re
 import matplotlib.pyplot as plt
-from sklearn import metrics
 import scipy.stats as stats
 
 
@@ -117,12 +116,9 @@ def average_squared_equality_gap(df, subgroup, label, model_name):
   """Returns the positive and negative ASEG metrics."""
   subgroup_df = df[df[subgroup]]
   background_df = df[~df[subgroup]]
-  s_fpr, s_tpr, _ = metrics.roc_curve(subgroup_df[label], 
-                                   subgroup_df[model_name],
-                                   drop_intermediate = False)
-  b_fpr, b_tpr, _ = metrics.roc_curve(background_df[label], 
-                                   background_df[model_name],
-                                   drop_intermediate = False)
+  thresholds = np.linspace(1.0, 0.0, num = 1000)
+  s_fpr, s_tpr = positive_rates(subgroup_df, model_name, label, thresholds)
+  b_fpr, b_tpr = positive_rates(background_df, model_name, label, thresholds)
   return squared_diff_integral(s_tpr, b_tpr), squared_diff_integral(s_fpr, b_fpr)
   
 def squared_diff_integral(y, x):
@@ -223,6 +219,14 @@ def confusion_matrix_counts(df, score_col, label_col, threshold):
       'fn': len(df[(df[score_col] < threshold) & (df[label_col] == True)]),
   }
 
+def positive_rates(df, score_col, label_col, thresholds):
+  tpr = []
+  fpr = []
+  for threshold in thresholds:
+    confusion = confusion_matrix_counts(df, score_col, label_col, threshold)
+    tpr.append(confusion['tp'] / (confusion['tp'] + confusion['fn']))
+    fpr.append(confusion['fp'] / (confusion['fp'] + confusion['tn']))
+  return fpr, tpr
 
 # https://en.wikipedia.org/wiki/Confusion_matrix
 def compute_confusion_rates(df, score_col, label_col, threshold):
