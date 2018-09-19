@@ -183,7 +183,7 @@ def compute_normalized_pinned_auc(df, subgroup, label, model_name):
       return None
     return np.mean([within_subgroup, cross_1, cross_2])
 
-def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
+def per_subgroup_aucs(dataset, subgroups, model_families, label_col, include_asegs=False):
   """Computes per-subgroup 'pinned' AUC scores for each model family."""
   records = []
   for subgroup in subgroups:
@@ -222,13 +222,6 @@ def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
           compute_normalized_pinned_auc(dataset, subgroup, label_col, model_name)
           for model_name in model_family
       ]
-      # TODO(dborkan): re-add aseg metrics if we can speed them up, or make
-      # them optional.  These metric are significantly slower than other
-      # metrics (e.g. 14 seconds vs 0.02 seconds on the madlibs dataset).
-      # positive_asegs, negative_asegs = zip(*[
-      #     average_squared_equality_gap(dataset, subgroup, label_col, model_name)
-      #     for model_name in model_family
-      # ])
       subgroup_record.update({
           family_name + '_mean': np.mean(aucs),
           family_name + '_median': np.median(aucs),
@@ -240,9 +233,16 @@ def per_subgroup_aucs(dataset, subgroups, model_families, label_col):
           family_name + '_cross_subgroup_negative_mwus': cross_subgroup_negative_mwus,
           family_name + '_cross_subgroup_positive_mwus': cross_subgroup_positive_mwus,
           family_name + '_normalized_pinned_aucs': normalized_pinned_aucs
-          # family_name + '_positive_asegs': positive_asegs,
-          # family_name + '_negative_asegs': negative_asegs
       })
+      if include_asegs:
+        positive_asegs, negative_asegs = zip(*[
+            average_squared_equality_gap(dataset, subgroup, label_col, model_name)
+            for model_name in model_family
+        ])
+        subgroup_record.update({
+            family_name + '_positive_asegs': positive_asegs,
+            family_name + '_negative_asegs': negative_asegs
+        })
     records.append(subgroup_record)
   return pd.DataFrame(records)
 
