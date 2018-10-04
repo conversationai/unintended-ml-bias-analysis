@@ -1,0 +1,37 @@
+template,toxicity,phrase
+verb_adj,nontoxic,{verb_nontoxic_n} {identity_neutral_n}
+verb_adj,toxic,{verb_toxic_n} {identity_neutral_n}
+am_hate_adj,nontoxic,I am {identity_neutral_n}
+am_hate_adj,toxic,I hate {identity_neutral_n}
+being_adj,nontoxic,Being {identity_neutral_n} is {adjective_nontoxic_n}
+being_adj,toxic,Being {identity_neutral_n} is {adjective_toxic_n}
+name_adj,nontoxic,{name_neutral_n} is a {adjective_nontoxic_n} {identity_neutral_n}
+name_adj,toxic,{name_neutral_n} is a {adjective_toxic_n} {identity_neutral_n}
+you_are_adj,nontoxic,You are a {adjective_nontoxic_n} {identity_neutral_n}
+you_are_adj,toxic,You are a {adjective_toxic_n} {identity_neutral_n}
+you_occupation,nontoxic,You are a {adjective_nontoxic_n} {occupation_neutral_n}
+you_occupation,toxic,You are a {adjective_toxic_n} {occupation_neutral_n}
+verb_adj,nontoxic,{verb_nontoxic_n}{identity_neutral_m}
+verb_adj,toxic,{verb_toxic_n} {identity_neutral_m}
+am_hate_adj,nontoxic,I am {identity_neutral_n}
+am_hate_adj,toxic,I hate {identity_neutral_n}
+being_adj,nontoxic,Being {identity_neutral_n} is {adjective_nontoxic_n}
+being_adj,toxic,Being {identity_neutral_n} is {adjective_toxic_n}
+name_adj,nontoxic,{name_neutral_m} is a {adjective_nontoxic_n} {identity_neutral_m}
+name_adj,toxic,{name_neutral_m} is a {adjective_toxic_m} {identity_neutral_m}
+you_are_adj,nontoxic,You are a {adjective_nontoxic_m} {identity_neutral_m}
+you_are_adj,toxic,You are a {adjective_toxic_m} {identity_neutral_m}
+you_occupation,nontoxic,You are a {adjective_nontoxic_m} {occupation_neutral_m}
+you_occupation,toxic,You are a {adjective_toxic_m} {occupation_neutral_m}
+verb_adj,nontoxic,{verb_nontoxic_n}{identity_neutral_f}
+verb_adj,toxic,{verb_toxic_n} {identity_neutral_f}
+am_hate_adj,nontoxic,I am {identity_neutral_f}
+am_hate_adj,toxic,I hate {identity_neutral_f}
+being_adj,nontoxic,Being {identity_neutral_f} is {adjective_fontoxic_n}
+being_adj,toxic,Being {identity_neutral_f} is {adjective_toxic_n}
+name_adj,nontoxic,{name_neutral_f} is a {adjective_fontoxic_f} {identity_neutral_f}
+name_adj,toxic,{name_neutral_f} is a {adjective_toxic_f} {identity_neutral_f}
+you_are_adj,nontoxic,You are a {adjective_fontoxic_f} {identity_neutral_f}
+you_are_adj,toxic,You are a {adjective_toxic_f} {identity_neutral_f}
+you_occupation,nontoxic,You are a {adjective_fontoxic_f} {occupation_neutral_f}
+you_occupation,toxic,You are a {adjective_toxic_f} {occupation_neutral_f}
