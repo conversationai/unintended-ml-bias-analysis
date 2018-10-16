@@ -1,0 +1,73 @@
+template,toxicity,phrase
+type|verb_adj,nontoxic,{type|verb_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n}
+type|verb_adj,nontoxic,{type|verb_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m}
+type|verb_adj,nontoxic,{type|verb_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f}
+type|verb_adj,toxic,{type|verb_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n}
+type|verb_adj,toxic,{type|verb_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m}
+type|verb_adj,toxic,{type|verb_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f}
+am_hate_adj,nontoxic,Yo soy {type|identity_connotation|neutral_gender|n}
+am_hate_adj,nontoxic,Yo soy {type|identity_connotation|neutral_gender|m}
+am_hate_adj,nontoxic,Yo soy {type|identity_connotation|neutral_gender|f}
+am_hate_adj,toxic,Odio lo {type|identity_connotation|neutral_gender|n}
+am_hate_adj,toxic,Odio al {type|identity_connotation|neutral_gender|m}
+am_hate_adj,toxic,Odio a la {type|identity_connotation|neutral_gender|f}
+being_adj,nontoxic,Ser {type|identity_connotation|neutral_gender|n} es {type|adjective_connotation|nontoxic_gender|n}
+being_adj,nontoxic,Ser {type|identity_connotation|neutral_gender|n} es {type|adjective_connotation|nontoxic_gender|m}
+being_adj,nontoxic,Ser {type|identity_connotation|neutral_gender|m} es {type|adjective_connotation|nontoxic_gender|n}
+being_adj,nontoxic,Ser {type|identity_connotation|neutral_gender|m} es {type|adjective_connotation|nontoxic_gender|m}
+being_adj,nontoxic,Ser {type|identity_connotation|neutral_gender|f} es {type|adjective_connotation|nontoxic_gender|n}
+being_adj,nontoxic,Ser {type|identity_connotation|neutral_gender|f} es {type|adjective_connotation|nontoxic_gender|m}
+being_adj,toxic,Ser {type|identity_connotation|neutral_gender|n} es {type|adjective_connotation|toxic_gender|n}
+being_adj,toxic,Ser {type|identity_connotation|neutral_gender|n} es {type|adjective_connotation|toxic_gender|m}
+being_adj,toxic,Ser {type|identity_connotation|neutral_gender|m} es {type|adjective_connotation|toxic_gender|n}
+being_adj,toxic,Ser {type|identity_connotation|neutral_gender|m} es {type|adjective_connotation|toxic_gender|m}
+being_adj,toxic,Ser {type|identity_connotation|neutral_gender|f} es {type|adjective_connotation|toxic_gender|n}
+being_adj,toxic,Ser {type|identity_connotation|neutral_gender|f} es {type|adjective_connotation|toxic_gender|m}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|n} es un {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|n}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|n} es un {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|m}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|n} es un {type|identity_connotation|neutral_gender|m} {type|adjective_connotation|nontoxic_gender|n}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|n} es un {type|identity_connotation|neutral_gender|m} {type|adjective_connotation|nontoxic_gender|m}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|n} es una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|nontoxic_gender|n}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|n} es una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|nontoxic_gender|f}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|f} es una {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|n}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|f} es una {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|f}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|f} es una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|nontoxic_gender|n}
+type|name_adj,nontoxic,{type|name_connotation|neutral_gender|f} es una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|nontoxic_gender|f}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|n} es un {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|n}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|n} es un {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|m}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|n} es un {type|identity_connotation|neutral_gender|m} {type|adjective_connotation|toxic_gender|n}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|n} es un {type|identity_connotation|neutral_gender|m} {type|adjective_connotation|toxic_gender|m}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|n} es una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|toxic_gender|n}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|n} es una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|toxic_gender|f}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|f} es una {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|n}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|f} es una {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|f}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|f} es una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|toxic_gender|n}
+type|name_adj,toxic,{type|name_connotation|neutral_gender|f} es una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|toxic_gender|f}
+you_are_adj,nontoxic,Eres un {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|n}
+you_are_adj,nontoxic,Eres un {type|identity_connotation|neutral_gender|m} {type|adjective_connotation|nontoxic_gender|n}
+you_are_adj,nontoxic,Eres una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|nontoxic_gender|n}
+you_are_adj,nontoxic,Eres un {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|m}
+you_are_adj,nontoxic,Eres una {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|f}
+you_are_adj,nontoxic,Eres un {type|identity_connotation|neutral_gender|m} {type|adjective_connotation|nontoxic_gender|m}
+you_are_adj,nontoxic,Eres una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|nontoxic_gender|f}
+you_are_adj,toxic,Eres un {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|n}
+you_are_adj,toxic,Eres un {type|identity_connotation|neutral_gender|m} {type|adjective_connotation|toxic_gender|n}
+you_are_adj,toxic,Eres una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|toxic_gender|n}
+you_are_adj,toxic,Eres un {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|m}
+you_are_adj,toxic,Eres una {type|identity_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|f}
+you_are_adj,toxic,Eres un {type|identity_connotation|neutral_gender|m} {type|adjective_connotation|toxic_gender|m}
+you_are_adj,toxic,Eres una {type|identity_connotation|neutral_gender|f} {type|adjective_connotation|toxic_gender|f}
+you_occupation,nontoxic,Eres un {type|occupation_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|n}
+you_occupation,nontoxic,Eres un {type|occupation_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|m}
+you_occupation,nontoxic,Eres una {type|occupation_connotation|neutral_gender|n} {type|adjective_connotation|nontoxic_gender|f}
+you_occupation,nontoxic,Eres un {type|occupation_connotation|neutral_gender|m} {type|adjective_connotation|nontoxic_gender|n}
+you_occupation,nontoxic,Eres un {type|occupation_connotation|neutral_gender|m} {type|adjective_connotation|nontoxic_gender|m}
+you_occupation,nontoxic,Eres una {type|occupation_connotation|neutral_gender|f} {type|adjective_connotation|nontoxic_gender|n}
+you_occupation,nontoxic,Eres una {type|occupation_connotation|neutral_gender|f} {type|adjective_connotation|nontoxic_gender|f}
+you_occupation,toxic,Eres un {type|occupation_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|n}
+you_occupation,toxic,Eres un {type|occupation_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|m}
+you_occupation,toxic,Eres una {type|occupation_connotation|neutral_gender|n} {type|adjective_connotation|toxic_gender|f}
+you_occupation,toxic,Eres un {type|occupation_connotation|neutral_gender|m} {type|adjective_connotation|toxic_gender|n}
+you_occupation,toxic,Eres un {type|occupation_connotation|neutral_gender|m} {type|adjective_connotation|toxic_gender|m}
+you_occupation,toxic,Eres una {type|occupation_connotation|neutral_gender|f} {type|adjective_connotation|toxic_gender|n}
+you_occupation,toxic,Eres una {type|occupation_connotation|neutral_gender|f} {type|adjective_connotation|toxic_gender|f}
