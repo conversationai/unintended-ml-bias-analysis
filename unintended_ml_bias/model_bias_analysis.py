@@ -75,7 +75,7 @@ def add_subgroup_columns_from_text(df, text_column, subgroups):
     New column contains True if the text contains that subgroup term.
     """
   for term in subgroups:
-    df[term] = df[text_column].apply(lambda x: bool(re.search(r'\b{}\b'.format(term), x, flags=re.IGNORECASE)))
+    df[term] = df[text_column].apply(lambda x: bool(re.search(u'\\b{}\\b'.format(term), x, flags=re.IGNORECASE)))
 
 
 def balanced_subgroup_subset(df, subgroup):
