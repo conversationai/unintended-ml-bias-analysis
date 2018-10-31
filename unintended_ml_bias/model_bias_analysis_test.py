@@ -1,3 +1,4 @@
+# coding=utf-8
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -8,6 +9,24 @@ import tensorflow as tf
 import model_bias_analysis as mba
 
 class ModelBiasAnalysisTest(tf.test.TestCase):
+    def test_add_subgroup_columns_from_text(self):
+      df = pd.DataFrame({
+          u'toxicity': [u'nontoxic', u'nontoxic', u'nontoxic'],
+          u'phrase': [u'You are a woman', u'I am gay', u'Je suis chrétien.']
+      })
+      subgroups = [u'woman', u'gay', u'chrétien']
+      mba.add_subgroup_columns_from_text(df, 'phrase', subgroups)
+      expected_df = pd.DataFrame({
+          u'toxicity': [u'nontoxic', u'nontoxic', u'nontoxic'],
+          u'phrase': [u'You are a woman', u'I am gay', u'Je suis chrétien.'],
+          u'woman': [True, False, False],
+          u'gay': [False, True, False],
+          u'chrétien': [False, False, True],
+      })
+      pd.util.testing.assert_frame_equal(
+          df.reset_index(drop=True).sort_index(axis='columns'),
+          expected_df.reset_index(drop=True).sort_index(axis='columns'))
+
     def add_examples(self, data, model_scores, label, subgroup):
         num_comments_added = len(model_scores)
         data['model_score'].extend(model_scores)
