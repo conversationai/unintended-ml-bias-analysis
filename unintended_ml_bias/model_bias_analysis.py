@@ -136,7 +136,7 @@ def compute_average_squared_equality_gap(df, subgroup, label, model_name):
   background_df = df[~df[subgroup]]
   if len(subgroup_df) == 0 or len(background_df) == 0:
     return None, None
-  thresholds = np.linspace(1.0, 0.0, num = 100)
+  thresholds = np.linspace(1.0, 0.0, num = 1000)
   s_fpr, s_tpr = positive_rates(subgroup_df, model_name, label, thresholds)
   b_fpr, b_tpr = positive_rates(background_df, model_name, label, thresholds)
   if s_fpr and s_tpr and b_fpr and b_tpr:
@@ -210,7 +210,6 @@ def compute_bias_metrics_for_model(dataset, subgroups, model, label_col, include
     subgroup_record = compute_bias_metrics_for_subgroup_and_model(dataset, subgroup, model, label_col, include_asegs)    
     records.append(subgroup_record)
   return pd.DataFrame(records)
-
 
 
 def compute_bias_metrics_for_models(dataset, subgroups, models, label_col, include_asegs=False):
