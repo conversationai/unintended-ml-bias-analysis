@@ -32,6 +32,21 @@ from sklearn import metrics
 import scipy.stats as stats
 
 
+PINNED_AUC = 'pinned_auc'  # Deprecated, don't use pinned AUC anymore!
+SUBGROUP_AUC = 'subgroup_auc'
+NEGATIVE_CROSS_AUC = 'negative_cross_auc'
+POSITIVE_CROSS_AUC = 'positive_cross_auc'
+NEGATIVE_AEG = 'negative_aeg'
+POSITIVE_AEG = 'positive_aeg'
+NEGATIVE_ASEG = 'negative_aseg'
+POSITIVE_ASEG = 'postive_aseg'
+
+METRICS = [SUBGROUP_AUC, NEGATIVE_CROSS_AUC, POSITIVE_CROSS_AUC, NEGATIVE_AEG, POSITIVE_AEG]
+ASEGS = [NEGATIVE_ASEG, POSITIVE_ASEG]
+
+def column_name(model, metric):
+  return model + '_' + metric
+
 def compute_auc(y_true, y_pred):
   try:
     return metrics.roc_auc_score(y_true, y_pred)
@@ -115,13 +130,13 @@ def normalized_mwu(data1, data2, model_name):
   u, _ = stats.mannwhitneyu(scores_1, scores_2, alternative = 'less')
   return u/(n1*n2)
 
-def average_squared_equality_gap(df, subgroup, label, model_name):
+def compute_average_squared_equality_gap(df, subgroup, label, model_name):
   """Returns the positive and negative ASEG metrics."""
   subgroup_df = df[df[subgroup]]
   background_df = df[~df[subgroup]]
   if len(subgroup_df) == 0 or len(background_df) == 0:
     return None, None
-  thresholds = np.linspace(1.0, 0.0, num = 1000)
+  thresholds = np.linspace(1.0, 0.0, num = 100)
   s_fpr, s_tpr = positive_rates(subgroup_df, model_name, label, thresholds)
   b_fpr, b_tpr = positive_rates(background_df, model_name, label, thresholds)
   if s_fpr and s_tpr and b_fpr and b_tpr:
@@ -131,7 +146,7 @@ def average_squared_equality_gap(df, subgroup, label, model_name):
 def squared_diff_integral(y, x):
   return np.trapz(np.square(np.subtract(y,x)), x)
 
-def compute_within_negative_label_mwu(df, subgroup, label, model_name):
+def compute_negative_aeg(df, subgroup, label, model_name):
   mwu = normalized_mwu(df[~df[subgroup] & ~df[label]],
                        df[df[subgroup] & ~df[label]],
                        model_name)
@@ -140,7 +155,7 @@ def compute_within_negative_label_mwu(df, subgroup, label, model_name):
   return 0.5 - mwu
 
 
-def compute_within_positive_label_mwu(df, subgroup, label, model_name):
+def compute_positive_aeg(df, subgroup, label, model_name):
   mwu = normalized_mwu(df[~df[subgroup] & df[label]],
                        df[df[subgroup] & df[label]],
                        model_name)
@@ -149,48 +164,105 @@ def compute_within_positive_label_mwu(df, subgroup, label, model_name):
   return 0.5 - mwu
 
 
-def compute_within_subgroup_mwu(df, subgroup, label, model_name):
-  mwu = normalized_mwu(df[df[subgroup] & ~df[label]],
-                       df[df[subgroup] & df[label]],
-                       model_name)
-  if mwu is None:
-    return None
-  return 1 - mwu
+def compute_subgroup_auc(df, subgroup, label, model_name):
+  subgroup_examples = df[df[subgroup]]
+  return compute_auc(subgroup_examples[label], subgroup_examples[model_name])
 
 
-def compute_cross_subgroup_negative_mwu(df, subgroup, label, model_name):
-  mwu = normalized_mwu(df[df[subgroup] & ~df[label]],
-                       df[~df[subgroup] & df[label]],
-                       model_name)
-  if mwu is None:
-    return None
-  return 1 - mwu
+def compute_negative_cross_auc(df, subgroup, label, model_name):
+  """Computes the AUC of the within-subgroup negative examples and the background positive examples."""
+  subgroup_negative_examples = df[df[subgroup] & ~df[label]]
+  non_subgroup_positive_examples = df[~df[subgroup] & df[label]]
+  examples = subgroup_negative_examples.append(non_subgroup_positive_examples)
+  return compute_auc(examples[label], examples[model_name])
 
 
-def compute_cross_subgroup_positive_mwu(df, subgroup, label, model_name):
-  mwu = normalized_mwu(df[~df[subgroup] & ~df[label]],
-                       df[df[subgroup] & df[label]],
-                       model_name)
-  if mwu is None:
-    return None
-  return 1 - mwu
+def compute_positive_cross_auc(df, subgroup, label, model_name):
+  """Computes the AUC of the within-subgroup positive examples and the background negative examples."""
+  subgroup_positive_examples = df[df[subgroup] & df[label]]
+  non_subgroup_negative_examples = df[~df[subgroup] & ~df[label]]
+  examples = subgroup_positive_examples.append(non_subgroup_negative_examples)
+  return compute_auc(examples[label], examples[model_name])
 
-def compute_normalized_pinned_auc(df, subgroup, label, model_name):
-    within_subgroup = compute_within_subgroup_mwu(df, subgroup, label, model_name)
-    cross_1 = compute_cross_subgroup_negative_mwu(df, subgroup, label, model_name)
-    cross_2 = compute_cross_subgroup_positive_mwu(df, subgroup, label, model_name)
-    if within_subgroup is None or cross_1 is None or cross_2 is None:
-      return None
-    return np.mean([within_subgroup, cross_1, cross_2])
 
+def compute_bias_metrics_for_subgroup_and_model(dataset, subgroup, model, label_col, include_asegs=False):
+  """Computes per-subgroup metrics for one model and subgroup."""
+  record = {
+      'subgroup': subgroup,
+      'subset_size': len(dataset[dataset[subgroup]])
+  }
+  record[column_name(model, SUBGROUP_AUC)] = compute_subgroup_auc(dataset, subgroup, label_col, model)
+  record[column_name(model, NEGATIVE_CROSS_AUC)] = compute_negative_cross_auc(dataset, subgroup, label_col, model)
+  record[column_name(model, POSITIVE_CROSS_AUC)] = compute_positive_cross_auc(dataset, subgroup, label_col, model)
+  record[column_name(model, NEGATIVE_AEG)] = compute_negative_aeg(dataset, subgroup, label_col, model)
+  record[column_name(model, POSITIVE_AEG)] = compute_positive_aeg(dataset, subgroup, label_col, model)
+
+  if include_asegs:
+    record[column_name(model, POSITIVE_ASEG)], record[column_name(model, NEGATIVE_ASEG)] = compute_average_squared_equality_gap(
+        dataset, subgroup, label_col, model_name)
+  return record
+
+
+def compute_bias_metrics_for_model(dataset, subgroups, model, label_col, include_asegs=False):
+  """Computes per-subgroup metrics for all subgroups and one model."""
+  records = []
+  for subgroup in subgroups:
+    subgroup_record = compute_bias_metrics_for_subgroup_and_model(dataset, subgroup, model, label_col, include_asegs)    
+    records.append(subgroup_record)
+  return pd.DataFrame(records)
+
+
+
+def compute_bias_metrics_for_models(dataset, subgroups, models, label_col, include_asegs=False):
+  """Computes per-subgroup metrics for all subgroups and models."""
+  output = None
+  
+  for model in models:
+    model_results = compute_bias_metrics_for_model(dataset, subgroups, model, label_col, include_asegs)
+    if output is None:
+        output = model_results
+    else:
+        output = output.merge(model_results, on=['subgroup','subset_size'])
+  return output
+
+
+def merge_family(model_family_results, models, metrics):
+  output = model_family_results.copy()
+  for metric in metrics:
+    metric_columns = [column_name(model, metric) for model in models]
+    output[column_name(model_family_name(models), metric)] = output[metric_columns].values.tolist()
+    output = output.drop(metric_columns, axis=1)
+  return output
+
+
+def compute_bias_metrics_for_model_families(dataset, subgroups, model_families, label_col, include_asegs=False):
+  """Computes per-subgroup metrics for all subgroups and model families."""
+  output = None
+  metrics = METRICS
+  if include_asegs:
+    metrics = METRICS + ASEGS
+  for model_family in model_families:
+    model_family_results = compute_bias_metrics_for_models(dataset, subgroups, model_family, label_col, include_asegs)
+    model_family_results = merge_family(model_family_results, model_family, metrics)
+    if output is None:
+      output = model_family_results
+    else:
+      output = output.merge(model_family_results, on=['subgroup','subset_size'])
+  return output
+
+
+# TODO(lucyvasserman): Deprecate this, and Pinned AUC completely.
 def per_subgroup_aucs(dataset, subgroups, model_families, label_col, include_asegs=False):
-  """Computes per-subgroup 'pinned' AUC scores for each model family."""
+  """Computes per-subgroup metrics, including deprecated pinned auc for all subgroups and model families."""
+  new_bias_metrics = compute_bias_metrics_for_model_families(
+      dataset, subgroups, model_families, label_col, include_asegs=False)
+  
   records = []
   for subgroup in subgroups:
     subgroup_subset = balanced_subgroup_subset(dataset, subgroup)
     subgroup_record = {
         'subgroup': subgroup,
-        'subset_size': len(subgroup_subset)
+        'pinned_auc_subset_size': len(subgroup_subset)
     }
     for model_family in model_families:
       family_name = model_family_name(model_family)
@@ -198,53 +270,15 @@ def per_subgroup_aucs(dataset, subgroups, model_families, label_col, include_ase
           compute_auc(subgroup_subset[label_col], subgroup_subset[model_name])
           for model_name in model_family
       ]
-      within_negative_label_mwus = [
-          compute_within_negative_label_mwu(dataset, subgroup, label_col, model_name)
-          for model_name in model_family
-      ]
-      within_positive_label_mwus = [
-          compute_within_positive_label_mwu(dataset, subgroup, label_col, model_name)
-          for model_name in model_family
-      ]
-      within_subgroup_mwus = [
-          compute_within_subgroup_mwu(dataset, subgroup, label_col, model_name)
-          for model_name in model_family
-      ]
-      cross_subgroup_negative_mwus = [
-          compute_cross_subgroup_negative_mwu(dataset, subgroup, label_col, model_name)
-          for model_name in model_family
-      ]
-      cross_subgroup_positive_mwus = [
-          compute_cross_subgroup_positive_mwu(dataset, subgroup, label_col, model_name)
-          for model_name in model_family
-      ]
-      normalized_pinned_aucs = [
-          compute_normalized_pinned_auc(dataset, subgroup, label_col, model_name)
-          for model_name in model_family
-      ]
       subgroup_record.update({
           family_name + '_mean': np.mean(aucs),
           family_name + '_median': np.median(aucs),
           family_name + '_std': np.std(aucs),
           family_name + '_aucs': aucs,
-          family_name + '_within_negative_label_mwus': within_negative_label_mwus,
-          family_name + '_within_positive_label_mwus': within_positive_label_mwus,
-          family_name + '_within_subgroup_mwus': within_subgroup_mwus,
-          family_name + '_cross_subgroup_negative_mwus': cross_subgroup_negative_mwus,
-          family_name + '_cross_subgroup_positive_mwus': cross_subgroup_positive_mwus,
-          family_name + '_normalized_pinned_aucs': normalized_pinned_aucs
       })
-      if include_asegs:
-        positive_asegs, negative_asegs = zip(*[
-            average_squared_equality_gap(dataset, subgroup, label_col, model_name)
-            for model_name in model_family
-        ])
-        subgroup_record.update({
-            family_name + '_positive_asegs': positive_asegs,
-            family_name + '_negative_asegs': negative_asegs
-        })
     records.append(subgroup_record)
-  return pd.DataFrame(records)
+  pinned_auc_results = pd.DataFrame(records)
+  return new_bias_metrics.merge(pinned_auc_results, on=['subgroup'])
 
 ### Equality of opportunity negative rates analysis.
 
