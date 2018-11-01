@@ -47,18 +47,20 @@ class Madlibber(object):
     f = open(self.path_helper.word_file, 'r')
     csv_f = csv.reader(f)
     header = next(csv_f)[:-1]  # Last column is the word itself
-
+    words = []
     for line in csv_f:
       word = line[-1]  # Last column is the word itself
       if word == '':
         continue
-
+      words.append(word)
       unicode_word = word.decode('utf-8')
       for i, l in enumerate(line[:-1]):
         if l:
           word_category = self.format_helper.construct_word_category(header[i], l)
           self.word_helper.add_word(word_category, unicode_word)
     f.close()
+    if len(set(words)) != len(words):
+      raise ValueError("Duplicate words are not allowed.")
 
     for t in self.__template_word_categories:
       if t not in self.word_helper.word_categories:
