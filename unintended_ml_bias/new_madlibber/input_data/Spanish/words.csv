@@ -74,7 +74,7 @@ identity,neutral,f,afroamericana
 identity,neutral,m,negro
 identity,neutral,f,negra
 identity,neutral,m,blanco
-identity,neutral,f,blanco
+identity,neutral,f,blanca
 identity,neutral,m,europeo
 identity,neutral,f,europea
 identity,neutral,m,hispano
@@ -126,7 +126,6 @@ identity,neutral,m,paralizado
 identity,neutral,f,paralizada
 occupation,neutral,n,actor
 occupation,neutral,f,actriz
-occupation,neutral,m,actor
 occupation,neutral,m,arquitecto
 occupation,neutral,f,arquitecta
 occupation,neutral,n,artista
@@ -149,7 +148,6 @@ occupation,neutral,f,operaria de fábrica
 occupation,neutral,m,granjero
 occupation,neutral,f,granjera
 occupation,neutral,n,bombero
-occupation,neutral,f,peluquera
 occupation,neutral,n,conserje
 occupation,neutral,m,abogado
 occupation,neutral,f,abogada
