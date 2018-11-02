@@ -30,6 +30,7 @@ import re
 import matplotlib.pyplot as plt
 from sklearn import metrics
 import scipy.stats as stats
+import seaborn as sns
 
 
 PINNED_AUC = 'pinned_auc'  # Deprecated, don't use pinned AUC anymore!
@@ -42,6 +43,8 @@ NEGATIVE_ASEG = 'negative_aseg'
 POSITIVE_ASEG = 'postive_aseg'
 
 METRICS = [SUBGROUP_AUC, NEGATIVE_CROSS_AUC, POSITIVE_CROSS_AUC, NEGATIVE_AEG, POSITIVE_AEG]
+AUCS = [SUBGROUP_AUC, NEGATIVE_CROSS_AUC, POSITIVE_CROSS_AUC]
+AEGS = [NEGATIVE_AEG, POSITIVE_AEG]
 ASEGS = [NEGATIVE_ASEG, POSITIVE_ASEG]
 
 def column_name(model, metric):
@@ -531,7 +534,6 @@ def per_subgroup_tnr_diff_from_overall(df, subgroups, model_families, threshold,
 
 ### Plotting.
 
-
 def per_subgroup_scatterplots(df,
                               subgroup_col,
                               values_col,
@@ -567,3 +569,31 @@ def per_subgroup_scatterplots(df,
   ax.set_title(title)
   fig.tight_layout()
   fig.savefig('/tmp/%s_%s.eps' % (file_name, values_col), format='eps')
+    
+
+    
+def plot_metric_heatmap(bias_metrics_results, models, metrics, cmap=None, vmin=0, vmax=1.0):
+  df = bias_metrics_results.set_index('subgroup')
+  columns = []
+  vlines = [i * len(models) for i in range(len(metrics))]
+  for metric in metrics:
+    for model in models:
+      columns.append(column_name(model, metric))
+  num_rows = len(df)                   
+  num_columns = len(columns)
+  fig = plt.figure(figsize=(num_columns, 0.5 * num_rows))
+  ax = sns.heatmap(df[columns], annot=True, fmt=".2", cbar=True, cmap=cmap, vmin=vmin, vmax=vmax)
+  plt.xticks(rotation=0)
+  ax.xaxis.tick_top()
+  plt.xticks(rotation=90)
+  ax.vlines(vlines, *ax.get_ylim())
+  return ax
+
+
+def plot_auc_heatmap(bias_metrics_results, models):
+  return plot_metric_heatmap(bias_metrics_results, models, AUCS, vmin=0.5, vmax=1.0)
+
+
+def plot_aeg_heatmap(bias_metrics_results, models):
+  cmap = sns.color_palette("coolwarm", 7)
+  return plot_metric_heatmap(bias_metrics_results, models, AEGS, cmap=cmap, vmin=-0.5, vmax=0.5)
