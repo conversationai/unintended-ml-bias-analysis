@@ -216,7 +216,7 @@ def compute_bias_metrics_for_model(dataset, subgroups, model, label_col, include
 
 
 def compute_bias_metrics_for_models(dataset, subgroups, models, label_col, include_asegs=False):
-  """Computes per-subgroup metrics for all subgroups and models."""
+  """Computes per-subgroup metrics for all subgroups and a list of models."""
   output = None
   
   for model in models:
@@ -238,7 +238,7 @@ def merge_family(model_family_results, models, metrics):
 
 
 def compute_bias_metrics_for_model_families(dataset, subgroups, model_families, label_col, include_asegs=False):
-  """Computes per-subgroup metrics for all subgroups and model families."""
+  """Computes per-subgroup metrics for all subgroups and a list of model families (list of lists of models)."""
   output = None
   metrics = METRICS
   if include_asegs:
