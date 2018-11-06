@@ -33,6 +33,14 @@ class ModelBiasAnalysisTest(tf.test.TestCase):
         data['label'].extend([label for a in range(num_comments_added)])
         data['subgroup'].extend([subgroup for a in range(num_comments_added)])
 
+    def make_biased_dataset(self):
+        data = {'model_score': [], 'label': [], 'subgroup': []}
+        self.add_examples(data, [0.1, 0.2, 0.3], 0, False)
+        self.add_examples(data, [0.21, 0.31, 0.55], 0, True)
+        self.add_examples(data, [0.5, 0.8, 0.9], 1, False)
+        self.add_examples(data, [0.4, 0.6, 0.71], 1, True)
+        return pd.DataFrame(data)
+        
     def test_squared_diff_integral(self):
         x = np.linspace(0.0, 1.0, num = 100)
         y = [1]*len(x)
@@ -50,10 +58,8 @@ class ModelBiasAnalysisTest(tf.test.TestCase):
         self.add_examples(no_bias_data, high_model_scores, 1, True)
         no_bias_df = pd.DataFrame(no_bias_data)
         
-        pos_aseg, neg_aseg = mba.average_squared_equality_gap(no_bias_df,
-                                                              'subgroup',
-                                                              'label',
-                                                              'model_score')
+        pos_aseg, neg_aseg = mba.compute_average_squared_equality_gap(
+            no_bias_df, 'subgroup', 'label', 'model_score')
         self.assertAlmostEquals(pos_aseg, 0.0, places = 1)
         self.assertAlmostEquals(neg_aseg, 0.0, places = 1)
 
@@ -70,14 +76,24 @@ class ModelBiasAnalysisTest(tf.test.TestCase):
         self.add_examples(no_bias_data, high_model_scores_2, 1, True)
         no_bias_df = pd.DataFrame(no_bias_data)
         
-        pos_aseg, neg_aseg = mba.average_squared_equality_gap(no_bias_df,
-                                                              'subgroup',
-                                                              'label',
-                                                              'model_score')
+        pos_aseg, neg_aseg = mba.compute_average_squared_equality_gap(
+            no_bias_df, 'subgroup', 'label', 'model_score')
         self.assertAlmostEquals(pos_aseg, 0.33, places = 1)
         self.assertAlmostEquals(neg_aseg, 0.33, places = 1)
         
+    def test_subgroup_auc(self):
+        df = self.make_biased_dataset()
+        auc = mba.compute_subgroup_auc(df, 'subgroup', 'label', 'model_score')
+        self.assertAlmostEquals(auc, 0.88, places = 1)
 
+    def test_cross_aucs(self):
+        df = self.make_biased_dataset()
+        negative_cross_auc = mba.compute_negative_cross_auc(df, 'subgroup', 'label', 'model_score')
+        positive_cross_auc = mba.compute_positive_cross_auc(df, 'subgroup', 'label', 'model_score')
+        self.assertAlmostEquals(negative_cross_auc, 0.88, places = 1)
+        self.assertAlmostEquals(positive_cross_auc, 1.0, places = 1)
+        
+    
 
 if __name__ == "__main__":
   tf.test.main()
