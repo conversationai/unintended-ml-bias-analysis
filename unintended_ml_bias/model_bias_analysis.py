@@ -102,8 +102,8 @@ def add_subgroup_columns_from_text(df, text_column, subgroups):
   for term in subgroups:
     # pylint: disable=cell-var-from-loop
     df[term] = df[text_column].apply(
-        lambda x: bool(re.search(u'\\b{}\\b'.format(term), x,
-                                 flags=re.IGNORECASE)))
+        lambda x: bool(re.search(ur'\b{}\b'.format(term), x,
+                                 flags=re.UNICODE|re.IGNORECASE)))
 
 
 def balanced_subgroup_subset(df, subgroup):
@@ -644,7 +644,7 @@ def plot_metric_heatmap(bias_metrics_results,
   plt.xticks(rotation=90)
   ax.vlines(vlines, *ax.get_ylim())
   if out:
-    plt.savefig(out, format='svg', bbox_inches='tight')
+    plt.savefig(out, format='png', bbox_inches='tight')
     plt.close()
   return ax
 

@@ -11,17 +11,19 @@ import model_bias_analysis as mba
 class ModelBiasAnalysisTest(tf.test.TestCase):
     def test_add_subgroup_columns_from_text(self):
       df = pd.DataFrame({
-          u'toxicity': [u'nontoxic', u'nontoxic', u'nontoxic'],
-          u'phrase': [u'You are a woman', u'I am gay', u'Je suis chrétien.']
+          u'toxicity': [u'nontoxic', u'nontoxic', u'nontoxic', u'nontoxic'],
+          u'phrase': [u'You are a woman', u'I am gay',
+                      u'Je suis chrétien.', u'je suis handicapé']
       })
-      subgroups = [u'woman', u'gay', u'chrétien']
+      subgroups = [u'woman', u'gay', u'chrétien', u'handicapé']
       mba.add_subgroup_columns_from_text(df, 'phrase', subgroups)
       expected_df = pd.DataFrame({
-          u'toxicity': [u'nontoxic', u'nontoxic', u'nontoxic'],
-          u'phrase': [u'You are a woman', u'I am gay', u'Je suis chrétien.'],
-          u'woman': [True, False, False],
-          u'gay': [False, True, False],
-          u'chrétien': [False, False, True],
+          u'toxicity': [u'nontoxic', u'nontoxic', u'nontoxic', u'nontoxic'],
+          u'phrase': [u'You are a woman', u'I am gay', u'Je suis chrétien.', u'je suis handicapé'],
+          u'woman': [True, False, False, False],
+          u'gay': [False, True, False, False],
+          u'chrétien': [False, False, True, False],
+          u'handicapé': [False, False, False, True],
       })
       pd.util.testing.assert_frame_equal(
           df.reset_index(drop=True).sort_index(axis='columns'),
