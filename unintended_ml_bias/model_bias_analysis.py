@@ -21,9 +21,11 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import base64
+import io
 import os
-
 import re
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -616,6 +618,14 @@ def per_subgroup_scatterplots(df,
   fig.savefig('/tmp/%s_%s.eps' % (file_name, values_col), format='eps')
 
 
+def save_inline_png(fig, out, **kwargs):
+  """Saves figure as an inline data URI resource."""
+  s = io.BytesIO()
+  fig.savefig(s, format='png', **kwargs)
+  out.write('<img src="data:image/png;base64,{}"/>'.format(
+      base64.b64encode(s.getvalue())))
+
+
 def plot_metric_heatmap(bias_metrics_results,
                         models,
                         metrics_list,
@@ -644,7 +654,11 @@ def plot_metric_heatmap(bias_metrics_results,
   plt.xticks(rotation=90)
   ax.vlines(vlines, *ax.get_ylim())
   if out:
-    plt.savefig(out, format='png', bbox_inches='tight')
+    # Note: Saving as PNG causes larger file sizes compared with SVGs, but with
+    # large reports, browsers don't handle all the SVGs on a single page very
+    # well. We should consider using HTML tables instead, using
+    # DataFrame.style.applymap for styling the table background color.
+    save_inline_png(fig, out, bbox_inches='tight')
     plt.close()
   return ax
 
@@ -661,3 +675,4 @@ def plot_aeg_heatmap(bias_metrics_results, models, out=None):
   cmap = sns.color_palette('coolwarm', 7)
   return plot_metric_heatmap(
       bias_metrics_results, models, AEGS, out, cmap=cmap, vmin=-0.5, vmax=0.5)
+
