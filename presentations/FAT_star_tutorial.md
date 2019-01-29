@@ -9,3 +9,5 @@ Participants should have a basic knowledge of Python, and should bring a laptop 
 # Links
 
 Our interactive Python notebook is at [https://bit.ly/2UnIczF](https://bit.ly/2UnIczF).  To use this notebook, click connect in the top right conner, then use `SHIFT + ↲` to run a cell.
+
+The slides for this tutorial are made [available on Github](https://github.com/conversationai/unintended-ml-bias-analysis/blob/master/presentations/FAT_star_tutorial_slides.pdf).
