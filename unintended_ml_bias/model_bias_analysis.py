@@ -36,8 +36,8 @@ from sklearn import metrics
 
 PINNED_AUC = 'pinned_auc'  # Deprecated, don't use pinned AUC anymore!
 SUBGROUP_AUC = 'subgroup_auc'
-NEGATIVE_CROSS_AUC = 'negative_cross_auc'
-POSITIVE_CROSS_AUC = 'positive_cross_auc'
+NEGATIVE_CROSS_AUC = 'bpsn_auc'
+POSITIVE_CROSS_AUC = 'bnsp_auc'
 NEGATIVE_AEG = 'negative_aeg'
 POSITIVE_AEG = 'positive_aeg'
 NEGATIVE_ASEG = 'negative_aseg'
@@ -62,7 +62,8 @@ def column_name(model, metric):
 def compute_auc(y_true, y_pred):
   try:
     return metrics.roc_auc_score(y_true, y_pred)
-  except ValueError:
+  except ValueError as e:
+    print('value error!!! %s ' % e)
     return np.nan
 
 
@@ -635,15 +636,22 @@ def plot_metric_heatmap(bias_metrics_results,
                         vmax=1.0):
   df = bias_metrics_results.set_index(SUBGROUP)
   columns = []
+  column_renames = {}
   vlines = [i * len(models) for i in range(len(metrics_list))]
   for metric in metrics_list:
     for model in models:
-      columns.append(column_name(model, metric))
+      col_name = column_name(model, metric)
+      columns.append(col_name)
+      # Create a mapping from full column name to just metric name
+      # for display, e.g. from "Rock:TOXICITY_subgroup_auc" to just
+      # "subgroup_auc"
+      # TODO: this may not work right for multiple models
+      column_renames[col_name] = metric
   num_rows = len(df)
   num_columns = len(columns)
   fig = plt.figure(figsize=(num_columns, 0.5 * num_rows))
   ax = sns.heatmap(
-      df[columns],
+      df[columns].rename(index=str, columns=column_renames),
       annot=True,
       fmt='.2',
       cbar=True,
