@@ -642,7 +642,7 @@ def plot_metric_heatmap(bias_metrics_results,
   df = bias_metrics_results.set_index(SUBGROUP)
   columns = []
   column_renames = {}
-  vlines = [i * len(models) for i in range(len(metrics_list))]
+  vlines = [i * len(models) for i in range(len(metrics_list) + 1)]  # TODO: explain
   for metric in metrics_list:
     for model in models:
       col_name = column_name(model, metric)
@@ -665,7 +665,6 @@ def plot_metric_heatmap(bias_metrics_results,
       vmax=vmax)
   ax.xaxis.tick_top()
   if not show_subgroups:
-    print("ax.yaxis: %s" % ax.yaxis)
     ax.yaxis.set_visible(False)
   ax.yaxis.set_label_text('')
   plt.xticks(rotation=90)
