@@ -105,7 +105,8 @@ def add_subgroup_columns_from_text(df, text_column, subgroups):
   for term in subgroups:
     # pylint: disable=cell-var-from-loop
     df[term] = df[text_column].apply(
-        lambda x: bool(re.search(ur'\b{}\b'.format(term), x,
+        # TODO: this is needed for Python3 support but is it correct?
+        lambda x: bool(re.search(r'\b{}\b'.format(term), x,
                                  flags=re.UNICODE|re.IGNORECASE)))
 
 
@@ -621,6 +622,9 @@ def per_subgroup_scatterplots(df,
 
 def save_inline_png(fig, out, **kwargs):
   """Saves figure as an inline data URI resource."""
+  if type(out) is str:
+    fig.savefig(out, format='png', **kwargs)
+    return
   s = io.BytesIO()
   fig.savefig(s, format='png', **kwargs)
   out.write('<img src="data:image/png;base64,{}"/>'.format(
@@ -632,6 +636,7 @@ def plot_metric_heatmap(bias_metrics_results,
                         metrics_list,
                         out=None,
                         cmap=None,
+                        show_subgroups=True,
                         vmin=0,
                         vmax=1.0):
   df = bias_metrics_results.set_index(SUBGROUP)
@@ -654,11 +659,15 @@ def plot_metric_heatmap(bias_metrics_results,
       df[columns].rename(index=str, columns=column_renames),
       annot=True,
       fmt='.2',
-      cbar=True,
+      cbar=False,
       cmap=cmap,
       vmin=vmin,
       vmax=vmax)
   ax.xaxis.tick_top()
+  if not show_subgroups:
+    print("ax.yaxis: %s" % ax.yaxis)
+    ax.yaxis.set_visible(False)
+  ax.yaxis.set_label_text('')
   plt.xticks(rotation=90)
   ax.vlines(vlines, *ax.get_ylim())
   if out:
@@ -667,20 +676,27 @@ def plot_metric_heatmap(bias_metrics_results,
     # well. We should consider using HTML tables instead, using
     # DataFrame.style.applymap for styling the table background color.
     save_inline_png(fig, out, bbox_inches='tight')
-    plt.close()
+    #plt.close()
   return ax
 
 
-def plot_auc_heatmap(bias_metrics_results, models, out=None):
-  # Hack to align these colors with the AEG colors below.
-  cmap = sns.color_palette('coolwarm', 9)[4:]
-  cmap.reverse()
+def plot_auc_heatmap(bias_metrics_results, models, color_palette=None, out=None):
+  if not color_palette:
+    # Hack to align these colors with the AEG colors below.
+    cmap = sns.color_palette(color_palette, 9)[4:]
+    cmap.reverse()
+  else:
+    cmap = color_palette
   return plot_metric_heatmap(
-      bias_metrics_results, models, AUCS, out, cmap=cmap, vmin=0.5, vmax=1.0)
+      bias_metrics_results, models, AUCS, out, cmap=cmap, show_subgroups=True, vmin=0.5, vmax=1.0)
 
 
-def plot_aeg_heatmap(bias_metrics_results, models, out=None):
-  cmap = sns.color_palette('coolwarm', 7)
+def plot_aeg_heatmap(bias_metrics_results, models, color_palette=None, out=None):
+  if not color_palette:
+    # Hack to align these colors with the AEG colors below.
+    cmap = sns.color_palette(color_palette, 9)[4:]
+  else:
+    cmap = color_palette
   return plot_metric_heatmap(
-      bias_metrics_results, models, AEGS, out, cmap=cmap, vmin=-0.5, vmax=0.5)
+      bias_metrics_results, models, AEGS, out, cmap=cmap, show_subgroups=False, vmin=-0.5, vmax=0.5)
 
