@@ -63,7 +63,6 @@ def compute_auc(y_true, y_pred):
   try:
     return metrics.roc_auc_score(y_true, y_pred)
   except ValueError as e:
-    print('value error!!! %s ' % e)
     return np.nan
 
 
@@ -105,8 +104,7 @@ def add_subgroup_columns_from_text(df, text_column, subgroups):
   for term in subgroups:
     # pylint: disable=cell-var-from-loop
     df[term] = df[text_column].apply(
-        # TODO: this is needed for Python3 support but is it correct?
-        lambda x: bool(re.search(r'\b{}\b'.format(term), x,
+        lambda x: bool(re.search(ur'\b{}\b'.format(term), x,
                                  flags=re.UNICODE|re.IGNORECASE)))
 
 
@@ -641,22 +639,16 @@ def plot_metric_heatmap(bias_metrics_results,
                         vmax=1.0):
   df = bias_metrics_results.set_index(SUBGROUP)
   columns = []
-  column_renames = {}
-  vlines = [i * len(models) for i in range(len(metrics_list) + 1)]  # TODO: explain
+  # Add vertical lines around all columns.
+  vlines = [i * len(models) for i in range(len(metrics_list) + 1)]
   for metric in metrics_list:
     for model in models:
-      col_name = column_name(model, metric)
-      columns.append(col_name)
-      # Create a mapping from full column name to just metric name
-      # for display, e.g. from "Rock:TOXICITY_subgroup_auc" to just
-      # "subgroup_auc"
-      # TODO: this may not work right for multiple models
-      column_renames[col_name] = metric
+      columns.append(column_name(model, metric))
   num_rows = len(df)
   num_columns = len(columns)
   fig = plt.figure(figsize=(num_columns, 0.5 * num_rows))
   ax = sns.heatmap(
-      df[columns].rename(index=str, columns=column_renames),
+      df[columns],
       annot=True,
       fmt='.2',
       cbar=False,
@@ -675,7 +667,6 @@ def plot_metric_heatmap(bias_metrics_results,
     # well. We should consider using HTML tables instead, using
     # DataFrame.style.applymap for styling the table background color.
     save_inline_png(fig, out, bbox_inches='tight')
-    #plt.close()
   return ax
 
 
