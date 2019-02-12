@@ -667,6 +667,7 @@ def plot_metric_heatmap(bias_metrics_results,
     # well. We should consider using HTML tables instead, using
     # DataFrame.style.applymap for styling the table background color.
     save_inline_png(fig, out, bbox_inches='tight')
+    plt.close()
   return ax
 
 
@@ -684,7 +685,7 @@ def plot_auc_heatmap(bias_metrics_results, models, color_palette=None, out=None)
 def plot_aeg_heatmap(bias_metrics_results, models, color_palette=None, out=None):
   if not color_palette:
     # Hack to align these colors with the AEG colors below.
-    cmap = sns.color_palette('coolwarm', 9)[4:]
+    cmap = sns.color_palette('coolwarm', 7)
   else:
     cmap = color_palette
   return plot_metric_heatmap(
