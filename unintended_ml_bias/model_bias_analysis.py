@@ -673,7 +673,7 @@ def plot_metric_heatmap(bias_metrics_results,
 def plot_auc_heatmap(bias_metrics_results, models, color_palette=None, out=None):
   if not color_palette:
     # Hack to align these colors with the AEG colors below.
-    cmap = sns.color_palette(color_palette, 9)[4:]
+    cmap = sns.color_palette('coolwarm', 9)[4:]
     cmap.reverse()
   else:
     cmap = color_palette
@@ -684,7 +684,7 @@ def plot_auc_heatmap(bias_metrics_results, models, color_palette=None, out=None)
 def plot_aeg_heatmap(bias_metrics_results, models, color_palette=None, out=None):
   if not color_palette:
     # Hack to align these colors with the AEG colors below.
-    cmap = sns.color_palette(color_palette, 9)[4:]
+    cmap = sns.color_palette('coolwarm', 9)[4:]
   else:
     cmap = color_palette
   return plot_metric_heatmap(
