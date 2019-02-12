@@ -36,8 +36,8 @@ from sklearn import metrics
 
 PINNED_AUC = 'pinned_auc'  # Deprecated, don't use pinned AUC anymore!
 SUBGROUP_AUC = 'subgroup_auc'
-NEGATIVE_CROSS_AUC = 'negative_cross_auc'
-POSITIVE_CROSS_AUC = 'positive_cross_auc'
+NEGATIVE_CROSS_AUC = 'bpsn_auc'
+POSITIVE_CROSS_AUC = 'bnsp_auc'
 NEGATIVE_AEG = 'negative_aeg'
 POSITIVE_AEG = 'positive_aeg'
 NEGATIVE_ASEG = 'negative_aseg'
@@ -62,7 +62,7 @@ def column_name(model, metric):
 def compute_auc(y_true, y_pred):
   try:
     return metrics.roc_auc_score(y_true, y_pred)
-  except ValueError:
+  except ValueError as e:
     return np.nan
 
 
@@ -620,6 +620,9 @@ def per_subgroup_scatterplots(df,
 
 def save_inline_png(fig, out, **kwargs):
   """Saves figure as an inline data URI resource."""
+  if type(out) is str:
+    fig.savefig(out, format='png', **kwargs)
+    return
   s = io.BytesIO()
   fig.savefig(s, format='png', **kwargs)
   out.write('<img src="data:image/png;base64,{}"/>'.format(
@@ -631,11 +634,13 @@ def plot_metric_heatmap(bias_metrics_results,
                         metrics_list,
                         out=None,
                         cmap=None,
+                        show_subgroups=True,
                         vmin=0,
                         vmax=1.0):
   df = bias_metrics_results.set_index(SUBGROUP)
   columns = []
-  vlines = [i * len(models) for i in range(len(metrics_list))]
+  # Add vertical lines around all columns.
+  vlines = [i * len(models) for i in range(len(metrics_list) + 1)]
   for metric in metrics_list:
     for model in models:
       columns.append(column_name(model, metric))
@@ -646,11 +651,14 @@ def plot_metric_heatmap(bias_metrics_results,
       df[columns],
       annot=True,
       fmt='.2',
-      cbar=True,
+      cbar=False,
       cmap=cmap,
       vmin=vmin,
       vmax=vmax)
   ax.xaxis.tick_top()
+  if not show_subgroups:
+    ax.yaxis.set_visible(False)
+  ax.yaxis.set_label_text('')
   plt.xticks(rotation=90)
   ax.vlines(vlines, *ax.get_ylim())
   if out:
@@ -663,16 +671,23 @@ def plot_metric_heatmap(bias_metrics_results,
   return ax
 
 
-def plot_auc_heatmap(bias_metrics_results, models, out=None):
-  # Hack to align these colors with the AEG colors below.
-  cmap = sns.color_palette('coolwarm', 9)[4:]
-  cmap.reverse()
+def plot_auc_heatmap(bias_metrics_results, models, color_palette=None, out=None):
+  if not color_palette:
+    # Hack to align these colors with the AEG colors below.
+    cmap = sns.color_palette('coolwarm', 9)[4:]
+    cmap.reverse()
+  else:
+    cmap = color_palette
   return plot_metric_heatmap(
-      bias_metrics_results, models, AUCS, out, cmap=cmap, vmin=0.5, vmax=1.0)
+      bias_metrics_results, models, AUCS, out, cmap=cmap, show_subgroups=True, vmin=0.5, vmax=1.0)
 
 
-def plot_aeg_heatmap(bias_metrics_results, models, out=None):
-  cmap = sns.color_palette('coolwarm', 7)
+def plot_aeg_heatmap(bias_metrics_results, models, color_palette=None, out=None):
+  if not color_palette:
+    # Hack to align these colors with the AEG colors below.
+    cmap = sns.color_palette('coolwarm', 7)
+  else:
+    cmap = color_palette
   return plot_metric_heatmap(
-      bias_metrics_results, models, AEGS, out, cmap=cmap, vmin=-0.5, vmax=0.5)
+      bias_metrics_results, models, AEGS, out, cmap=cmap, show_subgroups=False, vmin=-0.5, vmax=0.5)
 
