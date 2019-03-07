@@ -55,7 +55,12 @@ adjective,nontoxic,f,preocupada
 identity,neutral,f,lesbiana
 identity,neutral,n,gay
 identity,neutral,n,bisexual
-identity,neutral,n,transgenéro
+identity,neutral,m,transgénero
+identity,neutral,f,transgénera
+identity,neutral,m,transgenero
+identity,neutral,g,transgenera
+identity,neutral,n,transgender
+identity,neutral,n,transexual
 identity,neutral,n,trans
 identity,neutral,m,amanerado
 identity,neutral,f,amanerada
@@ -110,10 +115,7 @@ identity,neutral,n,sikh
 identity,neutral,n,tahoísta
 identity,neutral,m,viejo
 identity,neutral,f,vieja
-identity,neutral,m,más viejo
-identity,neutral,f,más vieja
 identity,neutral,n,joven
-identity,neutral,n,más joven
 identity,neutral,n,adolescente
 identity,neutral,n,millenial
 identity,neutral,m,anciano
