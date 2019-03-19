@@ -100,7 +100,9 @@ identity,neutral,n,medio oriental
 identity,neutral,m,chino
 identity,neutral,f,china
 identity,neutral,m,japonés
+identity,neutral,m,japones
 identity,neutral,f,japonésa
+identity,neutral,f,japonesa
 identity,neutral,m,cristiano
 identity,neutral,f,cristiana
 identity,neutral,f,musulmana
@@ -109,10 +111,13 @@ identity,neutral,m,judio
 identity,neutral,f,judia
 identity,neutral,n,budista
 identity,neutral,m,católico
+identity,neutral,m,catolico
 identity,neutral,f,católica
+identity,neutral,f,catolica
 identity,neutral,n,protestante
 identity,neutral,n,sikh
 identity,neutral,n,tahoísta
+identity,neutral,n,tahoista
 identity,neutral,m,viejo
 identity,neutral,f,vieja
 identity,neutral,n,joven

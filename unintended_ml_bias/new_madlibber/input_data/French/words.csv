@@ -59,11 +59,15 @@ identity,neutral,f,adolescente
 identity,neutral,m,africain
 identity,neutral,f,africaine
 identity,neutral,m,algérien
+identity,neutral,m,algerien
 identity,neutral,f,algérienne
+identity,neutral,f,algerienne
 identity,neutral,m,allemand
 identity,neutral,f,allemande
 identity,neutral,m,américain
+identity,neutral,m,americain
 identity,neutral,f,américaine
+identity,neutral,f,americaine
 identity,neutral,m,anglais
 identity,neutral,f,anglaise
 identity,neutral,n,asiatique
@@ -83,19 +87,27 @@ identity,neutral,n,catholique
 identity,neutral,m,chinois
 identity,neutral,f,chinoise
 identity,neutral,m,chrétien
+identity,neutral,m,chretien
 identity,neutral,f,chrétienne
+identity,neutral,f,chretienne
 identity,neutral,m,espagnol
 identity,neutral,f,espagnole
 identity,neutral,m,européen
+identity,neutral,m,europeen
 identity,neutral,f,européenne
+identity,neutral,f,europeenne
 identity,neutral,f,femelle
 identity,neutral,f,femme
 identity,neutral,n,gay
 identity,neutral,m,handicapé
+identity,neutral,m,handicape
 identity,neutral,f,handicapée
+identity,neutral,f,handicapee
 identity,neutral,n,hetero
 identity,neutral,m,hétérosexuel
+identity,neutral,m,heterosexuel
 identity,neutral,f,hétérosexuelle
+identity,neutral,f,heterosexuelle
 identity,neutral,n,hindou
 identity,neutral,n,hispanique
 identity,neutral,m,homme
@@ -117,6 +129,7 @@ identity,neutral,n,LGBTQ
 identity,neutral,m,maghrebin
 identity,neutral,f,maghrebine
 identity,neutral,m,mâle
+identity,neutral,m,male
 identity,neutral,m,marocain
 identity,neutral,f,marocaine
 identity,neutral,m,mexicain
@@ -128,7 +141,9 @@ identity,neutral,f,noire
 identity,neutral,m,nord africain
 identity,neutral,f,nord africaine
 identity,neutral,m,paralysé
+identity,neutral,m,paralyse
 identity,neutral,f,paralysée
+identity,neutral,f,paralysee
 identity,neutral,m,portugais
 identity,neutral,f,portugaise
 identity,neutral,m,protestant
@@ -138,6 +153,7 @@ identity,neutral,n,sikh
 identity,neutral,m,sourd
 identity,neutral,f,sourde
 identity,neutral,n,taoïste
+identity,neutral,n,taoiste
 identity,neutral,n,trans
 identity,neutral,n,transgenre
 identity,neutral,m,tunisien
