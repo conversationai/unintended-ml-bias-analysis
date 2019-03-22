@@ -13,11 +13,11 @@ from keras.layers import Conv1D
 from keras.layers import Dense
 from keras.layers import Dropout
 from keras.layers import Embedding
-from keras.layers import Embedding
 from keras.layers import Flatten
 from keras.layers import GlobalMaxPooling1D
 from keras.layers import Input
 from keras.layers import MaxPooling1D
+from keras.layers import Multiply
 from keras.models import load_model
 from keras.models import Model
 from keras.optimizers import RMSprop
@@ -97,7 +97,6 @@ def postprocess_wiki_dataset(wiki_data):
     wiki_data.rename(columns={'is_toxic': 'label',
                               'comment': 'text'},
                      inplace=True)
-
 
 class ToxModel():
   """Toxicity model."""
@@ -303,3 +302,164 @@ class ToxModel():
 
   def summary(self):
     return self.model.summary()
+
+class AttentionToxModel(ToxModel):
+    def __init__(self,
+                 model_name=None,
+                 model_dir=DEFAULT_MODEL_DIR,
+                 embeddings_path=DEFAULT_EMBEDDINGS_PATH,
+                 hparams=None):
+        self.model_dir = model_dir
+        self.model_name = model_name
+        self.model = None
+        self.tokenizer = None
+        self.hparams = DEFAULT_HPARAMS.copy()
+        self.embeddings_path = embeddings_path
+        if hparams:
+            self.update_hparams(hparams)
+        if model_name:
+            self.load_model_from_name(model_name)
+            self.load_probs_model(model_name)
+        self.print_hparams()
+
+    def load_probs_model(self, model_name):
+        probs_model_name = model_name + "_probs"
+        self.probs_model = load_model(
+                os.path.join(
+                    self.model_dir, '%s_model.h5' % probs_model_name))
+
+    def save_prob_model(self):
+        self.probs_model_name = self.model_name + "probs"
+
+    def build_dense_attention_layer(self, input_tensor):
+        # softmax
+        attention_probs = Dense(self.hparams['max_sequence_length'],
+                                activation='softmax',
+                                name='attention_vec')(input_tensor)
+        # context vector
+        attention_mul = Multiply()([input_tensor, attention_probs])
+        return {'attention_probs': attention_probs,
+                'attention_preds': attention_mul}
+
+    def train(
+                self,
+                training_data_path,
+                validation_data_path, text_column,
+                label_column, model_name):
+        self.model_name = model_name
+        self.save_hparams(model_name)
+
+        train_data = pd.read_csv(training_data_path)
+        valid_data = pd.read_csv(validation_data_path)
+
+        print('Fitting tokenizer...')
+        self.fit_and_save_tokenizer(train_data[text_column])
+        print('Tokenizer fitted!')
+
+        print('Preparing data...')
+        train_text, train_labels = (self.prep_text(train_data[text_column]),
+                                    to_categorical(train_data[label_column]))
+        valid_text, valid_labels = (self.prep_text(valid_data[text_column]),
+                                    to_categorical(valid_data[label_column]))
+        print('Data prepared!')
+
+        print('Loading embeddings...')
+        self.load_embeddings()
+        print('Embeddings loaded!')
+
+        print('Building model graph...')
+        self.build_model()
+        print('Training model...')
+
+        preds_save_path = os.path.join(
+                            self.model_dir, '%s_model.h5' % self.model_name)
+        probs_save_path = os.path.join(
+                            self.model_dir, '%s_probs_model.h5'
+                            % self.model_name)
+        preds_callbacks = [ModelCheckpoint(
+                            preds_save_path,
+                            save_best_only=True,
+                            verbose=self.hparams['verbose']),]
+        probs_callbacks = [ModelCheckpoint(
+                            probs_save_path,
+                            save_best_only=True,
+                            verbose=self.hparams['verbose'])]
+
+        if self.hparams['stop_early']:
+            early_stop = EarlyStopping(
+                            min_delta=self.hparams['es_min_delta'],
+                            monitor='val_loss',
+                            patience=self.hparams['es_patience'],
+                            verbose=self.hparams['verbose'], mode='auto')
+            probs_callbacks.append(early_stop)
+            preds_callbacks.append(early_stop)
+
+        self.model.fit(train_text,
+                       train_labels,
+                       batch_size=self.hparams['batch_size'],
+                       epochs=self.hparams['epochs'],
+                       validation_data=(valid_text, valid_labels),
+                       callbacks=preds_callbacks,
+                       verbose=2)
+
+        print('Model trained!')
+        print('Best model saved to {}'.format(preds_save_path))
+        print('Fitting probs model')
+
+        self.probs_model.fit(
+                    train_text,
+                    train_labels,
+                    batch_size=self.hparams['batch_size'],
+                    epochs=self.hparams['epochs'],
+                    validation_data=(valid_text, valid_labels),
+                    callbacks=probs_callbacks,
+                    verbose=2)
+        self.probs_model = load_model(probs_save_path)
+        print('Loading best model from checkpoint...')
+        self.model = load_model(preds_save_path)
+        print('Model loaded!')
+
+    def build_model(self):
+        print('print inside build model')
+        sequence_input = Input(
+                            shape=(self.hparams['max_sequence_length'],),
+                            dtype='int32')
+        embedding_layer = Embedding(
+                            len(self.tokenizer.word_index) + 1,
+                            self.hparams['embedding_dim'],
+                            weights=[self.embedding_matrix],
+                            input_length=self.hparams['max_sequence_length'],
+                            trainable=self.hparams['embedding_trainable'])
+
+        embedded_sequences = embedding_layer(sequence_input)
+        x = embedded_sequences
+        for filter_size, kernel_size, pool_size in zip(
+                self.hparams['cnn_filter_sizes'],
+                self.hparams['cnn_kernel_sizes'],
+                self.hparams['cnn_pooling_sizes']):
+            x = self.build_conv_layer(x, filter_size, kernel_size, pool_size)
+
+        x = Flatten()(x)
+        x = Dropout(self.hparams['dropout_rate'], name="Dropout")(x)
+        x = Dense(self.hparams['max_sequence_length'], activation='relu', name="Dense_RELU")(x)
+
+        # build prediction model
+        attention_dict = self.build_dense_attention_layer(x)
+        preds = attention_dict['attention_preds']
+        preds = Dense(2, name="preds_dense", activation='softmax')(preds)
+        rmsprop = RMSprop(lr=self.hparams['learning_rate'])
+        self.model = Model(sequence_input, preds)
+        self.model.compile(
+                optimizer=rmsprop,
+                loss='categorical_crossentropy',
+                metrics=['acc'])
+
+        # now make probs model
+        probs = attention_dict['attention_probs']
+        probs = Dense(2, name='probs_dense')(probs)
+        rmsprop = RMSprop(lr=self.hparams['learning_rate'])
+        self.probs_model = Model(sequence_input, preds)
+        self.probs_model.compile(
+                loss='mse', optimizer=rmsprop, metrics=['acc'])
+        # build probabilities model
+        self.save_prob_model()
