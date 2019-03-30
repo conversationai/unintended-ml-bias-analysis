@@ -31,6 +31,8 @@ import numpy as np
 import pandas as pd
 import scipy.stats as stats
 import seaborn as sns
+from six.moves import range
+from six.moves import zip
 from sklearn import metrics
 
 
@@ -103,9 +105,8 @@ def add_subgroup_columns_from_text(df, text_column, subgroups):
     """
   for term in subgroups:
     # pylint: disable=cell-var-from-loop
-    df[term] = df[text_column].apply(
-        lambda x: bool(re.search(ur'\b{}\b'.format(term), x,
-                                 flags=re.UNICODE|re.IGNORECASE)))
+    df[term] = df[text_column].apply(lambda x: bool(
+        re.search('\\b' + term + '\\b', x, flags=re.UNICODE | re.IGNORECASE)))
 
 
 def balanced_subgroup_subset(df, subgroup):
@@ -541,7 +542,8 @@ def per_subgroup_auc_diff_from_overall(dataset,
   d = diff_per_subgroup_from_overall(overall_aucs, per_subgroup_auc_results,
                                      model_families, auc_column, squared_error)
   return pd.DataFrame(
-      d.items(), columns=['model_family', 'pinned_auc_equality_difference'])
+      list(d.items()),
+      columns=['model_family', 'pinned_auc_equality_difference'])
 
 
 def per_subgroup_nr_diff_from_overall(df, subgroups, model_families, threshold,
@@ -566,7 +568,7 @@ def per_subgroup_fnr_diff_from_overall(df, subgroups, model_families, threshold,
   d = per_subgroup_nr_diff_from_overall(df, subgroups, model_families,
                                         threshold, '_fnr_values', squared_error)
   return pd.DataFrame(
-      d.items(), columns=['model_family', 'fnr_equality_difference'])
+      list(d.items()), columns=['model_family', 'fnr_equality_difference'])
 
 
 def per_subgroup_tnr_diff_from_overall(df, subgroups, model_families, threshold,
@@ -575,7 +577,7 @@ def per_subgroup_tnr_diff_from_overall(df, subgroups, model_families, threshold,
   d = per_subgroup_nr_diff_from_overall(df, subgroups, model_families,
                                         threshold, '_tnr_values', squared_error)
   return pd.DataFrame(
-      d.items(), columns=['model_family', 'tnr_equality_difference'])
+      list(d.items()), columns=['model_family', 'tnr_equality_difference'])
 
 
 ### Plotting.
@@ -611,7 +613,7 @@ def per_subgroup_scatterplots(df,
     y = row[values_col]
     ax.scatter(x, y, s=point_size)
   ax.set_xticklabels(df[subgroup_col], rotation=90)
-  ax.set_xticks(range(len(df)))
+  ax.set_xticks(list(range(len(df))))
   ax.set_ylim(y_lim)
   ax.set_title(title)
   fig.tight_layout()
@@ -690,4 +692,3 @@ def plot_aeg_heatmap(bias_metrics_results, models, color_palette=None, out=None)
     cmap = color_palette
   return plot_metric_heatmap(
       bias_metrics_results, models, AEGS, out, cmap=cmap, show_subgroups=False, vmin=-0.5, vmax=0.5)
-

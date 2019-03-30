@@ -3,10 +3,11 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-import cPickle
+
 import datetime
 import json
 import os
+
 from keras.callbacks import EarlyStopping
 from keras.callbacks import ModelCheckpoint
 from keras.layers import Conv1D
@@ -26,6 +27,9 @@ from keras.preprocessing.text import Tokenizer
 from keras.utils import to_categorical
 import numpy as np
 import pandas as pd
+import six
+from six.moves import zip
+import six.moves.cPickle
 from sklearn import metrics
 
 print('HELLO from model_tool')
@@ -66,37 +70,42 @@ def compute_auc(y_true, y_pred):
 # columns of the original dataset, and in addition has columns for each model,
 # containing the model's scores.
 def score_dataset(df, models, text_col):
-    """Scores the dataset with each model and adds the scores as new columns."""
-    for model in models:
-        name = model.get_model_name()
-        print('{} Scoring with {}...'.format(datetime.datetime.now(), name))
-        df[name] = model.predict(df[text_col])
+  """Scores the dataset with each model and adds the scores as new columns."""
+  for model in models:
+    name = model.get_model_name()
+    print('{} Scoring with {}...'.format(datetime.datetime.now(), name))
+    df[name] = model.predict(df[text_col])
+
 
 def load_maybe_score(models, orig_path, scored_path, postprocess_fn):
-    if os.path.exists(scored_path):
-        print('Using previously scored data:', scored_path)
-        return pd.read_csv(scored_path)
+  if os.path.exists(scored_path):
+    print('Using previously scored data:', scored_path)
+    return pd.read_csv(scored_path)
 
-    dataset = pd.read_csv(orig_path)
-    postprocess_fn(dataset)
-    score_dataset(dataset, models, 'text')
-    print('Saving scores to:', scored_path)
-    dataset.to_csv(scored_path)
-    return dataset
+  dataset = pd.read_csv(orig_path)
+  postprocess_fn(dataset)
+  score_dataset(dataset, models, 'text')
+  print('Saving scores to:', scored_path)
+  dataset.to_csv(scored_path)
+  return dataset
+
 
 def postprocess_madlibs(madlibs):
-    """Modifies madlibs data to have standard 'text' and 'label' columns."""
-    # Native madlibs data uses 'Label' column with values 'BAD' and 'NOT_BAD'.
-    # Replace with a bool.
-    madlibs['label'] = madlibs['Label'] == 'BAD'
-    madlibs.drop('Label', axis=1, inplace=True)
-    madlibs.rename(columns={'Text': 'text'}, inplace=True)
+  """Modifies madlibs data to have standard 'text' and 'label' columns."""
+  # Native madlibs data uses 'Label' column with values 'BAD' and 'NOT_BAD'.
+  # Replace with a bool.
+  madlibs['label'] = madlibs['Label'] == 'BAD'
+  madlibs.drop('Label', axis=1, inplace=True)
+  madlibs.rename(columns={'Text': 'text'}, inplace=True)
+
 
 def postprocess_wiki_dataset(wiki_data):
-    """Modifies Wikipedia dataset to have 'text' and 'label' columns."""
-    wiki_data.rename(columns={'is_toxic': 'label',
-                              'comment': 'text'},
-                     inplace=True)
+  """Modifies Wikipedia dataset to have 'text' and 'label' columns."""
+  wiki_data.rename(
+      columns={
+          'is_toxic': 'label',
+          'comment': 'text'
+      }, inplace=True)
 
 
 class ToxModel():
@@ -122,7 +131,7 @@ class ToxModel():
   def print_hparams(self):
     print('Hyperparameters')
     print('---------------')
-    for k, v in self.hparams.iteritems():
+    for k, v in six.iteritems(self.hparams):
       print('{}: {}'.format(k, v))
     print('')
 
@@ -142,7 +151,7 @@ class ToxModel():
   def load_model_from_name(self, model_name):
     self.model = load_model(
         os.path.join(self.model_dir, '%s_model.h5' % model_name))
-    self.tokenizer = cPickle.load(
+    self.tokenizer = six.moves.cPickle.load(
         open(
             os.path.join(self.model_dir, '%s_tokenizer.pkl' % model_name),
             'rb'))
@@ -155,10 +164,11 @@ class ToxModel():
     """Fits tokenizer on texts and pickles the tokenizer state."""
     self.tokenizer = Tokenizer(num_words=self.hparams['max_num_words'])
     self.tokenizer.fit_on_texts(texts)
-    cPickle.dump(self.tokenizer,
-                 open(
-                     os.path.join(self.model_dir,
-                                  '%s_tokenizer.pkl' % self.model_name), 'wb'))
+    six.moves.cPickle.dump(
+        self.tokenizer,
+        open(
+            os.path.join(self.model_dir, '%s_tokenizer.pkl' % self.model_name),
+            'wb'))
 
   def prep_text(self, texts):
     """Turns text into into padded sequences.
