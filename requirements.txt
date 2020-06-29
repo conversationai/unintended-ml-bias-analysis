@@ -3,7 +3,7 @@ backports-abc==0.5
 backports.shutil-get-terminal-size==1.0.0
 backports.ssl-match-hostname==3.5.0.1
 backports.weakref==1.0rc1
-bleach==1.5.0
+bleach==3.1.4
 certifi==2017.7.27.1
 configparser==3.5.0
 cycler==0.10.0
