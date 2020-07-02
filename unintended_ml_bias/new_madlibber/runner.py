@@ -1,9 +1,10 @@
 import argparse
 
-from path_helper import PathHelper
-from format_helper import FormatHelper
-from word_helper import WordHelper
-from madlibber import Madlibber
+import format_helper
+import madlibber
+import path_helper
+import word_helper
+
 
 def parse_args():
   """Returns parsed arguments."""
@@ -25,18 +26,21 @@ def parse_args():
       help='The output file of filled in templates.')
   return parser.parse_args()
 
+
 def main():
   args = parse_args()
-  ph = PathHelper(args.input_words, args.input_sentence_templates, args.output_file)
-  wh = WordHelper(FormatHelper)
-  m = Madlibber(ph, FormatHelper, wh)
+  ph = path_helper.PathHelper(args.input_words, args.input_sentence_templates,
+                              args.output_file)
+  wh = word_helper.WordHelper(format_helper.FormatHelper)
+  m = madlibber.Madlibber(ph, format_helper.FormatHelper, wh)
   m.load_sanity_check_templates_and_infer_word_categories()
   m.load_and_sanity_check_words()
   m.display_statistics()
-  should_fill = raw_input("Do you wish to generate the sentences? [y/N]")
-  if should_fill == "y":
+  should_fill = input('Do you wish to generate the sentences? [y/N]')
+  if should_fill == 'y':
     m.fill_templates()
-  print("Done. Exiting...") 
+  print('Done. Exiting...')
+
 
 if __name__ == '__main__':
   main()
