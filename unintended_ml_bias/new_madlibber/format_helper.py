@@ -1,17 +1,20 @@
 import re
 
+
 class FormatHelper():
+
   @classmethod
   def decompose_template_element(cls, template_element):
     s = template_element.split("_")
     for s_i in s:
-      if s_i == '' or len(s_i.split("|")) != 2:
-        raise ValueError("'{}' is not a valid template element".format(template_element))
+      if not s_i or len(s_i.split("|")) != 2:
+        raise ValueError(
+            "'{}' is not a valid template element".format(template_element))
     return s
 
   @classmethod
   def extract_template_elements(cls, phrase):
-    return re.findall('\{(.*?)\}',phrase)
+    return re.findall(r"\{(.*?)\}", phrase)
 
   @classmethod
   def construct_word_category(cls, column_name, column_value):
