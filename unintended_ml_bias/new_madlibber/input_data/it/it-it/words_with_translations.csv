@@ -1,0 +1,241 @@
+type,subtype,connotation,gender,term,corresponding_english_term
+name,,neutral,f,Anna,
+name,,neutral,m,Abdul,
+name,,neutral,m,Arthur,
+name,,neutral,f,Aylin,
+name,,neutral,m,Alex,
+name,,neutral,m,Andreas,
+name,,neutral,m,Ali,
+name,,neutral,f,Anastasia,
+name,,neutral,f,Angela,
+name,,neutral,f,Alina,
+name,,neutral,m,Ben,
+name,,neutral,m,Chris,
+name,,neutral,m,David,
+name,,neutral,f,Elisabeth,
+name,,neutral,m,Erik,
+name,,neutral,m,Hendrik,
+name,,neutral,f,Hanna,
+name,,neutral,f,Ida,
+name,,neutral,f,Julia,
+name,,neutral,m,Julian,
+name,,neutral,m,Jonas,
+name,,neutral,f,Lea,
+name,,neutral,m,Lukas,
+name,,neutral,f,Lena,
+name,,neutral,m,Marius,
+name,,neutral,m,Maximilian,
+name,,neutral,f,Marie,
+name,,neutral,m,Mehmet,
+name,,neutral,m,Mohammed,
+name,,neutral,m,Michael,
+name,,neutral,m,Mia,
+name,,neutral,m,Nils,
+name,,neutral,m,Ralf,
+name,,neutral,m,Stefan,
+name,,neutral,f,Sarah,
+name,,neutral,m,Simon,
+name,,neutral,m,Sebastian,
+name,,neutral,f,Samira,
+name,,neutral,m,Timo,
+name,,neutral,m,Yasin,
+name,,neutral,f,Yasmin,
+name,,neutral,m,Zahid,
+name,,neutral,f,Zoe,
+name,,neutral,m,Wladimir,
+adjective,,toxic,m,disgustoso,disgusting
+adjective,,toxic,f,disgustosa,disgusting
+adjective,,toxic,m,sporco,dirty
+adjective,,toxic,f,sporca,dirty
+adjective,,toxic,m,cattivo,bad
+adjective,,toxic,f,cattiva,bad
+adjective,,toxic,m,marcio,rotten
+adjective,,toxic,f,marcia,rotten
+adjective,,toxic,n,orribile,awful
+adjective,,toxic,n,atroce,terrible
+adjective,,toxic,m,spaventoso,scary
+adjective,,toxic,f,spaventosa,scary
+adjective,,toxic,n,ripugnante,revolting
+adjective,,toxic,m,meschino,nasty
+adjective,,toxic,f,meschina,nasty
+adjective,,toxic,n,idiota,idiot
+adjective,,toxic,m,stupido,stupid
+adjective,,toxic,f,stupida,stupid
+adjective,,toxic,m,sciocco,silly
+adjective,,toxic,f,sciocca,silly
+adjective,,toxic,m,ottuso,thick
+adjective,,toxic,f,ottusa,thick
+adjective,,toxic,m,brutto,ugly
+adjective,,toxic,f,brutta,ugly
+adjective,,toxic,m,schifoso,disgusting
+adjective,,toxic,f,schifosa,disgusting
+adjective,,toxic,m,fottuto,fucking
+adjective,,toxic,f,fottuta,fucking
+adjective,,nontoxic,m,fantastico,fantastic
+adjective,,nontoxic,f,fantastica,fantastic
+adjective,,nontoxic,n,divertente,funny
+adjective,,nontoxic,m,bello,beautiful
+adjective,,nontoxic,f,bella,beautiful
+adjective,,nontoxic,m,pulito,clean
+adjective,,nontoxic,f,pulita,clean
+adjective,,nontoxic,m,contento,happy
+adjective,,nontoxic,f,contenta,happy
+adjective,,nontoxic,m,buono,good
+adjective,,nontoxic,f,buona,good
+adjective,,nontoxic,n,migliore,better
+adjective,,nontoxic,m,grandioso,great
+adjective,,nontoxic,f,grandiosa,great
+adjective,,nontoxic,m,meraviglioso,wonderful
+adjective,,nontoxic,f,meravigliosa,wonderful
+adjective,,nontoxic,n,incantevole,enchanting
+adjective,,nontoxic,n,eccellente,excellent
+adjective,,nontoxic,n,incredibile,unbelievable
+adjective,,nontoxic,n,amichevole,friendly
+adjective,,nontoxic,n,cortese,kind
+adjective,,nontoxic,n,gentile,gentle
+adjective,,nontoxic,m,premuroso,caring
+adjective,,nontoxic,f,premurosa,caring
+identity,age,neutral,m,vecchio,old
+identity,age,neutral,f,vecchia,old
+identity,age,neutral,m,più vecchio,older
+identity,age,neutral,m,piu' anziano,older
+identity,age,neutral,f,più vecchia,older
+identity,age,neutral,,piu’ anziana,older
+identity,age,neutral,n,giovane,young
+identity,age,neutral,n,minore,minor
+identity,age,neutral,n,adolescente,teenager
+identity,age,neutral,n,di mezza età,middle age
+identity,disability,neutral,m,anziano,old
+identity,disability,neutral,f,anziana,old
+identity,disability,neutral,m,cieco,blind
+identity,disability,neutral,f,cieca,blind
+identity,disability,neutral,m,sordo,deaf
+identity,disability,neutral,f,sorda,deaf
+identity,disability,neutral,m,paralizzato,paralyzed
+identity,disability,neutral,f,paralizzata,paralyzed
+identity,ethnicity,neutral,m,africano,african
+identity,ethnicity,neutral,f,africana,african
+identity,ethnicity,neutral,m,afroamericano,afroamerican
+identity,ethnicity,neutral,f,afroamericana,afroamerican
+identity,ethnicity,neutral,f,nera,black
+identity,ethnicity,neutral,m,bianco,white
+identity,ethnicity,neutral,f,bianca,white
+identity,ethnicity,neutral,m,europeo,european
+identity,ethnicity,neutral,f,europea,european
+identity,ethnicity,neutral,m,ispanico,spanish
+identity,ethnicity,neutral,f,ispanica,spanish
+identity,ethnicity,neutral,m,latino,latin
+identity,ethnicity,neutral,f,latina,latin
+identity,ethnicity,neutral,f,messicana,mexican
+identity,ethnicity,neutral,n,canadese,canadien
+identity,ethnicity,neutral,m,americano,american
+identity,ethnicity,neutral,f,americana,american
+identity,ethnicity,neutral,m,asiatico,asian
+identity,ethnicity,neutral,f,asiatica,asian
+identity,ethnicity,neutral,m,indiano,indian
+identity,ethnicity,neutral,f,indiana,indian
+identity,ethnicity,neutral,n,medio orientale,middle east
+identity,ethnicity,neutral,n,cinese,chinese
+identity,ethnicity,neutral,n,giapponese,japanese
+identity,ethnicity,neutral,m,messicano,mexican
+identity,ethnicity,neutral,m,nero,black
+identity,gender,neutral,n,transessuale,transsexual
+identity,gender,neutral,n,trans,trans
+identity,gender,neutral,n,maschio,man
+identity,gender,neutral,n,uomo,man
+identity,gender,neutral,n,femmina,female
+identity,gender,neutral,n,donna,woman
+identity,relgion,neutral,m,musulmano,muslim
+identity,religion,neutral,m,cristiano,christian
+identity,religion,neutral,f,cristiana,christian
+identity,religion,neutral,f,musulmana,muslim
+identity,religion,neutral,m,ebraico,jewish
+identity,religion,neutral,f,ebraica,jewish
+identity,religion,neutral,n,buddista,buddhist
+identity,religion,neutral,m,cattolico,catholic
+identity,religion,neutral,f,cattolica,catholic
+identity,religion,neutral,n,protestante,protestant
+identity,religion,neutral,n,sikh,sikh
+identity,religion,neutral,n,taoista,taoist
+identity,sexuality,neutral,n,lesbica,lesbian
+identity,sexuality,neutral,n,gay,gay
+identity,sexuality,neutral,n,bisessuale,bisexual
+identity,sexuality,neutral,n,bisex,bisexual
+identity,sexuality,neutral,n,culattone,gay
+identity,sexuality,neutral,n,omosessuale,gay
+identity,sexuality,neutral,n,eterosessuale,heterosexual
+identity,sexuality,neutral,n,etero,heterosexual
+occupation,,neutral,m,attore,actor
+occupation,,neutral,f,attrice,actor
+occupation,,neutral,n,architetto,arhitect
+occupation,,neutral,n,artista,artist
+occupation,,neutral,n,barbiere,barber
+occupation,,neutral,m,minatore di carbone,coal miner
+occupation,,neutral,f,minatrice di carbone,coal miner
+occupation,,neutral,m,programmatore di computer,computer programmer
+occupation,,neutral,f,programmatrice di computer,computer programmer
+occupation,,neutral,m,ballerino,dancer
+occupation,,neutral,f,ballerina,dancer
+occupation,,neutral,n,progettista,designer
+occupation,,neutral,n,medico,doctor
+occupation,,neutral,n,ingegnere,engineer
+occupation,,neutral,m,operaio,worker
+occupation,,neutral,f,operaia,worker
+occupation,,neutral,m,contadino,farmer
+occupation,,neutral,f,contadina,farmer
+occupation,,neutral,n,pompiere,fireman
+occupation,,neutral,m,parrucchiere,hairdresser
+occupation,,neutral,f,parrucchiera,hairdresser
+occupation,,neutral,m,bidello,janitor
+occupation,,neutral,f,bidella,janitor
+occupation,,neutral,n,avvocato,lawyer
+occupation,,neutral,n,macchinista,machinist
+occupation,,neutral,f,infermiera,nurse
+occupation,,neutral,m,infermiere,nurse
+occupation,,neutral,m,fotografo,photographer
+occupation,,neutral,f,fotografa,photographer
+occupation,,neutral,m,poliziotto,policeman
+occupation,,neutral,f,poliziotta,policeman
+occupation,,neutral,m,programmatore,programmer
+occupation,,neutral,f,programmatrice,programmer
+occupation,,neutral,n,reporter,reporter
+occupation,,neutral,m,venditore,seller
+occupation,,neutral,f,venditrice,seller
+occupation,,neutral,n,scienziato,scientist
+occupation,,neutral,m,segretario,secretary
+occupation,,neutral,f,segretaria,secretary
+occupation,,neutral,m,programmatore informatico,web designer
+occupation,,neutral,f,programmatrice informatica,web designer
+occupation,,neutral,m,scrittore,writer
+occupation,,neutral,f,scrittrice,writer
+verb,,toxic,,assassinare,to assassinate
+verb,,toxic,,essere avverso,to be adverse
+verb,,toxic,,avere orrore di,to have horror of
+verb,,toxic,,disprezzare,to despise
+verb,,toxic,,odiare,to hate
+verb,,toxic,,distruggere,to destroy
+verb,,toxic,,ferire,to hurt
+verb,,toxic,,colpire,to hit
+verb,,toxic,,uccidere,to kill
+verb,,toxic,,molestare,to harass
+verb,,toxic,,maledire,to curse
+verb,,toxic,,avere in antipatia,to dislike
+verb,,toxic,,riprendere,to warn
+verb,,toxic,,prendere in giro,to  make fun of
+verb,,nontoxic,,ammirare,to admire
+verb,,nontoxic,,perdonare,to forgive
+verb,,nontoxic,,amare,to love
+verb,,nontoxic,,apprezzare,to appreciate
+verb,,nontoxic,,assistere,to help
+verb,,nontoxic,,benedire,to bless
+verb,,nontoxic,,accarezzare,to caress
+verb,,nontoxic,,consolare,to comfort
+verb,,nontoxic,,desiderare,to desire
+verb,,nontoxic,,stimare,to estimate
+verb,,nontoxic,,essere pazzo di,to be crazy about
+verb,,nontoxic,,essere grato a,to be grateful to
+verb,,nontoxic,,proteggere,to protect
+verb,,nontoxic,,ricompensare,to reward
+verb,,nontoxic,,rispettare,to respect
+verb,,nontoxic,,innamorarsi di,to fall in love with
+verb,,nontoxic,,essere interessato a,to be interested in
