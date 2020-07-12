@@ -1,0 +1,237 @@
+template,toxicity,phrase
+am_identity,nontoxic,lo sono {type|identity_connotation|neutral_gender|m}
+am_identity,nontoxic,lo sono {type|identity_connotation|neutral_gender|f}
+am_identity,nontoxic,lo sono {type|identity_connotation|neutral_gender|n}
+am_eth_gen_p,nontoxic,lo sono un {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|m}
+am_eth_gen_p,nontoxic,lo sono un {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|n}
+am_eth_gen_p,nontoxic,lo sono un {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|m}
+am_eth_gen_p,nontoxic,lo sono un {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+am_eth_gen_p,nontoxic,lo sono una {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|f}
+am_eth_gen_p,nontoxic,lo sono una {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|n}
+am_eth_gen_p,nontoxic,lo sono una {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|f}
+am_eth_gen_p,nontoxic,lo sono una {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+am_eth_sex_p,nontoxic,lo sono un {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+am_eth_sex_p,nontoxic,lo sono un {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+am_eth_sex_p,nontoxic,lo sono un {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+am_eth_sex_p,nontoxic,lo sono un {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+am_eth_sex_p,nontoxic,lo sono una {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+am_eth_sex_p,nontoxic,lo sono una {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+am_eth_sex_p,nontoxic,lo sono una {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+am_eth_sex_p,nontoxic,lo sono una {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+am_eth_gen_w,nontoxic,lo sono una donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|f}
+am_eth_gen_w,nontoxic,lo sono una donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|n}
+am_eth_gen_w,nontoxic,lo sono una donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|f}
+am_eth_gen_w,nontoxic,lo sono una donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+am_eth_sex_w,nontoxic,lo sono una donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+am_eth_sex_w,nontoxic,lo sono una donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+am_eth_sex_w,nontoxic,lo sono una donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+am_eth_sex_w,nontoxic,lo sono una donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+am_eth_gen_m,nontoxic,lo sono un uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|m}
+am_eth_gen_m,nontoxic,lo sono un uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|n}
+am_eth_gen_m,nontoxic,lo sono un uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|m}
+am_eth_gen_m,nontoxic,lo sono un uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+am_eth_sex_m,nontoxic,lo sono un uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+am_eth_sex_m,nontoxic,lo sono un uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+am_eth_sex_m,nontoxic,lo sono un uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+am_eth_sex_m,nontoxic,lo sono un uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+am_eth_sex_m,nontoxic,Essere {type|identity_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|m}
+am_eth_sex_m,nontoxic,Essere {type|identity_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|m}
+am_eth_sex_m,nontoxic,Essere {type|identity_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|n}
+am_eth_sex_m,nontoxic,Essere {type|identity_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|n}
+am_eth_sex_m,nontoxic,Essere {type|identity_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|f}
+am_eth_sex_m,nontoxic,Essere {type|identity_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|n}
+am_eth_sex_m,nontoxic,Essere {type|identity_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|f}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|gender_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|m}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|m}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|m}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|gender_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|m}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|gender_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|f}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|f}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|f}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|gender_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|f}
+being_eth_gen,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|sexuality_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|m}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|m}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|m}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|sexuality_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|m} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|m}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|sexuality_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|f}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|f}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|f}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|sexuality_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|f} è {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|f}
+being_eth_sex,nontoxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|nontoxic_gender|n}
+you_are_identity_p,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|m} persona {type|identity_connotation|neutral_gender|m}
+you_are_identity_p,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|m} persona {type|identity_connotation|neutral_gender|n}
+you_are_identity_p,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|n} persona {type|identity_connotation|neutral_gender|m}
+you_are_identity_p,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|n} persona {type|identity_connotation|neutral_gender|n}
+you_are_identity_p,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|f} persona {type|identity_connotation|neutral_gender|f}
+you_are_identity_p,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|f} persona {type|identity_connotation|neutral_gender|n}
+you_are_identity_p,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|n} persona {type|identity_connotation|neutral_gender|f}
+you_are_eth_gen_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|f}
+you_are_eth_gen_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|f}
+you_are_eth_gen_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|f}
+you_are_eth_gen_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|f}
+you_are_eth_gen_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_sex_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+you_are_eth_sex_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+you_are_eth_sex_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+you_are_eth_sex_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+you_are_eth_sex_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_w,nontoxic,Tu sei una {type|adjective_connotation|nontoxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_gen_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|m}
+you_are_eth_gen_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|m}
+you_are_eth_gen_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|m}
+you_are_eth_gen_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|m}
+you_are_eth_gen_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+you_are_eth_sex_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+you_are_eth_sex_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+you_are_eth_sex_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+you_are_eth_sex_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_m,nontoxic,Tu sei un {type|adjective_connotation|nontoxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_occupation,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|m} {type|occupation_gender|m}
+you_occupation,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|n} {type|occupation_gender|m}
+you_occupation,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|m} {type|occupation_gender|n}
+you_occupation,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|n} {type|occupation_gender|n}
+you_occupation,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|f} {type|occupation_gender|f}
+you_occupation,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|n} {type|occupation_gender|f}
+you_occupation,nontoxic,tu sei un {type|adjective_connotation|nontoxic_gender|f} {type|occupation_gender|n}
+hate_identity,toxic,Io odio le persone {type|identity_connotation|neutral_gender|m}
+hate_identity,toxic,Io odio le persone {type|identity_connotation|neutral_gender|f}
+hate_identity,toxic,Io odio le persone {type|identity_connotation|neutral_gender|n}
+hate_eth_gen_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|m}
+hate_eth_gen_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|n}
+hate_eth_gen_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|m}
+hate_eth_gen_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+hate_eth_gen_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|f}
+hate_eth_gen_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|n}
+hate_eth_gen_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|f}
+hate_eth_sex_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+hate_eth_sex_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+hate_eth_sex_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+hate_eth_sex_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+hate_eth_sex_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+hate_eth_sex_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+hate_eth_sex_p,toxic,lo odio le persone {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+hate_eth_gen_w,toxic,lo odio le donne {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|f}
+hate_eth_gen_w,toxic,lo odio le donne {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|n}
+hate_eth_gen_w,toxic,lo odio le donne {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|f}
+hate_eth_gen_w,toxic,lo odio le donne {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+hate_eth_sex_w,toxic,lo odio le donne {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+hate_eth_sex_w,toxic,lo odio le donne {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+hate_eth_sex_w,toxic,lo odio le donne {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+hate_eth_sex_w,toxic,lo odio le donne {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+hate_eth_gen_m,toxic,lo odio gli uomini {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|m}
+hate_eth_gen_m,toxic,lo odio gli uomini {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|n}
+hate_eth_gen_m,toxic,lo odio gli uomini {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|m}
+hate_eth_gen_m,toxic,lo odio gli uomini {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+hate_eth_sex_m,toxic,lo odio gli uomini {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+hate_eth_sex_m,toxic,lo odio gli uomini {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+hate_eth_sex_m,toxic,lo odio gli uomini {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+hate_eth_sex_m,toxic,lo odio gli uomini {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+being_identity_tox,toxic,Essere {type|identity_connotation|neutral_gender|m} è  {type|adjective_connotation|toxic_gender|m}
+being_identity_tox,toxic,Essere {type|identity_connotation|neutral_gender|n} è  {type|adjective_connotation|toxic_gender|m}
+being_identity_tox,toxic,Essere {type|identity_connotation|neutral_gender|m} è  {type|adjective_connotation|toxic_gender|n}
+being_identity_tox,toxic,Essere {type|identity_connotation|neutral_gender|n} è  {type|adjective_connotation|toxic_gender|n}
+being_identity_tox,toxic,Essere {type|identity_connotation|neutral_gender|f} è  {type|adjective_connotation|toxic_gender|f}
+being_identity_tox,toxic,Essere {type|identity_connotation|neutral_gender|f} è {type|adjective_connotation|toxic_gender|n}
+being_identity_tox,toxic,Essere {type|identity_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|f}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|gender_connotation|neutral_gender|m} è {type|adjective_connotation|toxic_gender|m}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|m} è {type|adjective_connotation|toxic_gender|m}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|m}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|gender_connotation|neutral_gender|m} è {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|m} è {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|m}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|gender_connotation|neutral_gender|f} è {type|adjective_connotation|toxic_gender|f}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|f} è {type|adjective_connotation|toxic_gender|f}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|f}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|gender_connotation|neutral_gender|f} è {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|gender_connotation|neutral_gender|f} è {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|f}
+being_eth_gen_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|gender_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|n}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|sexuality_connotation|neutral_gender|m} è {type|adjective_connotation|toxic_gender|m}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|m} è {type|adjective_connotation|toxic_gender|m}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|m}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|sexuality_connotation|neutral_gender|m} è {type|adjective_connotation|toxic_gender|n}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|m} è {type|adjective_connotation|toxic_gender|n}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|m}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|m} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|n}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|n}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|sexuality_connotation|neutral_gender|f} è {type|adjective_connotation|toxic_gender|f}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|f} è {type|adjective_connotation|toxic_gender|f}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|f}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|sexuality_connotation|neutral_gender|f} è {type|adjective_connotation|toxic_gender|n}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|n} e {type|identity_subtype|sexuality_connotation|neutral_gender|f} è {type|adjective_connotation|toxic_gender|n}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|f}
+being_eth_sex_tox,toxic,Essere {type|identity_subtype|ethnicity_connotation|neutral_gender|f} e {type|identity_subtype|sexuality_connotation|neutral_gender|n} è {type|adjective_connotation|toxic_gender|n}
+you_are_identity_p_tox,toxic,tu sei un {type|adjective_connotation|toxic_gender|m} persona {type|identity_connotation|neutral_gender|m}
+you_are_identity_p_tox,toxic,tu sei un {type|adjective_connotation|toxic_gender|m} persona {type|identity_connotation|neutral_gender|n}
+you_are_identity_p_tox,toxic,tu sei un {type|adjective_connotation|toxic_gender|n} persona {type|identity_connotation|neutral_gender|m}
+you_are_identity_p_tox,toxic,tu sei un {type|adjective_connotation|toxic_gender|n} persona {type|identity_connotation|neutral_gender|n}
+you_are_identity_p_tox,toxic,tu sei un {type|adjective_connotation|toxic_gender|f} persona {type|identity_connotation|neutral_gender|f}
+you_are_identity_p_tox,toxic,tu sei un {type|adjective_connotation|toxic_gender|f} persona {type|identity_connotation|neutral_gender|n}
+you_are_identity_p_tox,toxic,tu sei un {type|adjective_connotation|toxic_gender|n} persona {type|identity_connotation|neutral_gender|f}
+you_are_eth_gen_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|f}
+you_are_eth_gen_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|f}
+you_are_eth_gen_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|f}
+you_are_eth_gen_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|f}
+you_are_eth_gen_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_sex_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+you_are_eth_sex_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+you_are_eth_sex_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+you_are_eth_sex_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|f}
+you_are_eth_sex_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|n} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_w_tox,toxic,Tu sei una {type|adjective_connotation|toxic_gender|f} donna {type|identity_subtype|ethnicity_connotation|neutral_gender|f} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_gen_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|m}
+you_are_eth_gen_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|m}
+you_are_eth_gen_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|m}
+you_are_eth_gen_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|m}
+you_are_eth_gen_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_gen_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|gender_connotation|neutral_gender|n}
+you_are_eth_sex_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+you_are_eth_sex_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+you_are_eth_sex_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+you_are_eth_sex_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|m}
+you_are_eth_sex_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|n} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|n} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_are_eth_sex_m_tox,toxic,Tu sei un {type|adjective_connotation|toxic_gender|m} uomo {type|identity_subtype|ethnicity_connotation|neutral_gender|m} {type|identity_subtype|sexuality_connotation|neutral_gender|n}
+you_occupation,toxic,tu sei un {type|adjective_connotation|toxic_gender|m} {type|occupation_gender|m}
+you_occupation,toxic,tu sei un {type|adjective_connotation|toxic_gender|n} {type|occupation_gender|m}
+you_occupation,toxic,tu sei un {type|adjective_connotation|toxic_gender|m} {type|occupation_gender|n}
+you_occupation,toxic,tu sei un {type|adjective_connotation|toxic_gender|n} {type|occupation_gender|n}
+you_occupation,toxic,tu sei una {type|adjective_connotation|toxic_gender|f} {type|occupation_gender|f}
+you_occupation,toxic,tu sei una {type|adjective_connotation|toxic_gender|n} {type|occupation_gender|f}
+you_occupation,toxic,tu sei una {type|adjective_connotation|toxic_gender|f} {type|occupation_gender|n}
+you_occupation,toxic,tu sei una {type|adjective_connotation|toxic_gender|n} {type|occupation_gender|n}
+
