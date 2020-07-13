@@ -8,9 +8,9 @@ import google3
 import numpy as np
 import pandas as pd
 from six.moves import range
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
-import model_bias_analysis as mba
+import google3.third_party.conversationai.unintended_ml_bias_analysis.unintended_ml_bias.model_bias_analysis as mba
 
 class ModelBiasAnalysisTest(tf.test.TestCase):
 
