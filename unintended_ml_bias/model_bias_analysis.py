@@ -98,15 +98,27 @@ def read_identity_terms(identity_terms_path):
     return [term.strip() for term in f.readlines()]
 
 
-def add_subgroup_columns_from_text(df, text_column, subgroups):
+def add_subgroup_columns_from_text(df, text_column, subgroups,
+                                   expect_spaces_around_words=True):
   """Adds a boolean column for each subgroup to the data frame.
 
-    New column contains True if the text contains that subgroup term.
-    """
+  New column contains True if the text contains that subgroup term.
+
+  Args:
+    df: Pandas dataframe to process.
+    text_column: Column in df containing the text.
+    subgroups: List of subgroups to search text_column for.
+    expect_spaces_around_words: Whether to expect subgroup to be surrounded by
+      spaces in the text_column.  Set to False to for languages which do not
+      use spaces.
+  """
   for term in subgroups:
-    # pylint: disable=cell-var-from-loop
-    df[term] = df[text_column].apply(lambda x: bool(
-        re.search('\\b' + term + '\\b', x, flags=re.UNICODE | re.IGNORECASE)))
+    if expect_spaces_around_words:
+      # pylint: disable=cell-var-from-loop
+      df[term] = df[text_column].apply(lambda x: bool(
+          re.search('\\b' + term + '\\b', x, flags=re.UNICODE | re.IGNORECASE)))
+    else:
+      df[term] = df[text_column].str.contains(term, case=False)
 
 
 def balanced_subgroup_subset(df, subgroup):
@@ -628,7 +640,7 @@ def save_inline_png(fig, out, **kwargs):
   s = io.BytesIO()
   fig.savefig(s, format='png', **kwargs)
   out.write('<img src="data:image/png;base64,{}"/>'.format(
-      base64.b64encode(s.getvalue())))
+      base64.b64encode(s.getvalue()).decode('ascii')))
 
 
 def plot_metric_heatmap(bias_metrics_results,
