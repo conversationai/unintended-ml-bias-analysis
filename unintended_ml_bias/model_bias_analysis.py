@@ -1,3 +1,4 @@
+# Lint as: python3
 """Analysis of model bias.
 
 We look at differences in model scores as a way to compare bias in different
@@ -17,10 +18,6 @@ The functions in this file expect scored data in a data frame with columns:
     additional label columns from the original test data.
 """
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import base64
 import io
 import os
@@ -31,8 +28,6 @@ import numpy as np
 import pandas as pd
 import scipy.stats as stats
 import seaborn as sns
-from six.moves import range
-from six.moves import zip
 from sklearn import metrics
 
 
@@ -64,7 +59,7 @@ def column_name(model, metric):
 def compute_auc(y_true, y_pred):
   try:
     return metrics.roc_auc_score(y_true, y_pred)
-  except ValueError as e:
+  except ValueError:
     return np.nan
 
 
@@ -115,8 +110,9 @@ def add_subgroup_columns_from_text(df, text_column, subgroups,
   for term in subgroups:
     if expect_spaces_around_words:
       # pylint: disable=cell-var-from-loop
-      df[term] = df[text_column].apply(lambda x: bool(
-          re.search('\\b' + term + '\\b', x, flags=re.UNICODE | re.IGNORECASE)))
+      df[term] = df[text_column].apply(
+          lambda x: bool(re.search('\\b' + term + '\\b', x,
+                                   flags=re.UNICODE | re.IGNORECASE)))
     else:
       df[term] = df[text_column].str.contains(term, case=False)
 
@@ -124,14 +120,17 @@ def add_subgroup_columns_from_text(df, text_column, subgroups,
 def balanced_subgroup_subset(df, subgroup):
   """Returns data subset containing subgroup balanced with sample of other data.
 
-    We draw a random sample from the dataset of other examples because we don't
-    care about the model's ability to distinguish toxic from non-toxic just
-    within the subgroup-specific dataset, but rather its ability to distinguish
-    for
-    the subgroup-specific subset within the context of a larger distribution of
-    data.
+  We draw a random sample from the dataset of other examples because we don't
+  care about the model's ability to distinguish toxic from non-toxic just
+  within the subgroup-specific dataset, but rather its ability to distinguish
+  for the subgroup-specific subset within the context of a larger distribution
+  of data.
 
-    Note: Uses a fixed random seed for reproducability.
+  Args:
+    df: Pandas dataframe to process.
+    subgroup: subgroup from which to balance data with other samples.
+
+  Note: Uses a fixed random seed for reproducability.
   """
   subgroup_df = df[df[subgroup]]
   nonsubgroup_df = df[~df[subgroup]].sample(len(subgroup_df), random_state=25)
@@ -148,7 +147,7 @@ def model_family_name(model_names):
 
 
 def normalized_mwu(data1, data2, model_name):
-  """Returns the number of pairs where the datapoint in data1 has a greater score than that from data2."""
+  """Calculate number of datapoints with a higher score in data1 than data2."""
   scores_1 = data1[model_name]
   scores_2 = data2[model_name]
   n1 = len(scores_1)
@@ -163,7 +162,7 @@ def compute_average_squared_equality_gap(df, subgroup, label, model_name):
   """Returns the positive and negative ASEG metrics."""
   subgroup_df = df[df[subgroup]]
   background_df = df[~df[subgroup]]
-  if len(subgroup_df) == 0 or len(background_df) == 0:
+  if subgroup_df.empty or background_df.empty:
     return None, None
   thresholds = np.linspace(1.0, 0.0, num=1000)
   s_fpr, s_tpr = positive_rates(subgroup_df, model_name, label, thresholds)
@@ -309,14 +308,15 @@ def compute_bias_metrics_for_model_families(dataset,
 
 
 # TODO(lucyvasserman): Deprecate this, and Pinned AUC completely.
-def per_subgroup_aucs(dataset,
-                      subgroups,
-                      model_families,
-                      label_col,
+def per_subgroup_aucs(dataset, subgroups, model_families, label_col,
                       include_asegs=False):
-  """Computes per-subgroup metrics, including deprecated pinned auc for all subgroups and model families."""
+  """Computes per-subgroup metrics for all subgroups and model families.
+
+  Includes deprecated pinned AUC.
+  """
   new_bias_metrics = compute_bias_metrics_for_model_families(
-      dataset, subgroups, model_families, label_col, include_asegs=include_asegs)
+      dataset, subgroups, model_families, label_col,
+      include_asegs=include_asegs)
 
   records = []
   for subgroup in subgroups:
@@ -355,6 +355,7 @@ def confusion_matrix_counts(df, score_col, label_col, threshold):
 
 
 def positive_rates(df, score_col, label_col, thresholds):
+  """Compute false positive and true positive rates."""
   tpr = []
   fpr = []
   for threshold in thresholds:
@@ -369,6 +370,7 @@ def positive_rates(df, score_col, label_col, thresholds):
 
 # https://en.wikipedia.org/wiki/Confusion_matrix
 def compute_confusion_rates(df, score_col, label_col, threshold):
+  """Compute confusion rates."""
   confusion = confusion_matrix_counts(df, score_col, label_col, threshold)
   actual_positives = confusion['tp'] + confusion['fn']
   actual_negatives = confusion['tn'] + confusion['fp']
@@ -393,7 +395,7 @@ def compute_confusion_rates(df, score_col, label_col, threshold):
 
 
 def compute_equal_error_rate(df, score_col, label_col, num_thresholds=101):
-  """Returns threshold where the false negative and false positive counts are equal."""
+  """Find threshold where false negative and false positive counts are equal."""
   # Note: I'm not sure if this should be based on the false positive/negative
   # *counts*, or the *rates*. However, they should be equivalent for balanced
   # datasets.
@@ -433,23 +435,22 @@ def per_subgroup_negative_rates(df, subgroups, model_families, threshold,
                                 label_col):
   """Computes per-subgroup true/false negative rates for all model families.
 
-    Args:
-      df: dataset to compute rates on.
-      subgroups: negative rates are computed on subsets of the dataset
-        containing each subgroup.
-      label_col: column in df containing the boolean label.
-      model_families: list of model families; each model family is a list of
-        model names in the family.
-      threshold: threshold to use to compute negative rates. Can either be a
-        float, or a dictionary mapping model name to float threshold in order to
-        use a different threshold for each model.
+  Args:
+    df: dataset to compute rates on.
+    subgroups: negative rates are computed on subsets of the dataset
+      containing each subgroup.
+    model_families: list of model families; each model family is a list of
+      model names in the family.
+    threshold: threshold to use to compute negative rates. Can either be a
+      float, or a dictionary mapping model name to float threshold in order to
+      use a different threshold for each model.
+    label_col: column in df containing the boolean label.
 
-    Returns:
-      DataFrame with per-subgroup false/true negative rates for each model
-      family.
-          Results are summarized across each model family, giving mean, median,
-          and standard deviation of each negative rate.
-    """
+  Returns:
+    DataFrame with per-subgroup false/true negative rates for each model
+    family. Results are summarized across each model family, giving mean,
+    median, and standard deviation of each negative rate.
+  """
   records = []
   for subgroup in subgroups:
     if subgroup is None:
@@ -490,28 +491,27 @@ def per_subgroup_negative_rates(df, subgroups, model_families, threshold,
 def diff_per_subgroup_from_overall(overall_metrics, per_subgroup_metrics,
                                    model_families, metric_column,
                                    squared_error):
-  """Computes the sum of differences between the per-subgroup metric values and the overall values
+  """Compute sum of differences between per-subgroup and overall values.
 
-    summed over all subgroups and models. i.e. sum(|overall_i -
-    per-subgroup_i,t|) for i in model
-    instances and t in subgroups.
+  Summed over all subgroups and models, i.e.
+    sum(|overall_i - per-subgroup_i,t|) for i in models and t in subgroups.
 
-    Args:
-      overall_metrics: dict of model familiy to list of score values for the
-        overall dataset (one per model instance).
-      per_subgroup_metrics: DataFrame of scored results, one subgroup per row.
-        Expected to have a column named model family name + metric column, which
-        contains a list of one score per model instance.
-      model_families: list of model families; each model family is a list of
-        model names in the family.
-      metric_column: column name suffix in the per_subgroup_metrics df where the
-        per-subgroup data to be diffed is stored.
-      squared_error: boolean indicating whether to use squared error or just
-        absolute difference.
+  Args:
+    overall_metrics: dict of model familiy to list of score values for the
+      overall dataset (one per model instance).
+    per_subgroup_metrics: DataFrame of scored results, one subgroup per row.
+      Expected to have a column named model family name + metric column, which
+      contains a list of one score per model instance.
+    model_families: list of model families; each model family is a list of
+      model names in the family.
+    metric_column: column name suffix in the per_subgroup_metrics df where the
+      per-subgroup data to be diffed is stored.
+    squared_error: boolean indicating whether to use squared error or just
+      absolute difference.
 
-    Returns:
-      A dictionary of model family name to sum of differences value for that
-      model family.
+  Returns:
+    A dictionary of model family name to sum of differences value for that
+    model family.
   """
 
   def calculate_error(overall_score, per_group_score):
@@ -605,15 +605,15 @@ def per_subgroup_scatterplots(df,
                               file_name='plot'):
   """Displays a series of one-dimensional scatterplots, 1 scatterplot per subgroup.
 
-    Args:
-      df: DataFrame contain subgroup_col and values_col.
-      subgroup_col: Column containing subgroups.
-      values_col: Column containing collection of values to plot (each cell
-        should contain a sequence of values, e.g. the AUCs for multiple models
-        from the same family).
-      title: Plot title.
-      y_lim: Plot bounds for y axis.
-      figsize: Plot figure size.
+  Args:
+    df: DataFrame contain subgroup_col and values_col.
+    subgroup_col: Column containing subgroups.
+    values_col: Column containing collection of values to plot (each cell
+      should contain a sequence of values, e.g. the AUCs for multiple models
+      from the same family).
+    title: Plot title.
+    y_lim: Plot bounds for y axis.
+    figsize: Plot figure size.
   """
   fig = plt.figure(figsize=figsize)
   ax = fig.add_subplot(111)
@@ -634,7 +634,7 @@ def per_subgroup_scatterplots(df,
 
 def save_inline_png(fig, out, **kwargs):
   """Saves figure as an inline data URI resource."""
-  if type(out) is str:
+  if isinstance(out, str):
     fig.savefig(out, format='png', **kwargs)
     return
   s = io.BytesIO()
@@ -685,7 +685,8 @@ def plot_metric_heatmap(bias_metrics_results,
   return ax
 
 
-def plot_auc_heatmap(bias_metrics_results, models, color_palette=None, out=None):
+def plot_auc_heatmap(bias_metrics_results, models,
+                     color_palette=None, out=None):
   if not color_palette:
     # Hack to align these colors with the AEG colors below.
     cmap = sns.color_palette('coolwarm', 9)[4:]
@@ -693,14 +694,17 @@ def plot_auc_heatmap(bias_metrics_results, models, color_palette=None, out=None)
   else:
     cmap = color_palette
   return plot_metric_heatmap(
-      bias_metrics_results, models, AUCS, out, cmap=cmap, show_subgroups=True, vmin=0.5, vmax=1.0)
+      bias_metrics_results, models, AUCS, out,
+      cmap=cmap, show_subgroups=True, vmin=0.5, vmax=1.0)
 
 
-def plot_aeg_heatmap(bias_metrics_results, models, color_palette=None, out=None):
+def plot_aeg_heatmap(bias_metrics_results, models,
+                     color_palette=None, out=None):
   if not color_palette:
     # Hack to align these colors with the AEG colors below.
     cmap = sns.color_palette('coolwarm', 7)
   else:
     cmap = color_palette
   return plot_metric_heatmap(
-      bias_metrics_results, models, AEGS, out, cmap=cmap, show_subgroups=False, vmin=-0.5, vmax=0.5)
+      bias_metrics_results, models, AEGS, out,
+      cmap=cmap, show_subgroups=False, vmin=-0.5, vmax=0.5)
