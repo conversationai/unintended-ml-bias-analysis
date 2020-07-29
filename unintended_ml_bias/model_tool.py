@@ -8,29 +8,28 @@ import datetime
 import json
 import os
 
-from keras.callbacks import EarlyStopping
-from keras.callbacks import ModelCheckpoint
-from keras.layers import Conv1D
-from keras.layers import Dense
-from keras.layers import Dropout
-from keras.layers import Embedding
-from keras.layers import Embedding
-from keras.layers import Flatten
-from keras.layers import GlobalMaxPooling1D
-from keras.layers import Input
-from keras.layers import MaxPooling1D
-from keras.models import load_model
-from keras.models import Model
-from keras.optimizers import RMSprop
-from keras.preprocessing.sequence import pad_sequences
-from keras.preprocessing.text import Tokenizer
-from keras.utils import to_categorical
 import numpy as np
 import pandas as pd
 import six
 from six.moves import zip
 import six.moves.cPickle
 from sklearn import metrics
+from tensorflow.compat.v1.keras.callbacks import EarlyStopping
+from tensorflow.compat.v1.keras.callbacks import ModelCheckpoint
+from tensorflow.compat.v1.keras.layers import Conv1D
+from tensorflow.compat.v1.keras.layers import Dense
+from tensorflow.compat.v1.keras.layers import Dropout
+from tensorflow.compat.v1.keras.layers import Embedding
+from tensorflow.compat.v1.keras.layers import Flatten
+from tensorflow.compat.v1.keras.layers import GlobalMaxPooling1D
+from tensorflow.compat.v1.keras.layers import Input
+from tensorflow.compat.v1.keras.layers import MaxPooling1D
+from tensorflow.compat.v1.keras.models import load_model
+from tensorflow.compat.v1.keras.models import Model
+from tensorflow.compat.v1.keras.optimizers import RMSprop
+from tensorflow.compat.v1.keras.preprocessing.sequence import pad_sequences
+from tensorflow.compat.v1.keras.preprocessing.text import Tokenizer
+from tensorflow.compat.v1.keras.utils import to_categorical
 
 print('HELLO from model_tool')
 
