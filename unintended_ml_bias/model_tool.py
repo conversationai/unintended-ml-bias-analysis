@@ -1,8 +1,5 @@
+# Lint as: python3
 """Train a Toxicity model using Keras."""
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
 
 import datetime
 import json
@@ -14,22 +11,7 @@ import six
 from six.moves import zip
 import six.moves.cPickle
 from sklearn import metrics
-from tensorflow.compat.v1.keras.callbacks import EarlyStopping
-from tensorflow.compat.v1.keras.callbacks import ModelCheckpoint
-from tensorflow.compat.v1.keras.layers import Conv1D
-from tensorflow.compat.v1.keras.layers import Dense
-from tensorflow.compat.v1.keras.layers import Dropout
-from tensorflow.compat.v1.keras.layers import Embedding
-from tensorflow.compat.v1.keras.layers import Flatten
-from tensorflow.compat.v1.keras.layers import GlobalMaxPooling1D
-from tensorflow.compat.v1.keras.layers import Input
-from tensorflow.compat.v1.keras.layers import MaxPooling1D
-from tensorflow.compat.v1.keras.models import load_model
-from tensorflow.compat.v1.keras.models import Model
-from tensorflow.compat.v1.keras.optimizers import RMSprop
-from tensorflow.compat.v1.keras.preprocessing.sequence import pad_sequences
-from tensorflow.compat.v1.keras.preprocessing.text import Tokenizer
-from tensorflow.compat.v1.keras.utils import to_categorical
+import tensorflow.compat.v1 as tf
 
 print('HELLO from model_tool')
 
@@ -61,8 +43,8 @@ def compute_auc(y_true, y_pred):
   except ValueError:
     return np.nan
 
-
 ### Model scoring
+
 
 # Scoring these dataset for dozens of models actually takes non-trivial amounts
 # of time, so we save the results as a CSV. The resulting CSV includes all the
@@ -77,6 +59,7 @@ def score_dataset(df, models, text_col):
 
 
 def load_maybe_score(models, orig_path, scored_path, postprocess_fn):
+  """Return dataset specified by the given path and cache it with its scores."""
   if os.path.exists(scored_path):
     print('Using previously scored data:', scored_path)
     return pd.read_csv(scored_path)
@@ -90,7 +73,7 @@ def load_maybe_score(models, orig_path, scored_path, postprocess_fn):
 
 
 def postprocess_madlibs(madlibs):
-  """Modifies madlibs data to have standard 'text' and 'label' columns."""
+  """Modify madlibs data to have standard 'text' and 'label' columns."""
   # Native madlibs data uses 'Label' column with values 'BAD' and 'NOT_BAD'.
   # Replace with a bool.
   madlibs['label'] = madlibs['Label'] == 'BAD'
@@ -99,7 +82,7 @@ def postprocess_madlibs(madlibs):
 
 
 def postprocess_wiki_dataset(wiki_data):
-  """Modifies Wikipedia dataset to have 'text' and 'label' columns."""
+  """Modify Wikipedia dataset to have 'text' and 'label' columns."""
   wiki_data.rename(
       columns={
           'is_toxic': 'label',
@@ -120,6 +103,7 @@ class ToxModel():
     self.model_name = model_name
     self.model = None
     self.tokenizer = None
+    self.embedding_matrix = None
     self.hparams = DEFAULT_HPARAMS.copy()
     if hparams:
       self.update_hparams(hparams)
@@ -148,7 +132,8 @@ class ToxModel():
       json.dump(self.hparams, f, sort_keys=True)
 
   def load_model_from_name(self, model_name):
-    self.model = load_model(
+    """Load model given its name."""
+    self.model = tf.keras.models.load_model(
         os.path.join(self.model_dir, '%s_model.h5' % model_name))
     self.tokenizer = six.moves.cPickle.load(
         open(
@@ -161,7 +146,8 @@ class ToxModel():
 
   def fit_and_save_tokenizer(self, texts):
     """Fits tokenizer on texts and pickles the tokenizer state."""
-    self.tokenizer = Tokenizer(num_words=self.hparams['max_num_words'])
+    self.tokenizer = tf.keras.preprocessing.text.Tokenizer(
+        num_words=self.hparams['max_num_words'])
     self.tokenizer.fit_on_texts(texts)
     six.moves.cPickle.dump(
         self.tokenizer,
@@ -181,7 +167,7 @@ class ToxModel():
       A tokenized and padded text sequence as a model input.
     """
     text_sequences = self.tokenizer.texts_to_sequences(texts)
-    return pad_sequences(
+    return tf.keras.preprocessing.sequence.pad_sequences(
         text_sequences, maxlen=self.hparams['max_sequence_length'])
 
   def load_embeddings(self):
@@ -219,9 +205,11 @@ class ToxModel():
 
     print('Preparing data...')
     train_text, train_labels = (self.prep_text(train_data[text_column]),
-                                to_categorical(train_data[label_column]))
+                                tf.keras.utils.to_categorical(
+                                    train_data[label_column]))
     valid_text, valid_labels = (self.prep_text(valid_data[text_column]),
-                                to_categorical(valid_data[label_column]))
+                                tf.keras.utils.to_categorical(
+                                    valid_data[label_column]))
     print('Data prepared!')
 
     print('Loading embeddings...')
@@ -234,13 +222,13 @@ class ToxModel():
 
     save_path = os.path.join(self.model_dir, '%s_model.h5' % self.model_name)
     callbacks = [
-        ModelCheckpoint(
+        tf.keras.callbacks.ModelCheckpoint(
             save_path, save_best_only=True, verbose=self.hparams['verbose'])
     ]
 
     if self.hparams['stop_early']:
       callbacks.append(
-          EarlyStopping(
+          tf.keras.callbacks.EarlyStopping(
               min_delta=self.hparams['es_min_delta'],
               monitor='val_loss',
               patience=self.hparams['es_patience'],
@@ -258,14 +246,14 @@ class ToxModel():
     print('Model trained!')
     print('Best model saved to {}'.format(save_path))
     print('Loading best model from checkpoint...')
-    self.model = load_model(save_path)
+    self.model = tf.keras.models.load_model(save_path)
     print('Model loaded!')
 
   def build_model(self):
     """Builds model graph."""
-    sequence_input = Input(
+    sequence_input = tf.keras.layers.Input(
         shape=(self.hparams['max_sequence_length'],), dtype='int32')
-    embedding_layer = Embedding(
+    embedding_layer = tf.keras.layers.Embedding(
         len(self.tokenizer.word_index) + 1,
         self.hparams['embedding_dim'],
         weights=[self.embedding_matrix],
@@ -279,26 +267,26 @@ class ToxModel():
         self.hparams['cnn_pooling_sizes']):
       x = self.build_conv_layer(x, filter_size, kernel_size, pool_size)
 
-    x = Flatten()(x)
-    x = Dropout(self.hparams['dropout_rate'])(x)
+    x = tf.keras.layers.Flatten()(x)
+    x = tf.keras.layers.Dropout(self.hparams['dropout_rate'])(x)
     # TODO(nthain): Parametrize the number and size of fully connected layers
-    x = Dense(128, activation='relu')(x)
-    preds = Dense(2, activation='softmax')(x)
+    x = tf.keras.layers.Dense(128, activation='relu')(x)
+    preds = tf.keras.layers.Dense(2, activation='softmax')(x)
 
-    rmsprop = RMSprop(lr=self.hparams['learning_rate'])
-    self.model = Model(sequence_input, preds)
+    rmsprop = tf.keras.optimizers.RMSprop(lr=self.hparams['learning_rate'])
+    self.model = tf.keras.Model(sequence_input, preds)
     self.model.compile(
         loss='categorical_crossentropy', optimizer=rmsprop, metrics=['acc'])
 
   def build_conv_layer(self, input_tensor, filter_size, kernel_size, pool_size):
-    output = Conv1D(
+    output = tf.keras.layers.Conv1D(
         filter_size, kernel_size, activation='relu', padding='same')(
             input_tensor)
     if pool_size:
-      output = MaxPooling1D(pool_size, padding='same')(output)
+      output = tf.keras.layers.MaxPool1D(pool_size, padding='same')(output)
     else:
       # TODO(nthain): This seems broken. Fix.
-      output = GlobalMaxPooling1D()(output)
+      output = tf.keras.layers.GlobalMaxPool1D()(output)
     return output
 
   def predict(self, texts):
