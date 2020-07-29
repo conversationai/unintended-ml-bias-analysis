@@ -4,12 +4,10 @@
 import datetime
 import json
 import os
+import pickle
 
 import numpy as np
 import pandas as pd
-import six
-from six.moves import zip
-import six.moves.cPickle
 from sklearn import metrics
 import tensorflow.compat.v1 as tf
 
@@ -114,7 +112,7 @@ class ToxModel():
   def print_hparams(self):
     print('Hyperparameters')
     print('---------------')
-    for k, v in six.iteritems(self.hparams):
+    for k, v in self.hparams.items():
       print('{}: {}'.format(k, v))
     print('')
 
@@ -135,7 +133,7 @@ class ToxModel():
     """Load model given its name."""
     self.model = tf.keras.models.load_model(
         os.path.join(self.model_dir, '%s_model.h5' % model_name))
-    self.tokenizer = six.moves.cPickle.load(
+    self.tokenizer = pickle.load(
         open(
             os.path.join(self.model_dir, '%s_tokenizer.pkl' % model_name),
             'rb'))
@@ -149,7 +147,7 @@ class ToxModel():
     self.tokenizer = tf.keras.preprocessing.text.Tokenizer(
         num_words=self.hparams['max_num_words'])
     self.tokenizer.fit_on_texts(texts)
-    six.moves.cPickle.dump(
+    pickle.dump(
         self.tokenizer,
         open(
             os.path.join(self.model_dir, '%s_tokenizer.pkl' % self.model_name),

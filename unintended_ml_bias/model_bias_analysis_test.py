@@ -1,16 +1,12 @@
+# Lint as: python3
 # coding=utf-8
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
-import google3
 
 import numpy as np
 import pandas as pd
-from six.moves import range
 import tensorflow.compat.v1 as tf
 
-import google3.third_party.conversationai.unintended_ml_bias_analysis.unintended_ml_bias.model_bias_analysis as mba
+import model_bias_analysis as mba
+
 
 class ModelBiasAnalysisTest(tf.test.TestCase):
 
@@ -57,7 +53,7 @@ class ModelBiasAnalysisTest(tf.test.TestCase):
     x = np.linspace(0.0, 1.0, num=100)
     y = [1] * len(x)
     result = mba.squared_diff_integral(y, x)
-    self.assertAlmostEquals(result, 0.333, places=2)
+    self.assertAlmostEqual(result, 0.333, places=2)
 
   def test_average_squared_equality_gap_no_bias(self):
     no_bias_data = {'model_score': [], 'label': [], 'subgroup': []}
@@ -71,8 +67,8 @@ class ModelBiasAnalysisTest(tf.test.TestCase):
 
     pos_aseg, neg_aseg = mba.compute_average_squared_equality_gap(
         no_bias_df, 'subgroup', 'label', 'model_score')
-    self.assertAlmostEquals(pos_aseg, 0.0, places=1)
-    self.assertAlmostEquals(neg_aseg, 0.0, places=1)
+    self.assertAlmostEqual(pos_aseg, 0.0, places=1)
+    self.assertAlmostEqual(neg_aseg, 0.0, places=1)
 
   def test_average_squared_equality_gap_small_bias(self):
     no_bias_data = {'model_score': [], 'label': [], 'subgroup': []}
@@ -88,13 +84,13 @@ class ModelBiasAnalysisTest(tf.test.TestCase):
 
     pos_aseg, neg_aseg = mba.compute_average_squared_equality_gap(
         no_bias_df, 'subgroup', 'label', 'model_score')
-    self.assertAlmostEquals(pos_aseg, 0.33, places=1)
-    self.assertAlmostEquals(neg_aseg, 0.33, places=1)
+    self.assertAlmostEqual(pos_aseg, 0.33, places=1)
+    self.assertAlmostEqual(neg_aseg, 0.33, places=1)
 
   def test_subgroup_auc(self):
     df = self.make_biased_dataset()
     auc = mba.compute_subgroup_auc(df, 'subgroup', 'label', 'model_score')
-    self.assertAlmostEquals(auc, 0.88, places=1)
+    self.assertAlmostEqual(auc, 0.88, places=1)
 
   def test_cross_aucs(self):
     df = self.make_biased_dataset()
@@ -102,10 +98,9 @@ class ModelBiasAnalysisTest(tf.test.TestCase):
                                                         'model_score')
     positive_cross_auc = mba.compute_positive_cross_auc(df, 'subgroup', 'label',
                                                         'model_score')
-    self.assertAlmostEquals(negative_cross_auc, 0.88, places=1)
-    self.assertAlmostEquals(positive_cross_auc, 1.0, places=1)
+    self.assertAlmostEqual(negative_cross_auc, 0.88, places=1)
+    self.assertAlmostEqual(positive_cross_auc, 1.0, places=1)
 
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
   tf.test.main()
