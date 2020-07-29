@@ -11,7 +11,7 @@ import pandas as pd
 from sklearn import metrics
 import tensorflow.compat.v1 as tf
 
-print('HELLO from google3.third_party.conversationai.unintended_ml_bias_analysis.unintended_ml_bias.model_tool')
+print('HELLO from model_tool')
 
 DEFAULT_EMBEDDINGS_PATH = '../data/glove.6B/glove.6B.100d.txt'
 DEFAULT_MODEL_DIR = '../models'
