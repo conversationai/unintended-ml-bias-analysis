@@ -1,21 +1,22 @@
+# Lint as: python3
 """A small, simple tool for generating eval data to detect bias.
+
 Using templates and lists of identity terms, this generates many comments that
 we think should get similar scores from our toxicity model. If it turns out that
 "ziv is a transgender factory worker" gets a significantly different score than
 "joe is a tall computer programmer", then our model is exhibiting a
 disproportionate adverse effect on certain groups.
+
 This tool has no pretensions of being a real generative language model. It's
 purpose is simply to generate sanity-test/evaluation data.
+
 Example usage:
   $ python bias_madlibs.py -num_examples 100
+
 Outputs a CSV with headers "Label", "Text", and "Template".
 Label values are "BAD" and "NOT_BAD". "Template" is an ID for the template to
 allow grouping results by template.
 """
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
 
 import argparse
 import os
@@ -25,7 +26,7 @@ import random
 def _read_word_list(bias_data_dir, filename):
   """Reads a terms list and returns a list of strings, one per line."""
   with open(os.path.join(bias_data_dir, filename)) as f:
-    return f.read().decode('utf-8').splitlines()
+    return f.read().splitlines()
 
 
 class Madlibber(object):
