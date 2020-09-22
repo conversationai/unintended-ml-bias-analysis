@@ -23,7 +23,7 @@ class Madlibber(object):
 
   def check_duplicates_sentence_templates(self):
     df = pd.read_csv(self.path_helper.sentence_template_file)
-    if df[df.duplicated()]:
+    if not df[df.duplicated()].empty:
       raise ValueError("Duplicate sentence templates")
 
   def load_sanity_check_templates_and_infer_word_categories(self):
@@ -123,10 +123,9 @@ class Madlibber(object):
           "Working on template '{}' with toxicity '{}' and phrase '{}'".format(
               template, toxicity, phrase))
 
-      unicode_phrase = phrase.decode("utf-8")
       for words in self.__iterate_words(template_elements, 0):
-        output_phrase = unicode_phrase.format(**words)
-        csv_fout.writerow([template, toxicity, output_phrase.encode("utf-8")])
+        output_phrase = phrase.format(**words)
+        csv_fout.writerow([template, toxicity, output_phrase])
         count += 1
         template_count += 1
 
