@@ -1,30 +1,184 @@
 template,toxicity,phrase
+am_eth_gen_m,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} man
+am_eth_gen_m,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} man
+am_eth_gen_m,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} man
+am_eth_gen_m,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} man
+am_eth_gen_p,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} persoon
+am_eth_gen_p,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} persoon
+am_eth_gen_p,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} persoon
+am_eth_gen_p,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} persoon
+am_eth_gen_w,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+am_eth_gen_w,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+am_eth_gen_w,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+am_eth_gen_w,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+am_eth_sex_m,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} man
+am_eth_sex_m,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} man
+am_eth_sex_m,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} man
+am_eth_sex_m,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} man
+am_eth_sex_p,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} persoon
+am_eth_sex_p,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} persoon
+am_eth_sex_p,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} persoon
+am_eth_sex_p,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} persoon
+am_eth_sex_w,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+am_eth_sex_w,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+am_eth_sex_w,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+am_eth_sex_w,nontoxic,Ik ben een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
 am_identity,nontoxic,Ik ben een {type|identity_connotation|neutral_gender|m}
-am_identity,nontoxic,Ik ben een {type|identity_connotation|neutral_gender|n}
-am_identity,nontoxic,Ik ben {type|identity_connotation|neutral_gender|m}
 am_identity,nontoxic,Ik ben {type|identity_connotation|neutral_gender|n}
-being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|m} bent ben je {type|adjective_connotation|nontoxic_gender|n}
-being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|n} bent ben je {type|adjective_connotation|nontoxic_gender|n}
-being_identity,nontoxic,{type|identity_connotation|neutral_gender|m} zijn is {type|adjective_connotation|nontoxic_gender|n}
-being_identity,nontoxic,{type|identity_connotation|neutral_gender|n} zijn is {type|adjective_connotation|nontoxic_gender|n}
+am_identity,nontoxic,Ik ben {type|identity_connotation|neutral_gender|m}
+am_identity,nontoxic,Ik ben een {type|identity_connotation|neutral_gender|n}
+being_eth_gen,nontoxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|gender_connotation|neutral|m} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|gender_connotation|neutral|n} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|gender_connotation|neutral|m} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|gender_connotation|neutral|n} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,{type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|gender_connotation|neutral|m} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,{type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|gender_connotation|neutral|n} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,{type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|gender_connotation|neutral|m} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen,nontoxic,{type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|gender_connotation|neutral|n} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_eth_gen_tox,toxic,{type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|gender_connotation|neutral|m} zijn is {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,{type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|gender_connotation|neutral|n} zijn is {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,{type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|gender_connotation|neutral|m} zijn is {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|gender_connotation|neutral|n} bent ben je {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|gender_connotation|neutral|m} bent ben je {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|gender_connotation|neutral|n} bent ben je {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|gender_connotation|neutral|m} bent ben je {type|adjective_connotation|toxic_gender|n}
+being_eth_gen_tox,toxic,{type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|gender_connotation|neutral|n} zijn is {type|adjective_connotation|toxic_gender|n}
+being_eth_sex,nontoxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|sexuality_connotation|neutral|m} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|sexuality_connotation|neutral|n} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|sexuality_connotation|neutral|m} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,Als je {type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|sexuality_connotation|neutral|n} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,{type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|sexuality_connotation|neutral|m} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,{type|identity_subtype|ethnicity_connotation|neutral|m} en {type|identity_subtype|sexuality_connotation|neutral|n} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,{type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|sexuality_connotation|neutral|m} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_eth_sex,nontoxic,{type|identity_subtype|ethnicity_connotation|neutral|n} en {type|identity_subtype|sexuality_connotation|neutral|n} zijn is {type|adjective_connotation|nontoxic_gender|n}
+hate_eth_gen_m,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} mannen
+hate_eth_gen_m,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} mannen
+hate_eth_gen_m,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} mannen
+hate_eth_gen_m,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} mannen
+hate_eth_gen_p,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} mensen
+hate_eth_gen_p,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} mensen
+hate_eth_gen_p,toxic,Ik haar {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} mensen
+hate_eth_gen_p,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} mensen
+hate_eth_gen_p,toxic,Ik haar {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} mensen
+hate_eth_gen_p,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} mensen
+hate_eth_gen_p,toxic,Ik haar {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} mensen
+hate_eth_gen_p,toxic,Ik haar {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} mensen
+hate_eth_gen_w,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} vrouwen
+hate_eth_gen_w,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} vrouwen
+hate_eth_gen_w,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} vrouwen
+hate_eth_gen_w,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} vrouwen
+hate_eth_sex_m,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} mannen
+hate_eth_sex_m,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} mannen
+hate_eth_sex_m,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} mannen
+hate_eth_sex_m,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} mannen
+hate_eth_sex_p,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} mensen
+hate_eth_sex_p,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} mensen
+hate_eth_sex_p,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} mensen
+hate_eth_sex_p,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} mensen
+hate_eth_sex_w,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} vrouwen
+hate_eth_sex_w,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} vrouwen
+hate_eth_sex_w,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} vrouwen
+hate_eth_sex_w,toxic,Ik haat {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} vrouwen
 hate_identity,toxic,Ik haat {type|identity_connotation|neutral_gender|m} mensen
 hate_identity,toxic,Ik haat {type|identity_connotation|neutral_gender|n} mensen
-verb_adj,nontoxic,{type|verb_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n}
-verb_adj,nontoxic,{type|verb_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m}
-verb_adj,toxic,{type|verb_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m}
-verb_adj,toxic,{type|verb_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n}
-you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} persoon
-you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} persoon
-you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} persoon
-you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} persoon
-you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} persoon
-you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} persoon
-you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
-you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
-you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
-you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
-you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
-you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
-you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
-you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
+you_are_eth_gen_m,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n}  man
+you_are_eth_gen_m_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} man
+you_are_eth_gen_m_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} man
+you_are_eth_gen_m_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m}  man
+you_are_eth_gen_m_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n}  man
+you_are_eth_gen_m_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m}  man
+you_are_eth_gen_w,nontoxic,Je bent een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w,nontoxic,U bent een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w,nontoxic,U bent een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w,nontoxic,U bent een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w,nontoxic,U bent een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w,nontoxic,Je bent een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w,nontoxic,Je bent een {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w,nontoxic,Je bent een {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m}  vrouw
+you_are_eth_gen_w_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|m}  vrouw
+you_are_eth_gen_w_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|gender_connotation|neutral|n}  vrouw
+you_are_eth_gen_w_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|m} vrouw
+you_are_eth_gen_w_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n} vrouw
+you_are_eth_gen_w_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|gender_connotation|neutral|n}  vrouw
+you_are_eth_sex_m,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_m_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} man
+you_are_eth_sex_m_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} man
+you_are_eth_sex_w,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w_tox,toxic,Je bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w_tox,toxic,U bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|n} vrouw
+you_are_eth_sex_w_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|m} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
+you_are_eth_sex_w_tox,toxic,Jij bent een {type|adjective_connotation|toxic_gender|n} {type|identity_subtype|ethnicity_connotation|neutral|n} {type|identity_subtype|sexuality_connotation|neutral|m} vrouw
 
