@@ -60,8 +60,8 @@ singledispatch==3.4.0.3
 six==1.10.0
 sklearn==0.0
 subprocess32==3.2.7
-tensorflow==1.15.0
-tensorboard==1.15.0
+tensorflow==1.14.0
+tensorboard==1.14.0
 terminado==0.8.1
 testpath==0.3.1
 tornado==4.5.2
