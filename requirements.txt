@@ -21,7 +21,7 @@ ipywidgets==7.0.0
 Jinja2==2.9.6
 jsonschema==2.6.0
 jupyter==1.0.0
-jupyter-client==5.1.0
+jupyter-client==5.2.0
 jupyter-console==5.2.0
 jupyter-core==4.4.0
 Keras==2.0.8
@@ -33,7 +33,7 @@ mock==2.0.0
 nbconvert==5.3.1
 nbformat==4.4.0
 notebook==5.7.8
-numpy==1.13.1
+numpy==1.16
 pandas==0.20.3
 pandocfilters==1.4.2
 pathlib2==2.3.0
@@ -41,14 +41,14 @@ pbr==3.1.1
 pexpect==4.2.1
 pickleshare==0.7.4
 prompt-toolkit==1.0.15
-protobuf==3.4.0
+protobuf==3.6.1
 ptyprocess==0.5.2
 Pygments==2.2.0
 pyparsing==2.2.0
 python-dateutil==2.6.1
 pytz==2017.2
 PyYAML==4.2b1
-pyzmq==16.0.2
+pyzmq==17
 qtconsole==4.3.1
 scandir==1.5
 scikit-learn==0.19.0
@@ -60,8 +60,8 @@ singledispatch==3.4.0.3
 six==1.10.0
 sklearn==0.0
 subprocess32==3.2.7
-tensorflow==1.15.4
-tensorflow-tensorboard==0.1.6
+tensorflow==1.15.0
+tensorboard==1.15.0
 terminado==0.8.1
 testpath==0.3.1
 tornado==4.5.2
