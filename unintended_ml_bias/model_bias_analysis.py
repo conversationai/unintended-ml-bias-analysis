@@ -18,6 +18,8 @@ The functions in this file expect scored data in a data frame with columns:
     additional label columns from the original test data.
 """
 
+from __future__ import division
+
 import base64
 import io
 import os
