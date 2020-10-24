@@ -23,7 +23,7 @@ dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973).
 The notebook `unintended_ml_bias/Evaluate Model.ipynb` provides an example of evaluating the
 performance of pre-trained models on an arbitrary dataset.
 
-These notebooks are written for Python 2.7. To run them:
+To run the Python notebooks:
 
 1. Install the requirements with
 ```
