@@ -39,7 +39,7 @@ curl -L https://ndownloader.figshare.com/files/7394539 -o data/toxicity_annotate
 3. Download and extract the [GloVe embeddings](http://nlp.stanford.edu/data/glove.6B.zip) in the `data` subdirectory.
 ```
 curl -L http://nlp.stanford.edu/data/glove.6B.zip -o data/glove.6B.zip
-zip -x data/glove.6B.zip -d data/glove.6B
+unzip -x data/glove.6B.zip -d data/glove.6B
 ```
 
 Please note that if using a virtual environment, it may be necessary to
