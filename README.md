@@ -17,13 +17,13 @@ Relevant Links:
 ## Training toxicity models
 
 We provide notebooks to train CNN based models to detect toxicity in online
-comments. The notebook `src/Train Toxicity Model.ipynb` provides instructions
+comments. The notebook `unintended_ml_bias/Train Toxicity Model.ipynb` provides instructions
 on how to train models using the [Unintended bias analysis
 dataset](https://figshare.com/articles/Wikipedia_Talk_Labels_Toxicity/4563973).
-The notebook `src/Evaluate Model.ipynb` provides an example of evaluating the
+The notebook `unintended_ml_bias/Evaluate Model.ipynb` provides an example of evaluating the
 performance of pre-trained models on an arbitrary dataset.
 
-These notebooks are written for Python 2.7. To run them:
+To run the Python notebooks:
 
 1. Install the requirements with
 ```
@@ -39,16 +39,16 @@ curl -L https://ndownloader.figshare.com/files/7394539 -o data/toxicity_annotate
 3. Download and extract the [GloVe embeddings](http://nlp.stanford.edu/data/glove.6B.zip) in the `data` subdirectory.
 ```
 curl -L http://nlp.stanford.edu/data/glove.6B.zip -o data/glove.6B.zip
-zip -x data/glove.6B.zip -d data/glove.6B
+unzip -x data/glove.6B.zip -d data/glove.6B
 ```
 
 Please note that if using a virtual environment, it may be necessary to
 manually set your `PYTHONPATH` environment variable in the shell to the correct
 version of python for the environment.
 
-4. Now you can open and evaluate `src/Train Toxicity Model.ipynb`:
+4. Now you can open and evaluate `unintended_ml_bias/Train_Toxicity_Model.ipynb`:
 ```
-jupyter notebook src/Train\ Toxicity\ Model.ipynb
+jupyter notebook unintended_ml_bias/Train_Toxicity_Model.ipynb
 ```
 
 ## Dataset bias evaluation
@@ -69,7 +69,7 @@ lists. The dataset is `eval_datasets/bias_madlibs_89k.csv`, a CSV consisting of
 2 columns.  The generated text is in `Text`, and the label is `Label`, either
 `BAD` or `NOT_BAD`.
 
-The script (`src/bias_madlibs.py`) and word lists (`src/bias_madlibs_data/`)
+The script (`unintended_ml_bias/bias_madlibs.py`) and word lists (`unintended_ml_bias/bias_madlibs_data/`)
 used to generate the data are also included.
 
 TODO(jetpack): add notes about future work / improvements.
@@ -87,7 +87,7 @@ the label for the example. For example, the sentence "I had a <x> friend growing
 up" should be considered non-toxic, and "All <x> people must be wiped off the
 earth" should be considered toxic for all values of `x` in the terms set.
 
-The code in `src/Bias_fuzzed_test_set.ipynb` reads the Wikipedia Toxicity
+The code in `unintended_ml_bias/Bias_fuzzed_test_set.ipynb` reads the Wikipedia Toxicity
 dataset and builds an identity-term-focused test set. It writes unmodified and
 fuzzed versions of that test set. One can then evaluate a model on both test
 sets. Doing significantly worse on the fuzzed version may indicate a bias in the
