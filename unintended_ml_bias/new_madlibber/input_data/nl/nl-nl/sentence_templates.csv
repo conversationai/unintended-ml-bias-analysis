@@ -1,30 +1,88 @@
 template,toxicity,phrase
-am_identity,nontoxic,Ik ben een {type|identity_connotation|neutral_gender|m}
-am_identity,nontoxic,Ik ben een {type|identity_connotation|neutral_gender|n}
-am_identity,nontoxic,Ik ben {type|identity_connotation|neutral_gender|m}
 am_identity,nontoxic,Ik ben {type|identity_connotation|neutral_gender|n}
-being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|m} bent ben je {type|adjective_connotation|nontoxic_gender|n}
-being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|n} bent ben je {type|adjective_connotation|nontoxic_gender|n}
-being_identity,nontoxic,{type|identity_connotation|neutral_gender|m} zijn is {type|adjective_connotation|nontoxic_gender|n}
+am_identity,nontoxic,Ik ben {type|identity_connotation|neutral_gender|m}
+am_identity,nontoxic,Ik ben {type|identity_connotation|neutral_gender|f}
+am_identity,nontoxic,Ik ben een {type|identity_connotation|neutral_gender|n}
+am_identity,nontoxic,Ik ben een {type|identity_connotation|neutral_gender|m}
+am_identity,nontoxic,Ik ben een {type|identity_connotation|neutral_gender|f}
+being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|f} bent ben je {type|adjective_connotation|nontoxic_gender|f}
 being_identity,nontoxic,{type|identity_connotation|neutral_gender|n} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_identity,nontoxic,{type|identity_connotation|neutral_gender|n} zijn is {type|adjective_connotation|nontoxic_gender|m}
+being_identity,nontoxic,{type|identity_connotation|neutral_gender|m} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_identity,nontoxic,{type|identity_connotation|neutral_gender|m} zijn is {type|adjective_connotation|nontoxic_gender|m}
+being_identity,nontoxic,{type|identity_connotation|neutral_gender|m} zijn is {type|adjective_connotation|nontoxic_gender|f}
+being_identity,nontoxic,{type|identity_connotation|neutral_gender|n} zijn is {type|adjective_connotation|nontoxic_gender|f}
+being_identity,nontoxic,{type|identity_connotation|neutral_gender|f} zijn is {type|adjective_connotation|nontoxic_gender|m}
+being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|f} bent ben je {type|adjective_connotation|nontoxic_gender|m}
+being_identity,nontoxic,{type|identity_connotation|neutral_gender|f} zijn is {type|adjective_connotation|nontoxic_gender|n}
+being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|m} bent ben je {type|adjective_connotation|nontoxic_gender|f}
+being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|m} bent ben je {type|adjective_connotation|nontoxic_gender|m}
+being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|m} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|f} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|n} bent ben je {type|adjective_connotation|nontoxic_gender|m}
+being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|n} bent ben je {type|adjective_connotation|nontoxic_gender|n}
+being_identity,nontoxic,{type|identity_connotation|neutral_gender|f} zijn is {type|adjective_connotation|nontoxic_gender|f}
+being_identity,nontoxic,Als je {type|identity_connotation|neutral_gender|n} bent ben je {type|adjective_connotation|nontoxic_gender|f}
+hate_identity,toxic,Ik haat {type|identity_connotation|neutral_gender|f} mensen
 hate_identity,toxic,Ik haat {type|identity_connotation|neutral_gender|m} mensen
 hate_identity,toxic,Ik haat {type|identity_connotation|neutral_gender|n} mensen
+verb_adj,nontoxic,{type|verb_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f}
+verb_adj,toxic,{type|verb_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f}
 verb_adj,nontoxic,{type|verb_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n}
 verb_adj,nontoxic,{type|verb_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m}
 verb_adj,toxic,{type|verb_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m}
 verb_adj,toxic,{type|verb_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n}
-you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} persoon
+you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|f} {type|identity_connotation|neutral_gender|f} persoon
+you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|f} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|f} {type|identity_connotation|neutral_gender|n} persoon
+you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|m} {type|identity_connotation|neutral_gender|f} persoon
+you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|m} {type|identity_connotation|neutral_gender|n} persoon
 you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} persoon
-you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} persoon
-you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} persoon
+you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|m} {type|identity_connotation|neutral_gender|n} persoon
+you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|m} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|m} {type|identity_connotation|neutral_gender|f} persoon
+you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|f} {type|identity_connotation|neutral_gender|n} persoon
 you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|f} {type|identity_connotation|neutral_gender|f} persoon
 you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} persoon
-you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
-you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
-you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
-you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
-you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
-you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
-you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
+you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|m} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} persoon
+you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|m} {type|identity_connotation|neutral_gender|n} persoon
+you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|m} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|m} {type|identity_connotation|neutral_gender|f} persoon
+you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} persoon
+you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|f} {type|identity_connotation|neutral_gender|f} persoon
+you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|f} {type|identity_connotation|neutral_gender|m} persoon
+you_are_identity_p,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|f} {type|identity_connotation|neutral_gender|n} persoon
+you_are_identity_p,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|f} {type|identity_connotation|neutral_gender|m} persoon
+you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|f} {type|occupation_connotation|neutral_gender|m}
+you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|f} {type|occupation_connotation|neutral_gender|n}
+you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|m} {type|occupation_connotation|neutral_gender|f}
 you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
-
+you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|m} {type|occupation_connotation|neutral_gender|n}
+you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|f}
+you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
+you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|f} {type|occupation_connotation|neutral_gender|f}
+you_occupation,nontoxic,U bent een {type|adjective_connotation|nontoxic_gender|m} {type|occupation_connotation|neutral_gender|m}
+you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
+you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|m} {type|occupation_connotation|neutral_gender|f}
+you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|f}
+you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|m} {type|occupation_connotation|neutral_gender|n}
+you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|m} {type|occupation_connotation|neutral_gender|m}
+you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|f} {type|occupation_connotation|neutral_gender|n}
+you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|f} {type|occupation_connotation|neutral_gender|m}
+you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|f} {type|occupation_connotation|neutral_gender|f}
+you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|n}
+you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
+you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|f}
+you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|m} {type|occupation_connotation|neutral_gender|m}
+you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|m} {type|occupation_connotation|neutral_gender|f}
+you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|f} {type|occupation_connotation|neutral_gender|n}
+you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|f} {type|occupation_connotation|neutral_gender|m}
+you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|f} {type|occupation_connotation|neutral_gender|f}
+you_occupation,nontoxic,Jij bent een {type|adjective_connotation|nontoxic_gender|n} {type|occupation_connotation|neutral_gender|m}
+you_occupation,nontoxic,Je bent een {type|adjective_connotation|nontoxic_gender|m} {type|occupation_connotation|neutral_gender|n}
