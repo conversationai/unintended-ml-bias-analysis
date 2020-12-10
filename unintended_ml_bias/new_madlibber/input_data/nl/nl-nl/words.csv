@@ -88,72 +88,72 @@ identity,age,neutral,m,grandpa,ouwe
 identity,age,neutral,n,baby,zuigeling
 identity,age,neutral,n,old-age pensioner,bejaarde
 identity,age,neutral,n,very young person,broekie
-identity,age,nontoxic,f,grandmother,oma
-identity,age,nontoxic,f,mother,moeder
-identity,age,nontoxic,m,father,vader
-identity,age,nontoxic,m,grandfather,opa
-identity,age,nontoxic,n,adolescent,puber
-identity,age,nontoxic,n,adult,volwassen
-identity,age,nontoxic,n,baby,baby
-identity,age,nontoxic,n,child,kind
-identity,age,nontoxic,n,elderly,bejaard
-identity,age,nontoxic,n,elderly,op leeftijd
-identity,age,nontoxic,n,gen z,generatie z
-identity,age,nontoxic,n,infant,kleuter
-identity,age,nontoxic,n,junior,junior
-identity,age,nontoxic,n,middle aged,middelbare leeftijd
-identity,age,nontoxic,n,middle aged,van middelbare leeftijd
-identity,age,nontoxic,n,millennial,millennial
-identity,age,nontoxic,n,old,oud
-identity,age,nontoxic,n,old,oude
-identity,age,nontoxic,n,older,ouder
-identity,age,nontoxic,n,older,oudere
-identity,age,nontoxic,n,person in their twenties,twintiger
-identity,age,nontoxic,n,retired person,gepensioneerde
-identity,age,nontoxic,n,senior,senior
-identity,age,nontoxic,n,teenager,tiener
-identity,age,nontoxic,n,toddler,dreumes
-identity,age,nontoxic,n,toddler,peuter
-identity,age,nontoxic,n,young,jong
-identity,age,nontoxic,n,young,jonge
-identity,age,nontoxic,n,younger,jonger
-identity,age,nontoxic,n,younger,jongere
+identity,age,neutral,f,grandmother,oma
+identity,age,neutral,f,mother,moeder
+identity,age,neutral,m,father,vader
+identity,age,neutral,m,grandfather,opa
+identity,age,neutral,n,adolescent,puber
+identity,age,neutral,n,adult,volwassen
+identity,age,neutral,n,baby,baby
+identity,age,neutral,n,child,kind
+identity,age,neutral,n,elderly,bejaard
+identity,age,neutral,n,elderly,op leeftijd
+identity,age,neutral,n,gen z,generatie z
+identity,age,neutral,n,infant,kleuter
+identity,age,neutral,n,junior,junior
+identity,age,neutral,n,middle aged,middelbare leeftijd
+identity,age,neutral,n,middle aged,van middelbare leeftijd
+identity,age,neutral,n,millennial,millennial
+identity,age,neutral,n,old,oud
+identity,age,neutral,n,old,oude
+identity,age,neutral,n,older,ouder
+identity,age,neutral,n,older,oudere
+identity,age,neutral,n,person in their twenties,twintiger
+identity,age,neutral,n,retired person,gepensioneerde
+identity,age,neutral,n,senior,senior
+identity,age,neutral,n,teenager,tiener
+identity,age,neutral,n,toddler,dreumes
+identity,age,neutral,n,toddler,peuter
+identity,age,neutral,n,young,jong
+identity,age,neutral,n,young,jonge
+identity,age,neutral,n,younger,jonger
+identity,age,neutral,n,younger,jongere
 identity,disability,neutral,n,blind person,blinde
 identity,disability,neutral,n,handicapped person,gehandicapte
 identity,disability,neutral,n,infirm person,hulpbehoevende
-identity,disability,nontoxic,n,autistic,autistisch
-identity,disability,nontoxic,n,autistic,autistische
-identity,disability,nontoxic,n,blind,blind
-identity,disability,nontoxic,n,color blind,kleurenblind
-identity,disability,nontoxic,n,deaf,doof
-identity,disability,nontoxic,n,deaf,dove
-identity,disability,nontoxic,n,deafblind,doofblind
-identity,disability,nontoxic,n,demented,dement
-identity,disability,nontoxic,n,disabled,invalide
-identity,disability,nontoxic,n,disabled,mindervalide
-identity,disability,nontoxic,n,handicapped,gehandicapt
-identity,disability,nontoxic,n,hard of hearing,slechthorend
-identity,disability,nontoxic,n,hard of hearing,slechthorende
-identity,disability,nontoxic,n,intellectually disabled,verstandelijk beperkt
-identity,disability,nontoxic,n,mentally disabled,verstandelijk beperkte
-identity,disability,nontoxic,n,mentally handicapped,verstandelijk gehandicapt
-identity,disability,nontoxic,n,mentally handicapped,verstandelijk gehandicapte
-identity,disability,nontoxic,n,mute,stom
-identity,disability,nontoxic,n,mute,stomme
-identity,disability,nontoxic,n,paralyzed,verlamd
-identity,disability,nontoxic,n,paralyzed,verlamde
-identity,disability,nontoxic,n,partially sighted,slechtziend
-identity,disability,nontoxic,n,partially sighted,slechtziende
-identity,disability,nontoxic,n,physically disabled,fysiek beperkt
-identity,disability,nontoxic,n,physically disabled,fysiek beperkte
-identity,disability,nontoxic,n,physically handicapped,fysiek gehandicapt
-identity,disability,nontoxic,n,physically handicapped,fysiek gehandicapte
-identity,disability,nontoxic,n,quadriplegic,quadriplegisch
-identity,disability,nontoxic,n,schizophrenic,schizofreen
-identity,disability,nontoxic,n,stammerer,stotteraar
-identity,disability,nontoxic,n,stuttering,stotterend
-identity,disability,nontoxic,n,suffering from dementia,dementerend
-identity,disability,nontoxic,n,with multiple disabilities,meervoudig beperkt
+identity,disability,neutral,n,autistic,autistisch
+identity,disability,neutral,n,autistic,autistische
+identity,disability,neutral,n,blind,blind
+identity,disability,neutral,n,color blind,kleurenblind
+identity,disability,neutral,n,deaf,doof
+identity,disability,neutral,n,deaf,dove
+identity,disability,neutral,n,deafblind,doofblind
+identity,disability,neutral,n,demented,dement
+identity,disability,neutral,n,disabled,invalide
+identity,disability,neutral,n,disabled,mindervalide
+identity,disability,neutral,n,handicapped,gehandicapt
+identity,disability,neutral,n,hard of hearing,slechthorend
+identity,disability,neutral,n,hard of hearing,slechthorende
+identity,disability,neutral,n,intellectually disabled,verstandelijk beperkt
+identity,disability,neutral,n,mentally disabled,verstandelijk beperkte
+identity,disability,neutral,n,mentally handicapped,verstandelijk gehandicapt
+identity,disability,neutral,n,mentally handicapped,verstandelijk gehandicapte
+identity,disability,neutral,n,mute,stom
+identity,disability,neutral,n,mute,stomme
+identity,disability,neutral,n,paralyzed,verlamd
+identity,disability,neutral,n,paralyzed,verlamde
+identity,disability,neutral,n,partially sighted,slechtziend
+identity,disability,neutral,n,partially sighted,slechtziende
+identity,disability,neutral,n,physically disabled,fysiek beperkt
+identity,disability,neutral,n,physically disabled,fysiek beperkte
+identity,disability,neutral,n,physically handicapped,fysiek gehandicapt
+identity,disability,neutral,n,physically handicapped,fysiek gehandicapte
+identity,disability,neutral,n,quadriplegic,quadriplegisch
+identity,disability,neutral,n,schizophrenic,schizofreen
+identity,disability,neutral,n,stammerer,stotteraar
+identity,disability,neutral,n,stuttering,stotterend
+identity,disability,neutral,n,suffering from dementia,dementerend
+identity,disability,neutral,n,with multiple disabilities,meervoudig beperkt
 identity,disability,toxic,n,retard,achterlijke
 identity,disability,toxic,n,retard,josti
 identity,ethnicity,neutral,f,african,afrikaanse
@@ -161,181 +161,181 @@ identity,ethnicity,neutral,m,african,afrikaan
 identity,ethnicity,neutral,m,belgian,belg
 identity,ethnicity,neutral,m,moroccan,marokkaan
 identity,ethnicity,neutral,m,turk,turk
-identity,ethnicity,nontoxic,f,german,duitser
-identity,ethnicity,nontoxic,m,dane,deen
-identity,ethnicity,nontoxic,m,englishman,engelsman
-identity,ethnicity,nontoxic,m,finn,fin
-identity,ethnicity,nontoxic,m,norwegian,noor
-identity,ethnicity,nontoxic,n,(im)migrant,allochtoon
-identity,ethnicity,nontoxic,n,african,afrikaans
-identity,ethnicity,nontoxic,n,african american,afrikaansamerikaans
-identity,ethnicity,nontoxic,n,american,amerikaans
-identity,ethnicity,nontoxic,n,american,amerikaanse
-identity,ethnicity,nontoxic,n,antillean,antilliaans
-identity,ethnicity,nontoxic,n,asian,aziatisch
-identity,ethnicity,nontoxic,n,asian,aziatische
-identity,ethnicity,nontoxic,n,autochthonous,autochtoon
-identity,ethnicity,nontoxic,n,black,zwart
-identity,ethnicity,nontoxic,n,black,zwarte
-identity,ethnicity,nontoxic,n,chinese,chinees
-identity,ethnicity,nontoxic,n,chinese,chinese
-identity,ethnicity,nontoxic,n,european,europees
-identity,ethnicity,nontoxic,n,european,europese
-identity,ethnicity,nontoxic,n,german,duits
-identity,ethnicity,nontoxic,n,german,duitse
-identity,ethnicity,nontoxic,n,indian,indisch
-identity,ethnicity,nontoxic,n,indian,indische
-identity,ethnicity,nontoxic,n,japanese,japans
-identity,ethnicity,nontoxic,n,japanese,japanse
-identity,ethnicity,nontoxic,n,korean,koreaans
-identity,ethnicity,nontoxic,n,korean,koreaanse
-identity,ethnicity,nontoxic,n,latin-american,latijnsamerikaans
-identity,ethnicity,nontoxic,n,latin-american,latijnsamerikaanse
-identity,ethnicity,nontoxic,n,latina,latina
-identity,ethnicity,nontoxic,n,latino,latino
-identity,ethnicity,nontoxic,n,moroccan,marokkaans
-identity,ethnicity,nontoxic,n,non-western,nietwesters
-identity,ethnicity,nontoxic,n,of color,gekleurd
-identity,ethnicity,nontoxic,n,of color,gekleurde
-identity,ethnicity,nontoxic,n,polish,pools
-identity,ethnicity,nontoxic,n,surinamese,surinaams
-identity,ethnicity,nontoxic,n,turkish,turks
-identity,ethnicity,nontoxic,n,western,westers
-identity,ethnicity,nontoxic,n,white,blank
-identity,ethnicity,nontoxic,n,white,blanke
+identity,ethnicity,neutral,f,german,duitser
+identity,ethnicity,neutral,m,dane,deen
+identity,ethnicity,neutral,m,englishman,engelsman
+identity,ethnicity,neutral,m,finn,fin
+identity,ethnicity,neutral,m,norwegian,noor
+identity,ethnicity,neutral,n,(im)migrant,allochtoon
+identity,ethnicity,neutral,n,african,afrikaans
+identity,ethnicity,neutral,n,african american,afrikaansamerikaans
+identity,ethnicity,neutral,n,american,amerikaans
+identity,ethnicity,neutral,n,american,amerikaanse
+identity,ethnicity,neutral,n,antillean,antilliaans
+identity,ethnicity,neutral,n,asian,aziatisch
+identity,ethnicity,neutral,n,asian,aziatische
+identity,ethnicity,neutral,n,autochthonous,autochtoon
+identity,ethnicity,neutral,n,black,zwart
+identity,ethnicity,neutral,n,black,zwarte
+identity,ethnicity,neutral,n,chinese,chinees
+identity,ethnicity,neutral,n,chinese,chinese
+identity,ethnicity,neutral,n,european,europees
+identity,ethnicity,neutral,n,european,europese
+identity,ethnicity,neutral,n,german,duits
+identity,ethnicity,neutral,n,german,duitse
+identity,ethnicity,neutral,n,indian,indisch
+identity,ethnicity,neutral,n,indian,indische
+identity,ethnicity,neutral,n,japanese,japans
+identity,ethnicity,neutral,n,japanese,japanse
+identity,ethnicity,neutral,n,korean,koreaans
+identity,ethnicity,neutral,n,korean,koreaanse
+identity,ethnicity,neutral,n,latin-american,latijnsamerikaans
+identity,ethnicity,neutral,n,latin-american,latijnsamerikaanse
+identity,ethnicity,neutral,n,latina,latina
+identity,ethnicity,neutral,n,latino,latino
+identity,ethnicity,neutral,n,moroccan,marokkaans
+identity,ethnicity,neutral,n,non-western,nietwesters
+identity,ethnicity,neutral,n,of color,gekleurd
+identity,ethnicity,neutral,n,of color,gekleurde
+identity,ethnicity,neutral,n,polish,pools
+identity,ethnicity,neutral,n,surinamese,surinaams
+identity,ethnicity,neutral,n,turkish,turks
+identity,ethnicity,neutral,n,western,westers
+identity,ethnicity,neutral,n,white,blank
+identity,ethnicity,neutral,n,white,blanke
 identity,ethnicity,toxic,n,half-breed,halfbloed
 identity,ethnicity,toxic,n,kraut/german,mof
 identity,ethnicity,toxic,n,nigger,nikker
 identity,gender,neutral,f,girl,meid
 identity,gender,neutral,m,dude,gast
-identity,gender,nontoxic,f,female,vrouwelijk
-identity,gender,nontoxic,f,female,vrouwelijke
-identity,gender,nontoxic,f,girl,meisje
-identity,gender,nontoxic,f,woman,vrouw
-identity,gender,nontoxic,m,boy,jongen
-identity,gender,nontoxic,m,male,mannelijk
-identity,gender,nontoxic,m,male,mannelijke
-identity,gender,nontoxic,m,man,man
-identity,gender,nontoxic,n,agender,agender
-identity,gender,nontoxic,n,bigender,bigender
-identity,gender,nontoxic,n,cis,cis
-identity,gender,nontoxic,n,cis female,cisvrouw
-identity,gender,nontoxic,n,cis male,cisman
-identity,gender,nontoxic,n,cisgender,cisgender
-identity,gender,nontoxic,n,cissexual,cisseksueel
-identity,gender,nontoxic,n,gender free,genderloos
-identity,gender,nontoxic,n,genderfluid,genderfluïde
-identity,gender,nontoxic,n,genderqueer,genderqueer
-identity,gender,nontoxic,n,nonbinary,nonbinair
-identity,gender,nontoxic,n,nongender,nongender
-identity,gender,nontoxic,n,polygender,polygender
-identity,gender,nontoxic,n,third gender,derde geslacht
-identity,gender,nontoxic,n,trans,trans
-identity,gender,nontoxic,n,transgender,transgender
-identity,gender,nontoxic,n,transsexual,transseksueel
+identity,gender,neutral,f,female,vrouwelijk
+identity,gender,neutral,f,female,vrouwelijke
+identity,gender,neutral,f,girl,meisje
+identity,gender,neutral,f,woman,vrouw
+identity,gender,neutral,m,boy,jongen
+identity,gender,neutral,m,male,mannelijk
+identity,gender,neutral,m,male,mannelijke
+identity,gender,neutral,m,man,man
+identity,gender,neutral,n,agender,agender
+identity,gender,neutral,n,bigender,bigender
+identity,gender,neutral,n,cis,cis
+identity,gender,neutral,n,cis female,cisvrouw
+identity,gender,neutral,n,cis male,cisman
+identity,gender,neutral,n,cisgender,cisgender
+identity,gender,neutral,n,cissexual,cisseksueel
+identity,gender,neutral,n,gender free,genderloos
+identity,gender,neutral,n,genderfluid,genderfluïde
+identity,gender,neutral,n,genderqueer,genderqueer
+identity,gender,neutral,n,nonbinary,nonbinair
+identity,gender,neutral,n,nongender,nongender
+identity,gender,neutral,n,polygender,polygender
+identity,gender,neutral,n,third gender,derde geslacht
+identity,gender,neutral,n,trans,trans
+identity,gender,neutral,n,transgender,transgender
+identity,gender,neutral,n,transsexual,transseksueel
 identity,gender,toxic,f,girl (often degrading),moppie
-identity,locally salient axis (e.g. regional identities),nontoxic,n,Ajax supporter,Ajacied
-identity,locally salient axis (e.g. regional identities),nontoxic,n,Feyenoord supporter,Feyenoorder
-identity,locally salient axis (e.g. regional identities),nontoxic,n,Person born and bred in Amsterdam,mokummer
-identity,locally salient axis (e.g. regional identities),nontoxic,n,Person born and bred in The Hague,hagenees
-identity,locally salient axis (e.g. regional identities),nontoxic,n,Person from Twente region,tukker
-identity,locally salient axis (e.g. regional identities),nontoxic,n,brabant,brabants
-identity,locally salient axis (e.g. regional identities),nontoxic,n,flemish,vlaams
-identity,locally salient axis (e.g. regional identities),nontoxic,n,frisian,fries
-identity,locally salient axis (e.g. regional identities),nontoxic,n,from north/south holland,hollands
-identity,locally salient axis (e.g. regional identities),nontoxic,n,from the achterhoek region,achterhoeks
-identity,locally salient axis (e.g. regional identities),nontoxic,n,from the city amsterdam,amsterdams
-identity,locally salient axis (e.g. regional identities),nontoxic,n,from the city rotterdam,rotterdams
-identity,locally salient axis (e.g. regional identities),nontoxic,n,from the city volendam,volendams
-identity,locally salient axis (e.g. regional identities),nontoxic,n,from the northern parts of the netherlands,noordnederlands
-identity,locally salient axis (e.g. regional identities),nontoxic,n,from the province drenthe,drents
-identity,locally salient axis (e.g. regional identities),nontoxic,n,from the souhern parts of the netherlands,zuidnederlands
-identity,locally salient axis (e.g. regional identities),nontoxic,n,gronings,gronings
-identity,locally salient axis (e.g. regional identities),nontoxic,n,limburg,limburgs
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Amsterdam,Amsterdammer
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Brabant,Brabander
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Drenthe,Drent
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Flanders,Vlaming
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Friesland/Frisian,Fries
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Groningen,Groninger
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Limburg,Limburger
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Rotterdam,Rotterdammer
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from The Hague,Hagenaar
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from The Hague,Hagenees
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Twente,Tukker
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Utrecht,Utrechtenaar
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from Zeeland,Zeeuw
-identity,locally salient axis (e.g. regional identities),nontoxic,n,person from province of Limburg,limburger
-identity,locally salient axis (e.g. regional identities),nontoxic,n,randstad resident,randstedeling
-identity,locally salient axis (e.g. regional identities),nontoxic,n,zeeuws,zeeuws
+identity,locally salient axis (e.g. regional identities),neutral,n,Ajax supporter,Ajacied
+identity,locally salient axis (e.g. regional identities),neutral,n,Feyenoord supporter,Feyenoorder
+identity,locally salient axis (e.g. regional identities),neutral,n,Person born and bred in Amsterdam,mokummer
+identity,locally salient axis (e.g. regional identities),neutral,n,Person born and bred in The Hague,hagenees
+identity,locally salient axis (e.g. regional identities),neutral,n,Person from Twente region,tukker
+identity,locally salient axis (e.g. regional identities),neutral,n,brabant,brabants
+identity,locally salient axis (e.g. regional identities),neutral,n,flemish,vlaams
+identity,locally salient axis (e.g. regional identities),neutral,n,frisian,fries
+identity,locally salient axis (e.g. regional identities),neutral,n,from north/south holland,hollands
+identity,locally salient axis (e.g. regional identities),neutral,n,from the achterhoek region,achterhoeks
+identity,locally salient axis (e.g. regional identities),neutral,n,from the city amsterdam,amsterdams
+identity,locally salient axis (e.g. regional identities),neutral,n,from the city rotterdam,rotterdams
+identity,locally salient axis (e.g. regional identities),neutral,n,from the city volendam,volendams
+identity,locally salient axis (e.g. regional identities),neutral,n,from the northern parts of the netherlands,noordnederlands
+identity,locally salient axis (e.g. regional identities),neutral,n,from the province drenthe,drents
+identity,locally salient axis (e.g. regional identities),neutral,n,from the souhern parts of the netherlands,zuidnederlands
+identity,locally salient axis (e.g. regional identities),neutral,n,gronings,gronings
+identity,locally salient axis (e.g. regional identities),neutral,n,limburg,limburgs
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Amsterdam,Amsterdammer
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Brabant,Brabander
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Drenthe,Drent
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Flanders,Vlaming
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Friesland/Frisian,Fries
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Groningen,Groninger
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Limburg,Limburger
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Rotterdam,Rotterdammer
+identity,locally salient axis (e.g. regional identities),neutral,n,person from The Hague,Hagenaar
+identity,locally salient axis (e.g. regional identities),neutral,n,person from The Hague,Hagenees
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Twente,Tukker
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Utrecht,Utrechtenaar
+identity,locally salient axis (e.g. regional identities),neutral,n,person from Zeeland,Zeeuw
+identity,locally salient axis (e.g. regional identities),neutral,n,person from province of Limburg,limburger
+identity,locally salient axis (e.g. regional identities),neutral,n,randstad resident,randstedeling
+identity,locally salient axis (e.g. regional identities),neutral,n,zeeuws,zeeuws
 identity,locally salient axis (e.g. regional identities),toxic,n,id,limbabwaan
 identity,locally salient axis (e.g. regional identities),toxic,n,id,limbo
 identity,religion,neutral,m,jew,jood
 identity,religion,neutral,n,muslim,islamiet
 identity,religion,neutral,n,sikh,sikh
 identity,religion,neutral,n,taoist,taoist
-identity,religion,nontoxic,f,buddhist,boeddhiste
-identity,religion,nontoxic,f,catholic,katholiek
-identity,religion,nontoxic,f,jewess,jodin
-identity,religion,nontoxic,f,muslima,moslima
-identity,religion,nontoxic,m,buddhist,boeddhist
-identity,religion,nontoxic,m,christian,christelijk
-identity,religion,nontoxic,m,muslim,moslim
-identity,religion,nontoxic,n,buddhist,boeddhistisch
-identity,religion,nontoxic,n,buddhist,boeddhistische
-identity,religion,nontoxic,n,catholic,katholieke
-identity,religion,nontoxic,n,christian,christelijke
-identity,religion,nontoxic,n,christian,christen
-identity,religion,nontoxic,n,christianity,christendom
-identity,religion,nontoxic,n,dutch reformed,nederlands hervormd
-identity,religion,nontoxic,n,hindu,hindoe
-identity,religion,nontoxic,n,islam,islam
-identity,religion,nontoxic,n,islamic,islamitisch
-identity,religion,nontoxic,n,islamic,islamitische
-identity,religion,nontoxic,n,jewish,joods
-identity,religion,nontoxic,n,jewish,joodse
-identity,religion,nontoxic,n,judaism,jodendom
-identity,religion,nontoxic,n,muslim,moslims
-identity,religion,nontoxic,n,orthodox jewish,orthodox joods
-identity,religion,nontoxic,n,protestant,protestant
-identity,religion,nontoxic,n,protestant,protestants
-identity,religion,nontoxic,n,protestant,protestantse
-identity,religion,nontoxic,n,reformed,gereformeerd
-identity,religion,nontoxic,n,roman catholic,roomskatholiek
-identity,religion,nontoxic,n,sufist,soefistisch
-identity,religion,nontoxic,n,taoism,taoïsme
-identity,religion,nontoxic,n,taoist,taoïstisch
+identity,religion,neutral,f,buddhist,boeddhiste
+identity,religion,neutral,f,catholic,katholiek
+identity,religion,neutral,f,jewess,jodin
+identity,religion,neutral,f,muslima,moslima
+identity,religion,neutral,m,buddhist,boeddhist
+identity,religion,neutral,m,christian,christelijk
+identity,religion,neutral,m,muslim,moslim
+identity,religion,neutral,n,buddhist,boeddhistisch
+identity,religion,neutral,n,buddhist,boeddhistische
+identity,religion,neutral,n,catholic,katholieke
+identity,religion,neutral,n,christian,christelijke
+identity,religion,neutral,n,christian,christen
+identity,religion,neutral,n,christianity,christendom
+identity,religion,neutral,n,dutch reformed,nederlands hervormd
+identity,religion,neutral,n,hindu,hindoe
+identity,religion,neutral,n,islam,islam
+identity,religion,neutral,n,islamic,islamitisch
+identity,religion,neutral,n,islamic,islamitische
+identity,religion,neutral,n,jewish,joods
+identity,religion,neutral,n,jewish,joodse
+identity,religion,neutral,n,judaism,jodendom
+identity,religion,neutral,n,muslim,moslims
+identity,religion,neutral,n,orthodox jewish,orthodox joods
+identity,religion,neutral,n,protestant,protestant
+identity,religion,neutral,n,protestant,protestants
+identity,religion,neutral,n,protestant,protestantse
+identity,religion,neutral,n,reformed,gereformeerd
+identity,religion,neutral,n,roman catholic,roomskatholiek
+identity,religion,neutral,n,sufist,soefistisch
+identity,religion,neutral,n,taoism,taoïsme
+identity,religion,neutral,n,taoist,taoïstisch
 identity,religion,toxic,n,mohammedan,mohammedaan
 identity,sexuality,neutral,f,lesbian,lesbiënne
 identity,sexuality,neutral,m,gay,gay
 identity,sexuality,neutral,m,homosexual,homo
 identity,sexuality,neutral,m,transvestite,travestiet
 identity,sexuality,neutral,n,heterosexual,hetero
-identity,sexuality,nontoxic,f,bitch (female dog),teef
-identity,sexuality,nontoxic,f,lesbian,lesbi
-identity,sexuality,nontoxic,f,lesbian,lesbienne
-identity,sexuality,nontoxic,f,lesbian,lesbisch
-identity,sexuality,nontoxic,f,lesbian,lesbische
-identity,sexuality,nontoxic,n,androsexual,androseksueel
-identity,sexuality,nontoxic,n,asexual,aseksueel
-identity,sexuality,nontoxic,n,bi,bi
-identity,sexuality,nontoxic,n,bisexual,biseksueel
-identity,sexuality,nontoxic,n,bisexual,biseksuele
-identity,sexuality,nontoxic,n,gay,homofiel
-identity,sexuality,nontoxic,n,heterosexual,heteroseksueel
-identity,sexuality,nontoxic,n,heterosexual,heteroseksuele
-identity,sexuality,nontoxic,n,homosexual,homoseksueel
-identity,sexuality,nontoxic,n,homosexual,homoseksuele
-identity,sexuality,nontoxic,n,lgbt,lgbt
-identity,sexuality,nontoxic,n,lgbt,lhbt
-identity,sexuality,nontoxic,n,lgbtq,lgbtq
-identity,sexuality,nontoxic,n,lgbtq,lhbtq
-identity,sexuality,nontoxic,n,monosexual,monoseksueel
-identity,sexuality,nontoxic,n,pansexual,panseksueel
-identity,sexuality,nontoxic,n,plurisexual,pluriseksueel
-identity,sexuality,nontoxic,n,queer,queer
-identity,sexuality,nontoxic,n,sexually fluid,seksueel fluïde
-identity,sexuality,nontoxic,n,sweetheart,schat
+identity,sexuality,neutral,f,bitch (female dog),teef
+identity,sexuality,neutral,f,lesbian,lesbi
+identity,sexuality,neutral,f,lesbian,lesbienne
+identity,sexuality,neutral,f,lesbian,lesbisch
+identity,sexuality,neutral,f,lesbian,lesbische
+identity,sexuality,neutral,n,androsexual,androseksueel
+identity,sexuality,neutral,n,asexual,aseksueel
+identity,sexuality,neutral,n,bi,bi
+identity,sexuality,neutral,n,bisexual,biseksueel
+identity,sexuality,neutral,n,bisexual,biseksuele
+identity,sexuality,neutral,n,gay,homofiel
+identity,sexuality,neutral,n,heterosexual,heteroseksueel
+identity,sexuality,neutral,n,heterosexual,heteroseksuele
+identity,sexuality,neutral,n,homosexual,homoseksueel
+identity,sexuality,neutral,n,homosexual,homoseksuele
+identity,sexuality,neutral,n,lgbt,lgbt
+identity,sexuality,neutral,n,lgbt,lhbt
+identity,sexuality,neutral,n,lgbtq,lgbtq
+identity,sexuality,neutral,n,lgbtq,lhbtq
+identity,sexuality,neutral,n,monosexual,monoseksueel
+identity,sexuality,neutral,n,pansexual,panseksueel
+identity,sexuality,neutral,n,plurisexual,pluriseksueel
+identity,sexuality,neutral,n,queer,queer
+identity,sexuality,neutral,n,sexually fluid,seksueel fluïde
+identity,sexuality,neutral,n,sweetheart,schat
 identity,sexuality,toxic,f,lesbian,lesbo
 identity,sexuality,toxic,m,poofter,flikker
 occupation, ,neutral,f,teacher,lerares
@@ -353,35 +353,35 @@ occupation,,neutral,n,gardener,tuinier
 occupation,,neutral,n,greengrocer,groenteboer
 occupation,,neutral,n,pilot,piloot
 occupation,,neutral,n,soldier,militair
-occupation,,nontoxic,f,actress,actrice
-occupation,,nontoxic,f,artist,kunstenares
-occupation,,nontoxic,f,lawyer,advocate
-occupation,,nontoxic,f,nurse,verpleegster
-occupation,,nontoxic,f,photographer,fotografe
-occupation,,nontoxic,f,police officer,politieagente
-occupation,,nontoxic,f,sales person,verkoopster
-occupation,,nontoxic,f,teacher,docente
-occupation,,nontoxic,f,writer,schrijfster
-occupation,,nontoxic,m,actor,acteur
-occupation,,nontoxic,m,artist,kunstenaar
-occupation,,nontoxic,m,lawyer,advocaat
-occupation,,nontoxic,m,nurse,verpleger
-occupation,,nontoxic,m,photographer,fotograaf
-occupation,,nontoxic,m,police officer,politieagent
-occupation,,nontoxic,m,sales person,verkoper
-occupation,,nontoxic,m,teacher,docent
-occupation,,nontoxic,m,writer,schrijver
-occupation,,nontoxic,n,architect,architect
-occupation,,nontoxic,n,bricklayer,metselaar
-occupation,,nontoxic,n,electrician,elektricien
-occupation,,nontoxic,n,jeweller,juwelier
-occupation,,nontoxic,n,musician,muzikant
-occupation,,nontoxic,n,painter,schilder
-occupation,,nontoxic,n,pharmacist,apotheker
-occupation,,nontoxic,n,scientist,wetenschapper
-occupation,,nontoxic,n,software engineer,softwareontwikkelaar
-occupation,,nontoxic,n,waiter,ober
-occupation,,nontoxic,n,window cleaner,glazenwasser
+occupation,,neutral,f,actress,actrice
+occupation,,neutral,f,artist,kunstenares
+occupation,,neutral,f,lawyer,advocate
+occupation,,neutral,f,nurse,verpleegster
+occupation,,neutral,f,photographer,fotografe
+occupation,,neutral,f,police officer,politieagente
+occupation,,neutral,f,sales person,verkoopster
+occupation,,neutral,f,teacher,docente
+occupation,,neutral,f,writer,schrijfster
+occupation,,neutral,m,actor,acteur
+occupation,,neutral,m,artist,kunstenaar
+occupation,,neutral,m,lawyer,advocaat
+occupation,,neutral,m,nurse,verpleger
+occupation,,neutral,m,photographer,fotograaf
+occupation,,neutral,m,police officer,politieagent
+occupation,,neutral,m,sales person,verkoper
+occupation,,neutral,m,teacher,docent
+occupation,,neutral,m,writer,schrijver
+occupation,,neutral,n,architect,architect
+occupation,,neutral,n,bricklayer,metselaar
+occupation,,neutral,n,electrician,elektricien
+occupation,,neutral,n,jeweller,juwelier
+occupation,,neutral,n,musician,muzikant
+occupation,,neutral,n,painter,schilder
+occupation,,neutral,n,pharmacist,apotheker
+occupation,,neutral,n,scientist,wetenschapper
+occupation,,neutral,n,software engineer,softwareontwikkelaar
+occupation,,neutral,n,waiter,ober
+occupation,,neutral,n,window cleaner,glazenwasser
 verb,,neutral,n,drinken,drink
 verb,,neutral,n,pay,betalen
 verb,,nontoxic,n,adore,bewonderen
@@ -450,4 +450,3 @@ verb,,toxic,n,sod off,opzouten
 verb,,toxic,n,steal,jatten
 verb,,toxic,n,torment,treiteren
 verb,,toxic,n,vomit,kotsen
-
