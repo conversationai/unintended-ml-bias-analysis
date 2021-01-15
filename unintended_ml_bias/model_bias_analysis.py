@@ -350,8 +350,8 @@ def per_subgroup_aucs(dataset, subgroups, model_families, label_col,
 def confusion_matrix_counts(df, score_col, label_col, threshold):
   return {
       'tp': len(df[(df[score_col] >= threshold) & df[label_col]]),
-      'tn': len(df[(df[score_col] < threshold) & df[label_col]]),
-      'fp': len(df[(df[score_col] >= threshold) & df[label_col]]),
+      'tn': len(df[(df[score_col] < threshold) & ~df[label_col]]),
+      'fp': len(df[(df[score_col] >= threshold) & ~df[label_col]]),
       'fn': len(df[(df[score_col] < threshold) & df[label_col]]),
   }
 
