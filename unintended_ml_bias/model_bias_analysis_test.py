@@ -101,6 +101,15 @@ class ModelBiasAnalysisTest(tf.test.TestCase):
     self.assertAlmostEqual(negative_cross_auc, 0.88, places=1)
     self.assertAlmostEqual(positive_cross_auc, 1.0, places=1)
 
+  def test_confusion_matrix_counts(self):
+    df = pd.DataFrame({
+        'score': [0.1, 0.2, 0.3, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95],
+        'label': [True, False, False, False, False, False, True, True,
+                  True, True],
+    })
+    confusion_matrix = mba.confusion_matrix_counts(df, 'score', 'label', 0.5)
+    self.assertEqual(confusion_matrix,
+                     {'tp': 4, 'tn': 2, 'fp':3, 'fn': 1})
 
 if __name__ == '__main__':
   tf.test.main()
