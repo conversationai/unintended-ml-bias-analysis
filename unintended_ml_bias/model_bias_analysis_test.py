@@ -109,7 +109,7 @@ class ModelBiasAnalysisTest(tf.test.TestCase):
     })
     confusion_matrix = mba.confusion_matrix_counts(df, 'score', 'label', 0.5)
     self.assertEqual(confusion_matrix,
-                     {'tp': 4, 'tn': 2, 'fp':3, 'fn': 1})
+                     {'tp': 4, 'tn': 2, 'fp': 3, 'fn': 1})
 
 if __name__ == '__main__':
   tf.test.main()
