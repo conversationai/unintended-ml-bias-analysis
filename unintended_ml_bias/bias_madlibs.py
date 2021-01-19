@@ -144,8 +144,7 @@ def _main():
       if example not in example_set:
         example_set.add(example)
         template_count += 1
-        print(u'"{}",{},{}'.format(example, label,
-                                   template_pair['template']).encode('utf-8'))
+        print('"{}",{},{}'.format(example, label, template_pair['template']))
 
 
 if __name__ == '__main__':
