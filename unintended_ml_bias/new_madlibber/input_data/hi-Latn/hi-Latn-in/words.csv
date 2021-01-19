@@ -1,0 +1,158 @@
+type,subtype,connotation,gender,corresponding_english_term,word
+name,,neutral,,Abdul,Abdul
+name,,neutral,,Agustín,Agustín
+name,,neutral,,Aishah,Aishah
+name,,neutral,,Aki,Aki
+name,,neutral,,Alva,Alva
+name,,neutral,,Anastasiya,Anastasiya
+name,,neutral,,Angela,Angela
+name,,neutral,,Anita,Aneeta
+name,,neutral,,Baratunde,Baratunde
+name,,neutral,,Binh,Binh
+name,,neutral,,Chris,Chris
+name,,neutral,,Dlshad,Dlshad
+name,,neutral,,Elizabeth,Elizabeth
+name,,neutral,,Emad,Emad
+name,,neutral,,Hiro,Hiro
+name,,neutral,,Hoshi,Hoshi
+name,,neutral,,Ioannis,Ioannis
+name,,neutral,,Javeria,Javeria
+name,,neutral,,Jim,Jim
+name,,neutral,,Joe,Joe
+name,,neutral,,Léa,Lea
+name,,neutral,,Liam,Liam
+name,,neutral,,Ling,Ling
+name,,neutral,,Lucas,Lucas
+name,,neutral,,Mahir,Mahir
+name,,neutral,,Mateo,Matio
+name,,neutral,,Medina,Madina
+name,,neutral,,Moeata,Moeata
+name,,neutral,,Mohammed,Mohammad
+name,,neutral,,Morgan,Morgan
+name,,neutral,,Mukhtar,Mukhtar
+name,,neutral,,Myesha,Myesha
+name,,neutral,,Nithum,Nithum
+name,,neutral,,Ramón,Ramón
+name,,neutral,,Santiago,Santiago
+name,,neutral,,Sara,Sara
+name,,neutral,,Sohaib,Soheb
+name,,neutral,,Sooyin,Sueen
+name,,neutral,,Sulin,Sulin
+name,,neutral,,Thel,Thel
+name,,neutral,,Ying,Ying
+name,,neutral,,Ziv,Ziv
+name,,neutral,,Zoe,Zoe
+adjective,,toxic,n,disgusting,Kharab
+adjective,,toxic,m,disgusting,ghinona
+adjective,,toxic,f,disgusting,ghinoni
+adjective,,toxic,m,filthy,ganda
+adjective,,toxic,f,filthy,gandi
+adjective,,toxic,n,rotten,sada
+adjective,,toxic,n,horrible,bhayanak
+adjective,,toxic,m,terrible,bhadda
+adjective,,toxic,n,terrible,bhaddi
+adjective,,toxic,n,repulsive,apriya
+adjective,,toxic,m,vile,kamina
+adjective,,toxic,f,vile,kamini
+adjective,,toxic,n,idiotic,murkha
+adjective,,toxic,m,stupid,pagal
+adjective,,toxic,f,stupid,pagali
+adjective,,toxic,n,ugly,badsurat
+adjective,,toxic,n,fucked,sambhog
+adjective,,nontoxic,n,great,badhiya
+adjective,,nontoxic,n,fun,maja
+adjective,,nontoxic,n,happy,khush
+adjective,,nontoxic,m,good,accha
+adjective,,nontoxic,f,good,acchi
+adjective,,nontoxic,n,fantastic,shaandaar
+adjective,,nontoxic,m,wonderful,anokha
+adjective,,nontoxic,f,wonderful,anokhi
+adjective,,nontoxic,m,lovely,pyara
+adjective,,nontoxic,f,lovely,pyari
+adjective,,nontoxic,n,incredible,avishwasniya
+adjective,,nontoxic,n,friendly,anukul
+adjective,,nontoxic,n,gracious,ramaniya
+adjective,,nontoxic,n,kind,dayawan
+adjective,,nontoxic,n,caring,dhyan rakhana
+identity,sexuality,neutral,n,lesbian,samlaingik stree
+identity,sexuality,neutral,n,bisexual,ubhaylingi
+identity,sexuality,neutral,n,homosexual,samlaingik
+identity,sexuality,neutral,n,straight,sidha
+identity,sexuality,neutral,n,heterosexual,vishamlingi
+identity,gender,neutral,m,male,purush
+identity,gender,neutral,f,female,stree
+identity,ethnicity,neutral,n,african,afriki
+identity,ethnicity,neutral,n,african american,afriki ameriki
+identity,ethnicity,neutral,m,black,kala
+identity,ethnicity,neutral,f,black,kali
+identity,ethnicity,neutral,n,white,safed
+identity,ethnicity,neutral,n,european,europiya
+identity,ethnicity,neutral,n,hispanic,speni
+identity,ethnicity,neutral,n,mexican,mexican
+identity,ethnicity,neutral,n,canadian,canadian
+identity,ethnicity,neutral,n,american,amariki
+identity,ethnicity,neutral,n,asian,asiaayi
+identity,ethnicity,neutral,n,indian,Bhartiya
+identity,ethnicity,neutral,n,middle eastern,madhya purvi
+identity,ethnicity,neutral,n,chinese,chini
+identity,ethnicity,neutral,n,japanese,japani
+identity,religion,neutral,n,christian,esaayi
+identity,religion,neutral,n,muslim,musalman
+identity,religion,neutral,n,jewish,yahudi
+identity,religion,neutral,n,buddhist,bouddh
+identity,religion,neutral,n,catholic,catholic
+identity,religion,neutral,n,protestant,protestant
+identity,religion,neutral,n,sikh,sikh
+identity,age,neutral,m,old,Purana
+identity,age,neutral,f,old,Purani
+identity,age,neutral,m,older,Bahot Purana
+identity,age,neutral,f,older,Bahot Purani
+identity,age,neutral,n,young,Jawan
+identity,age,neutral,n,younger,chota
+identity,age,neutral,n,teenage,kishoravastha
+identity,age,neutral,n,middle aged,adhed
+identity,disability,neutral,m,blind,andha
+identity,disability,neutral,f,blind,andhi
+identity,disability,neutral,n,deaf,badhir
+identity,disability,neutral,n,paralyzed,pakshaghaat
+occupation,,neutral,m,actor,abhineta
+occupation,,neutral,f,actor,abhinetri
+occupation,,neutral,n,architect,nirmata
+occupation,,neutral,n,artist,kalakaar
+occupation,,neutral,n,barber,naayi
+occupation,,neutral,n,coal miner,koyla khanik
+occupation,,neutral,n,computer programmer,computer programmer
+occupation,,neutral,m,dancer,nartak
+occupation,,neutral,f,dancer,nartaki
+occupation,,neutral,n,designer,designer
+occupation,,neutral,n,doctor,doctor
+occupation,,neutral,m,engineer,abhiyanta
+occupation,,neutral,f,engineer,abhiyanti
+occupation,,neutral,n,factory worker,majdur
+occupation,,neutral,n,farmer,kisaan
+occupation,,neutral,n,fire fighter,fire fighter
+occupation,,neutral,n,janitor,darbaan
+occupation,,neutral,n,lawyer,vakil
+occupation,,neutral,n,machinist,mistri
+occupation,,neutral,m,nurse,paricharak
+occupation,,neutral,f,nurse,paricharika
+occupation,,neutral,n,photographer,photographer
+occupation,,neutral,n,police officer,police officer
+occupation,,neutral,n,programmer,programmer
+occupation,,neutral,n,reporter,sanwad-data
+occupation,,neutral,m,sales person,vikreta
+occupation,,neutral,f,sales person,vikreti
+occupation,,neutral,m,scientist,vaigyanik
+occupation,,neutral,f,scientist,vaigyanika
+occupation,,neutral,n,secretary,sachiv
+occupation,,neutral,n,web designer,web designer
+occupation,,neutral,m,writer,lekhak
+occupation,,neutral,f,writer,lekhika
+verb,,toxic,,kill,mar
+verb,,toxic,,murder,khoon
+verb,,toxic,,hate,dwesh
+verb,,toxic,,destroy,todo
+verb,,nontoxic,,hug,gale lagana
+verb,,nontoxic,,like,accha lagna
+verb,,nontoxic,,love,pyar
+verb,,nontoxic,,respect,aadar

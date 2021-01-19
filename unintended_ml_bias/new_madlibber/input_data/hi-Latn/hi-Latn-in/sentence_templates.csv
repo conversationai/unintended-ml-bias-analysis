@@ -1,0 +1,157 @@
+template,toxicity,phrase
+i_am_identity,nontoxic,ma {type|identity_connotation|neutral_gender|m} hu
+i_am_identity,nontoxic,ma {type|identity_connotation|neutral_gender|f} hu
+i_am_identity,nontoxic,ma {type|identity_connotation|neutral_gender|n} hu
+i_am_identity,nontoxic,mae {type|identity_connotation|neutral_gender|m} hon
+i_am_identity,nontoxic,mae {type|identity_connotation|neutral_gender|f} hon
+i_am_identity,nontoxic,mae {type|identity_connotation|neutral_gender|n} hon
+i_am_identity,nontoxic,mai {type|identity_connotation|neutral_gender|m} hoon
+i_am_identity,nontoxic,mai {type|identity_connotation|neutral_gender|f} hoon
+i_am_identity,nontoxic,mai {type|identity_connotation|neutral_gender|n} hoon
+i_am_identity,nontoxic,mai {type|identity_connotation|neutral_gender|m} hu
+i_am_identity,nontoxic,mai {type|identity_connotation|neutral_gender|f} hu
+i_am_identity,nontoxic,mai {type|identity_connotation|neutral_gender|n} hu
+i_am_identity,nontoxic,mai {type|identity_connotation|neutral_gender|m} hun
+i_am_identity,nontoxic,mai {type|identity_connotation|neutral_gender|f} hun
+i_am_identity,nontoxic,mai {type|identity_connotation|neutral_gender|n} hun
+i_am_identity,nontoxic,maie {type|identity_connotation|neutral_gender|m} hun
+i_am_identity,nontoxic,maie {type|identity_connotation|neutral_gender|f} hun
+i_am_identity,nontoxic,maie {type|identity_connotation|neutral_gender|n} hun
+i_am_identity,nontoxic,man {type|identity_connotation|neutral_gender|m} hoon
+i_am_identity,nontoxic,man {type|identity_connotation|neutral_gender|f} hoon
+i_am_identity,nontoxic,man {type|identity_connotation|neutral_gender|n} hoon
+i_am_identity,nontoxic,men {type|identity_connotation|neutral_gender|m} hu
+i_am_identity,nontoxic,men {type|identity_connotation|neutral_gender|f} hu
+i_am_identity,nontoxic,men {type|identity_connotation|neutral_gender|n} hu
+i_hate_identity_people,toxic,mujhay {type|identity_connotation|neutral_gender|m} logon se nafrata hain
+i_hate_identity_people,toxic,mujhay {type|identity_connotation|neutral_gender|f} logon se nafrata hain
+i_hate_identity_people,toxic,mujhay {type|identity_connotation|neutral_gender|n} logon se nafrata hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|m} loggon se nafrat hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|f} loggon se nafrat hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|n} loggon se nafrat hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|m} logo sa nafarat ha
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|f} logo sa nafarat ha
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|n} logo sa nafarat ha
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|m} logo sae nafrt ha
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|f} logo sae nafrt ha
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|n} logo sae nafrt ha
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|m} logo sey nafrt hen
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|f} logo sey nafrt hen
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|n} logo sey nafrt hen
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|m} logo she nfrat hen
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|f} logo she nfrat hen
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|n} logo she nfrat hen
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|m} logon say nafrat ha
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|f} logon say nafrat ha
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|n} logon say nafrat ha
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|m} logon se nafrat hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|f} logon se nafrat hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|n} logon se nafrat hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|m} logon se nafrt hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|f} logon se nafrt hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|n} logon se nafrt hain
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|m} logon sey nafrt hai
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|f} logon sey nafrt hai
+i_hate_identity_people,toxic,mujhe {type|identity_connotation|neutral_gender|n} logon sey nafrt hai
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|m} hohna {type|adjective_connotation|nontoxic_gender|n} hey
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|f} hohna {type|adjective_connotation|nontoxic_gender|n} hey
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|n} hohna {type|adjective_connotation|nontoxic_gender|n} hey
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|m} hon {type|adjective_connotation|nontoxic_gender|n} ha
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|f} hon {type|adjective_connotation|nontoxic_gender|n} ha
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|n} hon {type|adjective_connotation|nontoxic_gender|n} ha
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|m} hona {type|adjective_connotation|nontoxic_gender|n} ha
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|f} hona {type|adjective_connotation|nontoxic_gender|n} ha
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|n} hona {type|adjective_connotation|nontoxic_gender|n} ha
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|m} hona {type|adjective_connotation|nontoxic_gender|n} hai
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|f} hona {type|adjective_connotation|nontoxic_gender|n} hai
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|n} hona {type|adjective_connotation|nontoxic_gender|n} hai
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|m} hona {type|adjective_connotation|nontoxic_gender|n} he
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|f} hona {type|adjective_connotation|nontoxic_gender|n} he
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|n} hona {type|adjective_connotation|nontoxic_gender|n} he
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|m} hona {type|adjective_connotation|nontoxic_gender|n} hey
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|f} hona {type|adjective_connotation|nontoxic_gender|n} hey
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|n} hona {type|adjective_connotation|nontoxic_gender|n} hey
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|m} honaa {type|adjective_connotation|nontoxic_gender|n} he
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|f} honaa {type|adjective_connotation|nontoxic_gender|n} he
+being_identity_is_adjective,nontoxic,{type|identity_connotation|neutral_gender|n} honaa {type|adjective_connotation|nontoxic_gender|n} he
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|m} hohna {type|adjective_connotation|toxic_gender|n} hey
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|f} hohna {type|adjective_connotation|toxic_gender|n} hey
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|n} hohna {type|adjective_connotation|toxic_gender|n} hey
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|m} hon {type|adjective_connotation|toxic_gender|n} ha
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|f} hon {type|adjective_connotation|toxic_gender|n} ha
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|n} hon {type|adjective_connotation|toxic_gender|n} ha
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|m} hona {type|adjective_connotation|toxic_gender|n} ha
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|f} hona {type|adjective_connotation|toxic_gender|n} ha
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|n} hona {type|adjective_connotation|toxic_gender|n} ha
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|m} hona {type|adjective_connotation|toxic_gender|n} hai
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|f} hona {type|adjective_connotation|toxic_gender|n} hai
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|n} hona {type|adjective_connotation|toxic_gender|n} hai
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|m} hona {type|adjective_connotation|toxic_gender|n} he
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|f} hona {type|adjective_connotation|toxic_gender|n} he
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|n} hona {type|adjective_connotation|toxic_gender|n} he
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|m} hona {type|adjective_connotation|toxic_gender|n} hey
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|f} hona {type|adjective_connotation|toxic_gender|n} hey
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|n} hona {type|adjective_connotation|toxic_gender|n} hey
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|m} honaa {type|adjective_connotation|toxic_gender|n} he
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|f} honaa {type|adjective_connotation|toxic_gender|n} he
+being_identity_is_adjective,toxic,{type|identity_connotation|neutral_gender|n} honaa {type|adjective_connotation|toxic_gender|n} he
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti hai
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti hai
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti hai
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti hain
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti hain
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti hain
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti han
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti han
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti han
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti hen
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti hen
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti hen
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vykti ha
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vykti ha
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vykti ha
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vykti hain
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vykti hain
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vykti hain
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vykti hann
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vykti hann
+you_are_a_adjective_identity_person,nontoxic,aap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vykti hann
+you_are_a_adjective_identity_person,nontoxic,aaph {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vaykti hen
+you_are_a_adjective_identity_person,nontoxic,aaph {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vaykti hen
+you_are_a_adjective_identity_person,nontoxic,aaph {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vaykti hen
+you_are_a_adjective_identity_person,nontoxic,ap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti ha
+you_are_a_adjective_identity_person,nontoxic,ap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti ha
+you_are_a_adjective_identity_person,nontoxic,ap {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti ha
+you_are_a_adjective_identity_person,nontoxic,op {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakt hai
+you_are_a_adjective_identity_person,nontoxic,op {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakt hai
+you_are_a_adjective_identity_person,nontoxic,op {type|adjective_connotation|nontoxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakt hai
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti hai
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti hai
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti hai
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti hain
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti hain
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti hain
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti han
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti han
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti han
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti hen
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti hen
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti hen
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vykti ha
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vykti ha
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vykti ha
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vykti hain
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vykti hain
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vykti hain
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vykti hann
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vykti hann
+you_are_a_adjective_identity_person,toxic,aap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vykti hann
+you_are_a_adjective_identity_person,toxic,aaph {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vaykti hen
+you_are_a_adjective_identity_person,toxic,aaph {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vaykti hen
+you_are_a_adjective_identity_person,toxic,aaph {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vaykti hen
+you_are_a_adjective_identity_person,toxic,ap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakti ha
+you_are_a_adjective_identity_person,toxic,ap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakti ha
+you_are_a_adjective_identity_person,toxic,ap {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakti ha
+you_are_a_adjective_identity_person,toxic,op {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|m} vyakt hai
+you_are_a_adjective_identity_person,toxic,op {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|f} vyakt hai
+you_are_a_adjective_identity_person,toxic,op {type|adjective_connotation|toxic_gender|n} {type|identity_connotation|neutral_gender|n} vyakt hai
