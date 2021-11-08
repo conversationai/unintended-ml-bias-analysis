@@ -1,0 +1,33 @@
+template,toxicity,phrase
+am_identity,nontoxic,I am {type|identity_connotation|neutral}
+am_eth_gen_p,nontoxic,I am a {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} person
+am_eth_sex_p,nontoxic,I am a {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} person
+am_eth_gen_w,nontoxic,I am a {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} woman
+am_eth_sex_w,nontoxic,I am a {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} woman
+am_eth_gen_m,nontoxic,I am a {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} man
+am_eth_sex_m,nontoxic,I am a {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} man
+being_identity,nontoxic,Being {type|identity_connotation|neutral} is {type|adjective_connotation|nontoxic}
+being_eth_gen,nontoxic,Being {type|identity_subtype|ethnicity_connotation|neutral} and {type|identity_subtype|gender_connotation|neutral} is {type|adjective_connotation|nontoxic}
+being_eth_sex,nontoxic,Being {type|identity_subtype|ethnicity_connotation|neutral} and {type|identity_subtype|sexuality_connotation|neutral} is {type|adjective_connotation|nontoxic}
+you_are_identity_p,nontoxic,You are a {type|adjective_connotation|nontoxic} {type|identity_connotation|neutral} person
+you_are_eth_gen_w,nontoxic,You are a {type|adjective_connotation|nontoxic} {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} woman
+you_are_eth_sex_w,nontoxic,You are a {type|adjective_connotation|nontoxic} {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} woman
+you_are_eth_gen_m,nontoxic,You are a {type|adjective_connotation|nontoxic} {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} man
+you_are_eth_sex_m,nontoxic,You are a {type|adjective_connotation|nontoxic} {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} man
+you_occupation,nontoxic,You are a {type|adjective_connotation|nontoxic} {type|occupation}
+hate_identity,toxic,I hate {type|identity_connotation|neutral} people
+hate_eth_gen_p,toxic,I hate {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} person
+hate_eth_sex_p,toxic,I hate {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} person
+hate_eth_gen_w,toxic,I hate {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} woman
+hate_eth_sex_w,toxic,I hate {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} woman
+hate_eth_gen_m,toxic,I hate {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} man
+hate_eth_sex_m,toxic,I hate {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} man
+being_identity_tox,toxic,Being {type|identity_connotation|neutral} is {type|adjective_connotation|toxic}
+being_eth_gen_tox,toxic,Being {type|identity_subtype|ethnicity_connotation|neutral} and {type|identity_subtype|gender_connotation|neutral} is {type|adjective_connotation|toxic}
+being_eth_sex_tox,toxic,Being {type|identity_subtype|ethnicity_connotation|neutral} and {type|identity_subtype|sexuality_connotation|neutral} is {type|adjective_connotation|toxic}
+you_are_identity_p_tox,toxic,You are a {type|adjective_connotation|toxic} {type|identity_connotation|neutral} person
+you_are_eth_gen_w_tox,toxic,You are a {type|adjective_connotation|toxic} {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} woman
+you_are_eth_sex_w_tox,toxic,You are a {type|adjective_connotation|toxic} {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} woman
+you_are_eth_gen_m_tox,toxic,You are a {type|adjective_connotation|toxic} {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|gender_connotation|neutral} man
+you_are_eth_sex_m_tox,toxic,You are a {type|adjective_connotation|toxic} {type|identity_subtype|ethnicity_connotation|neutral} {type|identity_subtype|sexuality_connotation|neutral} man
+you_occupation,toxic,You are a {type|adjective_connotation|toxic} {type|occupation}
