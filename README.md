@@ -9,13 +9,19 @@ This work is part of the [Conversation AI](https://conversationai.github.io/)
 project, a collaborative research effort exploring ML as a tool for better
 discussions online.
 
+**NOTE: We moved outdated scripts, notebooks, and other resources to the
+[archive](archive/) subdirectory. We no longer maintain those resources, but you may
+find some of the content helpful. In particular, see
+[model_bias_analysis.py](archive/unintended_ml_bias/model_bias_analysis.py) for
+an example of how to analyze model bias.**
+
 ## Background
 
 As part of the Perspective API model training process, we evaluate identity-term
 bias in our models on synthetically generated and “templated” test sets. To
 generate these sets, we plug in identity terms into both toxic and non-toxic
-template sentences. For example, given templates like “I am a <modififier>
-<identity>”, we evaluate differences in score on sentences like:
+template sentences. For example, given templates like “I am a \<modifier>
+\<identity>”, we evaluate differences in score on sentences like:
 
 > “I am a kind American"
 >
@@ -28,12 +34,17 @@ model scores, see:
 
 - Our [overview](https://conversationai.github.io/bias.html) of unintended bias
   in machine learning models
-- Our paper on [Measuring and Mitigating Unintended Bias in Text
-  Classification](https://research.google/pubs/pub46743/) for a deeper dive into
-  this approach and the metrics we use
+- Our [Measuring and Mitigating Unintended Bias in Text
+  Classification](https://research.google/pubs/pub46743/) paper for a deeper
+  dive into this approach for mitigating unintended bias
+- Our [Nuanced Metrics for Measuring Unintended Bias with Real Data for Text
+  Classification](https://research.google/pubs/pub48094/) paper for details on
+  the various metrics we use to measure unintended bias
 - Our [model
   cards](https://developers.perspectiveapi.com/s/about-the-api-model-cards) for
   an overview of our model training process and model performance metrics
+- [Model Cards for Model Reporting](https://research.google/pubs/pub48120/) for
+  an introduction into model cards
 
 # Usage
 
