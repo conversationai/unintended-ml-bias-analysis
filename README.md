@@ -10,8 +10,8 @@ project, a collaborative research effort exploring ML as a tool for better
 discussions online.
 
 **NOTE: We moved outdated scripts, notebooks, and other resources to the
-[archive](archive/) subdirectory. We no longer maintain those resources, but you may
-find some of the content helpful. In particular, see
+[archive](archive/) subdirectory. We no longer maintain those resources, but you
+may find some of the content helpful. In particular, see
 [model_bias_analysis.py](archive/unintended_ml_bias/model_bias_analysis.py) for
 an example of how to analyze model bias.**
 
@@ -56,6 +56,9 @@ The identity terms also vary across languages because direct word-for-word
 translation of identity terms across languages is not sufficient, or even
 possible, given differences in cultures, religions, idioms, and identities.
 
-# License
+# Copyright and license
 
-TODO: Add this in
+All code in this repository is made available under the Apache 2 license. All
+data in this repository is made available under the Creative Commons Attribution
+4.0 International license (CC By 4.0). A full copy of the license can be found
+at https://creativecommons.org/licenses/by/4.0/
