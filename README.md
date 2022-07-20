@@ -2,8 +2,7 @@
 
 This repository contains the Sentence Templates datasets we use to evaluate and
 mitigate unintended machine learning bias in [Perspective
-API](https://perspectiveapi.com). See our accompanying [blog post]() to learn
-more about how we created these datasets.
+API](https://perspectiveapi.com). See our accompanying [blog post](https://medium.com/jigsaw/identifying-machine-learning-bias-with-updated-data-sets-7c36d6063a2c) to learn more about how we created these datasets.
 
 This work is part of the [Conversation AI](https://conversationai.github.io/)
 project, a collaborative research effort exploring ML as a tool for better
