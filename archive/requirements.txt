@@ -30,7 +30,7 @@ ipython-genutils==0.2.0
 ipywidgets==7.6.5
 jedi==0.18.0
 Jinja2==3.0.2
-joblib==1.1.0
+joblib==1.2.0
 jsonschema==4.1.2
 jupyter==1.0.0
 jupyter-client==7.0.6
