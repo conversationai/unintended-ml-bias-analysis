@@ -6,7 +6,7 @@ attrs==21.2.0
 backcall==0.2.0
 bleach==4.1.0
 cachetools==4.2.4
-certifi==2021.10.8
+certifi==2022.12.7
 cffi==1.15.0
 chardet==4.0.0
 charset-normalizer==2.0.7
