@@ -133,6 +133,15 @@ identity,age,neutral,elderly
 identity,disability,neutral,blind
 identity,disability,neutral,deaf
 identity,disability,neutral,paralyzed
+identity,advocacy,neutral,vegan
+identity,advocacy,neutral,vegans
+identity,advocacy,neutral,animal rights activist
+identity,advocacy,neutral,animal rights activists
+identity,advocacy,neutral,animal welfare advocate
+identity,advocacy,neutral,animal welfare advocates
+identity,advocacy,neutral,plant-based advocate
+identity,advocacy,neutral,anti-speciesist
+identity,advocacy,neutral,animal liberation supporter
 occupation,,neutral,actor
 occupation,,neutral,architect
 occupation,,neutral,artist
