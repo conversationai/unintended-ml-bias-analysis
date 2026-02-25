@@ -1,5 +1,7 @@
 # Unintended ML Bias Analysis
 
+This project was archived in Feb 2026 and has not been updated in several years.
+
 This repository contains the Sentence Templates datasets we use to evaluate and
 mitigate unintended machine learning bias in [Perspective
 API](https://perspectiveapi.com). See our accompanying [blog post](https://medium.com/jigsaw/identifying-machine-learning-bias-with-updated-data-sets-7c36d6063a2c) to learn more about how we created these datasets.
